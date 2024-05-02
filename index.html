@@ -7,9 +7,11 @@
 
     <meta name="author" content="Jason Liu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="https://www.cs.cmu.edu/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <script type="text/javascript" src="js/hidebib.js"></script>
+
   </head>
 
   <body>
@@ -30,8 +32,8 @@
                 <p style="text-align: justify;">
                   I am an incoming Robotics PhD student at <a href="https://www.ri.cmu.edu/">Carnegie Mellon University</a> in the School of Computer Science. 
                   I am also working on simulation and robot learning research at <a href="https://developer.nvidia.com/isaac">NVIDIA</a>, collaborating with 
-                  <a href="https://scholar.google.com/citations?user=sCTJI-0AAAAJ&hl=en">Ankur Handa</a>, 
-                  <a href="https://scholar.google.com/citations?user=TCYAoF8AAAAJ&hl=en">Karl Van Wyk</a>, 
+                  <a href="https://scholar.google.com/citations?user=sCTJI-0AAAAJ">Ankur Handa</a>, 
+                  <a href="https://scholar.google.com/citations?user=TCYAoF8AAAAJ">Karl Van Wyk</a>, 
                   and <a href="https://www.nathanratliff.com/">Nathan Ratliff</a>. 
                 </p>
 
@@ -47,9 +49,9 @@
                 </p>
 
                 <p style="text-align:center">
-                  <a href="mailto:liujason@cmu.edu">Email</a> &nbsp;/&nbsp;
-                  <a href="data/main_page/Jason Liu Resume 2024-05-01.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=iktexc8AAAAJ">Google Scholar</a> &nbsp;/&nbsp;
+                  <a href="mailto:liujason@cmu.edu">Email</a> &nbsp;|&nbsp;
+                  <a href="data/main_page/Jason Liu Resume 2024-05-01.pdf">CV</a> &nbsp;|&nbsp;
+                  <a href="https://scholar.google.com/citations?user=iktexc8AAAAJ">Google Scholar</a> &nbsp;|&nbsp;
                   <a href="https://twitter.com/JasonJZLiu">Twitter</a>
                 </p>
               </td>
@@ -71,11 +73,201 @@
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    
+    
+
+
+
+    <tr onmouseout="synthetica_stop()" onmouseover="synthetica_start()" bgcolor="#ffffd0">
+      <td style="padding:20px;width:25%;vertical-align:top">
+        <div class="one">
+          <div class="two" id='synthetica_image'><video  width=100% muted autoplay loop>
+          <source src="images/main_page/synthetica.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/main_page/synthetica.png' width=100%>
+        </div>
+        <script type="text/javascript">
+          function synthetica_start() {
+            document.getElementById('synthetica_image').style.opacity = "1";
+          }
+
+          function synthetica_stop() {
+            document.getElementById('synthetica_image').style.opacity = "0";
+          }
+          synthetica_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="TODO">
+          <span class="papertitle">Synthetica</span>
+        </a>
+        <br>
+        Ritvik Singh
+        <strong>Jingzhou Liu</strong>,
+        Jean-Francois Lafleche,
+        Ankur Handa
+        <br>
+        <em>In submission</em>
+        <br>
+        <p></p>
+        <div class="paper" id="synthetica_tog">
+          <a href="TODO">project page</a>
+          |
+          <a href="javascript:toggleblock('synthetica_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('synthetica_tog')" class="togglebib">bibtex</a>
+          |
+          <a href=" TODO ">arXiv</a>
+          |
+          <a href=" TODO ">code</a>
+
+          <p align="justify">
+            <i style="display: none;" id="synthetica_abs"> TODO </i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+TODO
+          </pre>
+        </div>
+        <p></p>
+        <p></p>
+      </td>
+    </tr>
+
+
+    <tr onmouseout="orbit_surgical_stop()" onmouseover="orbit_surgical_start()">
+      <td style="padding:20px;width:25%;vertical-align:top">
+        <div class="one">
+          <div class="two" id='orbit_surgical_image'><video  width=100% muted autoplay loop>
+          <source src="images/main_page/orbit_surgical_video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/main_page/orbit_surgical.png' width=100%>
+        </div>
+        <script type="text/javascript">
+          function orbit_surgical_start() {
+            document.getElementById('orbit_surgical_image').style.opacity = "1";
+          }
+
+          function orbit_surgical_stop() {
+            document.getElementById('orbit_surgical_image').style.opacity = "0";
+          }
+          orbit_surgical_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://orbit-surgical.github.io/">
+          <span class="papertitle">ORBIT-Surgical: An Open-Simulation Framework for Accelerated Learning Environments in Surgical Autonomy</span>
+        </a>
+        <br>
+        Qinxi Yu*,
+        M. Moghani*,
+        K. Dharmarajan,
+        V. Schorp,
+        W. Panitch,
+        <strong>Jingzhou Liu</strong>,
+        K. Hari,
+        H. Huang,
+        Mayank Mittal,
+        Ken Goldberg,
+        Animesh Garg
+        <br>
+        ICRA, 2024
+        <br>
+        <p></p>
+        <div class="paper" id="orbit_surgical_tog">
+          <a href="https://orbit-surgical.github.io/">project page</a>
+          |
+          <a href="javascript:toggleblock('orbit_surgical_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('orbit_surgical_tog')" class="togglebib">bibtex</a>
+          |
+          <a href=" TODO ">arXiv</a>
+          |
+          <a href=" TODO ">code</a>
+
+          <p align="justify">
+            <i style="display: none;" id="orbit_surgical_abs"> TODO </i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+TODO
+          </pre>
+        </div>
+        <p></p>
+        <p></p>
+      </td>
+    </tr>
+
+
+
+    <tr onmouseout="handypriors_stop()" onmouseover="handypriors_start()">
+      <td style="padding:20px;width:25%;vertical-align:top">
+        <div class="one">
+          <div class="two" id='handypriors_image'><video  width=100% muted autoplay loop>
+          <source src="images/main_page/handypriors.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/main_page/handypriors.png' width=100%>
+        </div>
+        <script type="text/javascript">
+          function handypriors_start() {
+            document.getElementById('handypriors_image').style.opacity = "1";
+          }
+
+          function handypriors_stop() {
+            document.getElementById('handypriors_image').style.opacity = "0";
+          }
+          handypriors_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="TODO">
+          <span class="papertitle">HandyPriors: Physically Consistent Perception of Hand-Object Interactions with Differentiable Priors</span>
+        </a>
+        <br>
+        Shutong Zhang*,
+        Y Qiao*,
+        G Zhu*,
+        Eric Heiden,
+        Dylan Turpin,
+        <strong>Jingzhou Liu</strong>,
+        M C Lin,
+        Miles Macklin,
+        Animesh Garg
+        <br>
+        ICRA, 2024
+        <br>
+        <p></p>
+        <div class="paper" id="handypriors_tog">
+          <a href="TODO">project page</a>
+          |
+          <a href="javascript:toggleblock('handypriors_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('handypriors_tog')" class="togglebib">bibtex</a>
+          |
+          <a href=" TODO ">arXiv</a>
+          |
+          <a href=" TODO ">code</a>
+
+          <p align="justify">
+            <i style="display: none;" id="handypriors_abs"> TODO </i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+TODO
+          </pre>
+        </div>
+        <p></p>
+        <p></p>
+      </td>
+    </tr>
 
 
 
     <tr onmouseout="dextreme_stop()" onmouseover="dextreme_start()" bgcolor="#ffffd0">
-      <td style="padding:20px;width:25%;vertical-align:middle">
+      <td style="padding:20px;width:25%;vertical-align:top">
         <div class="one">
           <div class="two" id='dextreme_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/dextreme_video.mp4" type="video/mp4">
@@ -99,283 +291,296 @@
           <span class="papertitle">DeXtreme: Transfer of Agile In-Hand Manipulation from Simulation to Reality</span>
         </a>
         <br>
-		<a href="http://www.stronglyconvex.com/about.html">Daniel Duckworth*</a>,
-		<a href="https://phogzone.com/">Peter Hedman*</a>,
-		<a href="https://creiser.github.io/">Christian Reiser</a>,
-		<a href="">Peter Zhizhin</a>,
-		<a href="">Jean-François Thibert</a>,
-        <a href="https://lucic.ai/">Mario Lučić</a>,
-        <a href="https://szeliski.org/">Richard Szeliski</a>,
-		<strong>Jonathan T. Barron</strong>
+        Ankur Handa*,
+        Arthur Allshire*,
+        Viktor Makoviychuk*,
+        Aleksei Petrenko*,
+        Ritvik Singh*,
+        <strong>Jingzhou Liu*</strong>,
+        Denys Makoviichuk,
+        Karl Van Wyk,
+        Alexander Zhurkevich,
+        Balakumar Sundaralingam,
+        Yashraj Narang,
+        Jean-Francois Lafleche,
+        Dieter Fox,
+        Gavriel State
         <br>
-        <em>arXiv</em>, 2023
+        ICRA, 2023
         <br>
-        <a href="https://smerf-3d.github.io/">project page</a>
-        /
-        <a href="https://www.youtube.com/watch?v=zhO8iUBpnCc">video</a>
-        /
-        <a href="https://arxiv.org/abs/2312.07541">arXiv</a>
         <p></p>
-        <p>
-        Distilling a Zip-NeRF into a tiled set of MERFs lets you fly through radiance fields on laptops and smartphones at 60 FPS.
-        </p>
+        <div class="paper" id="dextreme_tog">
+          <a href="https://dextreme.org/">project page</a>
+          |
+          <a href="javascript:toggleblock('dextreme_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('dextreme_tog')" class="togglebib">bibtex</a>
+          |
+          <a href="https://arxiv.org/abs/2210.13702">arXiv</a>
+          |
+          <a href="https://github.com/NVIDIA-Omniverse/IsaacGymEnvs/tree/main/isaacgymenvs/tasks/dextreme">code</a>
+
+          <p align="justify">
+            <i style="display: none;" id="dextreme_abs">Recent work has demonstrated the ability of deep reinforcement learning (RL) algorithms to learn complex robotic behaviours in simulation, including in the domain of multi-fingered manipulation. However, such models can be challenging to transfer to the real world due to the gap between simulation and reality. In this paper, we present our techniques to train a) a policy that can perform robust dexterous manipulation on an anthropomorphic robot hand and b) a robust pose estimator suitable for providing reliable real-time information on the state of the object being manipulated. Our policies are trained to adapt to a wide range of conditions in simulation. Consequently, our vision-based policies significantly outperform the best vision policies in the literature on the same reorientation task and are competitive with policies that are given privileged state information via motion capture systems. Our work reaffirms the possibilities of sim-to-real transfer for dexterous manipulation in diverse kinds of hardware and simulator setups, and in our case, with the Allegro Hand and Isaac Gym GPU-based simulation. Furthermore, it opens up possibilities for researchers to achieve such results with commonly-available, affordable robot hands and cameras.</i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+@article{nvidia2022dextreme,
+title={DeXtreme: Transfer of Agile In-Hand 
+Manipulation from Simulation to Reality},
+author={Handa, Ankur and Allshire, Arthur and 
+Makoviychuk, Viktor and Petrenko, Aleksei and 
+Singh, Ritvik and Liu, Jingzhou and 
+Makoviychuk, Denys and Van Wyk, Karl and 
+Zhurkevich, Alexander and Sundaralingam, Balakumar
+and Narang, Yashraj and Lafleche, Jean-Francois and 
+Fox, Dieter and State, Gavriel},
+journal={arXiv},
+year={2022},
+}
+          </pre>
+        </div>
+        <p></p>
+        <p></p>
       </td>
     </tr>
 	
 
-    <tr onmouseout="nuvo_stop()" onmouseover="nuvo_start()" >
-      <td style="padding:20px;width:25%;vertical-align:middle">
+
+    <tr onmouseout="fast_graspd_stop()" onmouseover="fast_graspd_start()">
+      <td style="padding:20px;width:25%;vertical-align:top">
         <div class="one">
-          <div class="two" id='nuvo_image'><video  width=100% muted autoplay loop>
-          <source src="images/nuvo.mp4" type="video/mp4">
+          <div class="two" id='fast_graspd_image'><video  width=100% muted autoplay loop>
+          <source src="images/main_page/fast_graspd.mp4" type="video/mp4">
           Your browser does not support the video tag.
           </video></div>
-          <img src='images/nuvo.jpg' width=100%>
+          <img src='images/main_page/fast_graspd.png' width=100%>
         </div>
         <script type="text/javascript">
-          function nuvo_start() {
-            document.getElementById('nuvo_image').style.opacity = "1";
+          function fast_graspd_start() {
+            document.getElementById('fast_graspd_image').style.opacity = "1";
           }
 
-          function nuvo_stop() {
-            document.getElementById('nuvo_image').style.opacity = "0";
+          function fast_graspd_stop() {
+            document.getElementById('fast_graspd_image').style.opacity = "0";
           }
-          nuvo_stop()
+          fast_graspd_stop()
         </script>
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://pratulsrinivasan.github.io/nuvo/">
-          <span class="papertitle">Nuvo: Neural UV Mapping for Unruly 3D Representations</span>
+        <a href="TODO">
+          <span class="papertitle">Fast-Grasp'D: Dexterous Multi-finger Grasp Generation Through Differentiable Simulation</span>
         </a>
         <br>
-        <a href="https://pratulsrinivasan.github.io/">Pratul Srinivasan</a>,
-        <a href="http://stephangarbin.com/">Stephan J. Garbin</a>,
-        <a href="https://dorverbin.github.io/">Dor Verbin</a>,
-		<strong>Jonathan T. Barron</strong>,
-        <a href="https://bmild.github.io/">Ben Mildenhall</a>
+        Dylan Turpin,
+        T Zhong,
+        S Zhang,
+        G Zhu,
+        <strong>Jingzhou Liu</strong>,
+        Ritvik Singh,
+        Eric Heiden,
+        Miles Macklin,
+        S. Tsogkas,
+        S. Dickinson,
+        Animesh Garg
         <br>
-        <em>arXiv</em>, 2023
+        ICRA, 2023
         <br>
-        <a href="https://pratulsrinivasan.github.io/nuvo/">project page</a>
-        /
-        <a href="https://www.youtube.com/watch?v=hmJiOSTDQZI">video</a>
-        /
-        <a href="http://arxiv.org/abs/2312.05283">arXiv</a>
         <p></p>
-        <p>
-        Neural fields let you recover editable UV mappings for the challenging geometries produced by NeRF-like models.
-        </p>
-      </td>
-    </tr>
+        <div class="paper" id="fast_graspd_tog">
+          <a href="TODO">project page</a>
+          |
+          <a href="javascript:toggleblock('fast_graspd_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('fast_graspd_tog')" class="togglebib">bibtex</a>
+          |
+          <a href=" TODO ">arXiv</a>
+          |
+          <a href=" TODO ">code</a>
 
-    <tr onmouseout="eclipse_stop()" onmouseover="eclipse_start()">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='eclipse_image'><video  width=100% height=100% muted autoplay loop>
-          <source src="images/eclipse_after.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/eclipse_before.jpg' width="160">
+          <p align="justify">
+            <i style="display: none;" id="fast_graspd_abs"> TODO </i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+TODO
+          </pre>
         </div>
-        <script type="text/javascript">
-          function eclipse_start() {
-            document.getElementById('eclipse_image').style.opacity = "1";
-          }
-
-          function eclipse_stop() {
-            document.getElementById('eclipse_image').style.opacity = "0";
-          }
-          eclipse_stop()
-        </script>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dorverbin.github.io/eclipse">
-          <span class="papertitle">Eclipse: Disambiguating Illumination and Materials using Unintended Shadows</span>
-        </a>
-        <br>
-        <a href="https://dorverbin.github.io/">Dor Verbin</a>,
-        <a href="https://bmild.github.io/">Ben Mildenhall</a>,
-        <a href="https://phogzone.com/">Peter Hedman</a>, <br>
-        <strong>Jonathan T. Barron</strong>,
-        <a href="Todd Zickler">Todd Zickler</a>,
-        <a href="https://pratulsrinivasan.github.io/">Pratul Srinivasan</a>
-        <br>
-        <em>CVPR</em>, 2024 &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
-        <br>
-        <a href="https://dorverbin.github.io/eclipse">project page</a>
-        /
-        <a href="https://www.youtube.com/watch?v=amQLGyza3EU">video</a>
-        /
-        <a href="https://arxiv.org/abs/2305.16321">arXiv</a>
         <p></p>
-        <p>
-        Shadows cast by unobserved occluders provide a high-frequency cue for recovering illumination and materials.
-        </p>
+        <p></p>
       </td>
     </tr>
+
     
-	
-    <tr onmouseout="recon_stop()" onmouseover="recon_stopt()" bgcolor="#ffffd0">
-      <td style="padding:20px;width:25%;vertical-align:middle">
+
+    <tr onmouseout="geomatch_stop()" onmouseover="geomatch_start()">
+      <td style="padding:20px;width:25%;vertical-align:top">
         <div class="one">
-          <div class="two" id='recon_image'><video  width=100% height=100% muted autoplay loop>
-          <source src="images/recon.mp4" type="video/mp4">
+          <div class="two" id='handypriors_image'><video  width=100% muted autoplay loop>
+          <source src="images/main_page/geomatch.mp4" type="video/mp4">
           Your browser does not support the video tag.
           </video></div>
-          <img src='images/recon.png' width="160">
+          <img src='images/main_page/geomatch.png' width=100%>
         </div>
         <script type="text/javascript">
-          function recon_start() {
-            document.getElementById('recon_image').style.opacity = "1";
+          function geomatch_start() {
+            document.getElementById('geomatch_image').style.opacity = "1";
           }
 
-          function recon_stop() {
-            document.getElementById('recon_image').style.opacity = "0";
+          function geomatch_stop() {
+            document.getElementById('geomatch_image').style.opacity = "0";
           }
-          recon_stop()
+          geomatch_stop()
         </script>
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://reconfusion.github.io/">
-			<span class="papertitle">ReconFusion: 3D Reconstruction with Diffusion Priors</span>
+        <a href="TODO">
+          <span class="papertitle">Geometry Matching for Multi-Embodiment Grasping.</span>
         </a>
         <br>
-        <a href="https://www.cs.columbia.edu/~rundi/">Rundi Wu*</a>,
-		<a href="https://bmild.github.io/">Ben Mildenhall*</a>,
-        <a href="https://henzler.github.io/">Philipp Henzler</a>,
-        <a href="https://keunhong.com/">Keunhong Park</a>,
-        <a href="https://ruiqigao.github.io/">Ruiqi Gao</a>,
-        <a href="https://scholar.google.com/citations?user=_pKKv2QAAAAJ&hl=en/">Daniel Watson</a>,
-        <a href="https://pratulsrinivasan.github.io/">Pratul P. Srinivasan</a>,
-        <a href="https://dorverbin.github.io/">Dor Verbin</a>,
-		<strong>Jonathan T. Barron</strong>,
-        <a href="https://poolio.github.io/">Ben Poole</a>,
-        <a href="https://holynski.org/">Aleksander Holynski*</a>
+        Maria Attarian,
+        M. Asif,
+        <strong>Jingzhou Liu</strong>,
+        R. Hari,
+        Animesh Garg,
+        Igor Gilitschenski,
+        J. Tompson
         <br>
-        <em>CVPR</em>, 2024
+        CoRL, 2023
         <br>
-        <a href="https://reconfusion.github.io/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/">arXiv</a>
         <p></p>
-        <p>
-        Using a multi-image diffusion model as a regularizer lets you recover high-quality radiance fields from just a handful of images.
-        </p>
+        <div class="paper" id="geomatch_tog">
+          <a href="TODO">project page</a>
+          |
+          <a href="javascript:toggleblock('geomatch_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('geomatch_tog')" class="togglebib">bibtex</a>
+          |
+          <a href=" TODO ">arXiv</a>
+          |
+          <a href=" TODO ">code</a>
+
+          <p align="justify">
+            <i style="display: none;" id="geomatch_abs"> TODO </i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+TODO
+          </pre>
+        </div>
+        <p></p>
+        <p></p>
       </td>
     </tr>
 
 
-  <tr onmouseout="difsurvey_stop()" onmouseover="difsurvey_start()">
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div class="one">
-      <div class="two" id='difsurvey_image'><video  width=100% height=100% muted autoplay loop>
-      <source src="images/difsurvey_video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video></div>
-        <img src='images/difsurvey_image.jpg' width="160">
-      </div>
-      <script type="text/javascript">
-        function difsurvey_start() {
-          document.getElementById('difsurvey_image').style.opacity = "1";
-        }
 
-        function difsurvey_stop() {
-          document.getElementById('difsurvey_image').style.opacity = "0";
-        }
-        difsurvey_stop()
-      </script>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <a href="https://arxiv.org/abs/2310.07204">
-        <span class="papertitle">State of the Art on Diffusion Models for Visual Computing
-  </span>
-      </a>
-      <br>
-    <a href="https://ryanpo.com/">Ryan Po</a>,
-    <a href="https://yifita.netlify.app/">Wang Yifan</a>,
-    <a href="https://people.mpi-inf.mpg.de/~golyanik/">Vladislav Golyanik</a>,
-    <a href="https://kfiraberman.github.io/">Kfir Aberman</a>,
-    <strong>Jonathan T. Barron</strong>,
-    <a href="https://www.cs.tau.ac.il/~amberman/">Amit H. Bermano</a>,
-    <a href="https://ericryanchan.github.io/">Eric Ryan Chan</a>,
-    <a href="https://www.weizmann.ac.il/math/dekel/home">Tali Dekel</a>,
-    <a href="https://holynski.org/">Aleksander Holynski</a>,
-    <a href="https://people.eecs.berkeley.edu/~kanazawa/">Angjoo Kanazawa</a>,
-    <a href="https://tml.stanford.edu/">C. Karen Liu</a>,
-    <a href="https://lingjie0206.github.io/">Lingjie Liu</a>,
-    <a href="https://bmild.github.io/">Ben Mildenhall</a>,
-      <a href="https://www.niessnerlab.org/">Matthias Nießner</a>,
-    <a href="https://ommer-lab.com/people/ommer/">Björn Ommer</a>,
-    <a href="https://people.mpi-inf.mpg.de/~theobalt/">Christian Theobalt</a>,
-    <a href="https://peterwonka.net/">Peter Wonka</a>,
-      <a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a>
-      <br>
-    <em>Eurographics State-of-the-Art Report<em>, 2024
-      <br>
-      <p></p>
-      <p>
-      A survey of recent progress in diffusion models for images, videos, and 3D.
-      </p>
-    </td>
-  </tr>          
 
+    <tr onmouseout="orbit_stop()" onmouseover="orbit_start()">
+      <td style="padding:20px;width:25%;vertical-align:top">
+        <div class="one">
+          <div class="two" id='orbit_image'><video  width=100% muted autoplay loop>
+          <source src="images/main_page/orbit_video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/main_page/orbit.png' width=100%>
+        </div>
+        <script type="text/javascript">
+          function orbit_start() {
+            document.getElementById('orbit_image').style.opacity = "1";
+          }
+
+          function orbit_stop() {
+            document.getElementById('orbit_image').style.opacity = "0";
+          }
+          orbit_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://isaac-orbit.github.io/">
+          <span class="papertitle">Orbit: A Unified Simulation Framework for Interactive Robot Learning Environments</span>
+        </a>
+        <br>
+        Mayank Mittal,
+        Calvin Yu,
+        Qinxi Yu,
+        <strong>Jingzhou Liu</strong>,
+        Nikita Rudin,
+        David Hoeller,
+        Jia Lin Yuan,
+        Ritvik Singh,
+        Yunrong Guo
+        Hammad Mazhar,
+        Ajay Mandlekar,
+        Buck Babich,
+        Gavriel State,
+        Marco Hutter,
+        Animesh Garg
+        <br>
+        IROS, 2023 | RA-L
+        <br>
+        <p></p>
+        <div class="paper" id="orbit_tog">
+          <a href="https://isaac-orbit.github.io/">project page</a>
+          |
+          <a href="javascript:toggleblock('orbit_abs')">abstract</a>
+          |
+          <a shape="rect" href="javascript:togglebib('orbit_tog')" class="togglebib">bibtex</a>
+          |
+          <a href=" TODO ">arXiv</a>
+          |
+          <a href=" TODO ">code</a>
+
+          <p align="justify">
+            <i style="display: none;" id="orbit_abs"> TODO </i>
+          </p>
+          
+          <pre xml:space="preserve" style="display:none;">
+TODO
+          </pre>
+        </div>
+        <p></p>
+        <p></p>
+      </td>
+    </tr>
         
+
   </tbody></table>
 
           
+
+
+
+
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td>
-                <h2>Miscellanea</h2>
+                <h2>Education</h2>
               </td>
             </tr>
           </tbody></table>
           <table width="100%" align="center" border="0" cellpadding="20"><tbody>
             
             <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/cvf.jpg"></td>
+              <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/main_page/cmu.png"></td>
               <td width="75%" valign="center">
-                <a href="https://cvpr.thecvf.com/Conferences/2024/Organizers">Area Chair, CVPR 2024</a>
+                Doctory of Philosophy
                 <br>
-                <a href="https://cvpr2023.thecvf.com/Conferences/2023/Organizers">Demo Chair, CVPR 2023</a>
-                <br>
-                <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
-                <br>
-                <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Award Committee Member, CVPR 2021</a>
-                <br>
-                <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
-                <br>
-                <a href="http://cvpr2018.thecvf.com/organizers/area_chairs">Area Chair, CVPR 2018</a>
+                Robotics
               </td>
             </tr>
             <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/cs188.jpg" alt="cs188">
-              </td>
+              <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/main_page/uoft.png"></td>
               <td width="75%" valign="center">
-                <a href="http://inst.eecs.berkeley.edu/~cs188/sp11/announcements.html">Graduate Student Instructor, CS188 Spring 2011</a>
+                Bachelor of Applied Science and Engineering
                 <br>
-                <a href="http://inst.eecs.berkeley.edu/~cs188/fa10/announcements.html">Graduate Student Instructor, CS188 Fall 2010</a>
+                Engineering Science in Robotics
                 <br>
-                <a href="http://aima.cs.berkeley.edu/">Figures, "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
               </td>
             </tr>
+            <tr>
             
 
-            <tr>
-              <td align="center" style="padding:20px;width:25%;vertical-align:middle">
-                <h2>Basically <br> Blog Posts</h2>
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://arxiv.org/abs/2112.11687">Squareplus: A Softplus-Like Algebraic Rectifier</a>
-                <br>
-                <a href="https://arxiv.org/abs/2010.09714">A Convenient Generalization of Schlick's Bias and Gain Functions</a>
-                <br>
-                <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
-                <br>
-                <a href="https://jonbarron.info/data/cvpr2023_llm_workshop_annotated.pdf">Scholars & Big Models: How Can Academics Adapt?</a>
-              </td>
-            </tr>
             
             
           </tbody></table>
@@ -383,8 +588,8 @@
             <tr>
               <td style="padding:0px">
                 <br>
-                <p style="text-align:right;font-size:small;">
-                  Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+                <p style="text-align:right;font-size:xx-small;">
+                  Modified template from <a style="font-size:xx-small;" href="https://github.com/jonbarron/jonbarron_website">here</a>.
                 </p>
               </td>
             </tr>
