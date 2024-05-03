@@ -259,17 +259,17 @@ year={2024},
         </script>
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="TODO">
+        <a href="https://handypriors.github.io/">
           <span class="papertitle">HandyPriors: Physically Consistent Perception of Hand-Object Interactions with Differentiable Priors</span>
         </a>
         <br>
         Shutong Zhang*,
-        Y Qiao*,
-        G Zhu*,
+        Yiling Qiao*,
+        Guanglei Zhu*,
         Eric Heiden,
         Dylan Turpin,
         <strong>Jingzhou Liu</strong>,
-        M C Lin,
+        Ming Lin,
         Miles Macklin,
         Animesh Garg
         <br>
@@ -277,22 +277,46 @@ year={2024},
         <br>
         <p></p>
         <div class="paper" id="handypriors_tog">
-          <a href="TODO">project page</a>
+          <a href="https://handypriors.github.io/">project page</a>
           |
           <a href="javascript:toggleblock('handypriors_abs')">abstract</a>
           |
           <a shape="rect" href="javascript:togglebib('handypriors_tog')" class="togglebib">bibtex</a>
           |
-          <a href=" TODO ">arXiv</a>
-          |
-          <a href=" TODO ">code</a>
+          <a href="https://arxiv.org/abs/2311.16552">arXiv</a>
+          <!-- |
+          <a href=" TODO ">code</a> -->
 
           <p align="justify">
-            <i style="display: none;" id="handypriors_abs"> TODO </i>
+            <i style="display: none;" id="handypriors_abs">Various heuristic objectives for modeling handobject interaction have been proposed in past work. However,
+              due to the lack of a cohesive framework, these objectives often
+              possess a narrow scope of applicability and are limited by their
+              efficiency or accuracy. In this paper, we propose HANDYPRIORS, a unified and general pipeline for pose estimation in
+              human-object interaction scenes by leveraging recent advances
+              in differentiable physics and rendering. Our approach employs
+              rendering priors to align with input images and segmentation masks along with physics priors to mitigate penetration
+              and relative-sliding across frames. Furthermore, we present
+              two alternatives for hand and object pose estimation. The
+              optimization-based pose estimation achieves higher accuracy,
+              while the filtering-based tracking, which utilizes the differentiable priors as dynamics and observation models, executes
+              faster. We demonstrate that HANDYPRIORS attains comparable
+              or superior results in the pose estimation task, and that the
+              differentiable physics module can predict contact information
+              for pose refinement. We also show that our approach generalizes
+              to perception tasks, including robotic hand manipulation and
+              human-object pose estimation in the wild.</i>
           </p>
           
           <pre xml:space="preserve" style="display:none;">
-TODO
+@InProceedings{zhang2023handypriors,
+title={HandyPriors: Physically Consistent Perception 
+of Hand-Object Interactions with Differentiable Priors},
+author={Shutong Zhang and Yiling Qiao and Guanglei Zhu and 
+Eric Heiden and Dylan Turpin and Jingzhou Liu and 
+Ming Lin and Miles Macklin and Animesh Garg},
+journal={arXiv},
+year={2023},
+}
           </pre>
         </div>
         <p></p>
@@ -452,7 +476,7 @@ TODO
     <tr onmouseout="geomatch_stop()" onmouseover="geomatch_start()">
       <td style="padding:20px;width:25%;vertical-align:top">
         <div class="one">
-          <div class="two" id='handypriors_image'><video  width=100% muted autoplay loop>
+          <div class="two" id='geomatch_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/geomatch.mp4" type="video/mp4">
           Your browser does not support the video tag.
           </video></div>
