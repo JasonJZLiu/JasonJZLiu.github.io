@@ -81,7 +81,7 @@
       <td style="padding:20px;width:25%;vertical-align:top">
         <div class="one">
           <div class="two" id='synthetica_image'><video  width=100% muted autoplay loop>
-          <source src="images/main_page/synthetica.mp4" type="video/mp4">
+          <source src="images/main_page/synthetica_video.mp4" type="video/mp4">
           Your browser does not support the video tag.
           </video></div>
           <img src='images/main_page/synthetica.png' width=100%>
@@ -98,31 +98,58 @@
         </script>
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="TODO">
-          <span class="papertitle">Synthetica</span>
+        <a href="https://sites.google.com/view/synthetica-vision">
+          <span class="papertitle">Synthetica: Large Scale Synthetic Data Generation for Robot Perception</span>
         </a>
         <br>
-        Ritvik Singh
+        <!-- Ritvik Singh
         <strong>Jingzhou Liu</strong>,
+        Karl Van Wyk,
+        Yu-Wei Chao,
         Jean-Francois Lafleche,
-        Ankur Handa
+        Florian Shkurti,
+        Nathan Ratliff,
+        Ankur Handa -->
         <br>
         <em>In submission</em>
         <br>
         <p></p>
         <div class="paper" id="synthetica_tog">
-          <a href="TODO">project page</a>
+          <a href="https://sites.google.com/view/synthetica-vision">project page</a>
           |
           <a href="javascript:toggleblock('synthetica_abs')">abstract</a>
-          |
+          <!-- |
           <a shape="rect" href="javascript:togglebib('synthetica_tog')" class="togglebib">bibtex</a>
           |
           <a href=" TODO ">arXiv</a>
           |
-          <a href=" TODO ">code</a>
+          <a href=" TODO ">code</a> -->
 
           <p align="justify">
-            <i style="display: none;" id="synthetica_abs"> TODO </i>
+            <i style="display: none;" id="synthetica_abs">Vision-based object detectors are a crucial basis for robotics
+              applications as they provide valuable information about object localisa-
+              tion in the environment. These need to ensure high reliability in differ-
+              ent lighting conditions, occlusions, and visual artifacts, all while running
+              in real-time. Collecting and annotating real-world data for these net-
+              works is prohibitively time consuming and costly, especially for custom
+              assets, such as industrial objects, making it untenable for generalization
+              to in-the-wild scenarios. To this end, we present Synthetica, a method for
+              large-scale synthetic data generation for training robust state estimators.
+              This paper focuses on the task of object detection, an important problem
+              which can serve as the front-end for most state estimation problems, such
+              as pose estimation. Leveraging data from a photorealistic ray-tracing ren-
+              derer, we scale up data generation, generating 2.7 million images, to train
+              highly accurate real-time detection transformers. We present a collection
+              of rendering randomization and training-time data augmentation tech-
+              niques conducive to robust sim-to-real performance for vision tasks. We
+              demonstrate state-of-the-art performance on the task of object detec-
+              tion while having detectors that run at 50–100Hz which is 9 times faster
+              than the prior SOTA. We further demonstrate the usefulness of our
+              training methodology for robotics applications by showcasing a pipeline
+              for use in the real world with custom objects for which there do not
+              exist prior datasets. Our work highlights the importance of scaling syn-
+              thetic data generation for robust sim-to-real transfer while achieving the
+              fastest real-time inference speeds.</i>
           </p>
           
           <pre xml:space="preserve" style="display:none;">
@@ -160,14 +187,14 @@ TODO
           <span class="papertitle">ORBIT-Surgical: An Open-Simulation Framework for Accelerated Learning Environments in Surgical Autonomy</span>
         </a>
         <br>
-        Qinxi Yu*,
-        M. Moghani*,
-        K. Dharmarajan,
-        V. Schorp,
-        W. Panitch,
+        Qinxi Yu*, 
+        Masoud Moghani*, 
+        Karthik Dharmarajan, 
+        Vincent Schorp, 
+        William Chung-Ho Panitch
         <strong>Jingzhou Liu</strong>,
-        K. Hari,
-        H. Huang,
+        Kush Hari, 
+        Huang Huang,
         Mayank Mittal,
         Ken Goldberg,
         Animesh Garg
@@ -182,16 +209,26 @@ TODO
           |
           <a shape="rect" href="javascript:togglebib('orbit_surgical_tog')" class="togglebib">bibtex</a>
           |
-          <a href=" TODO ">arXiv</a>
-          |
-          <a href=" TODO ">code</a>
+          <a href="https://arxiv.org/abs/2404.16027">arXiv</a>
+          <!-- | -->
+          <!-- <a href=" TODO ">code</a> -->
 
           <p align="justify">
-            <i style="display: none;" id="orbit_surgical_abs"> TODO </i>
+            <i style="display: none;" id="orbit_surgical_abs"> Physics-based simulations have accelerated progress in robot learning for driving, manipulation, and locomotion. Yet, a fast, accurate, and robust surgical simulation environment remains a challenge. In this paper, we present ORBIT-Surgical, a physics-based surgical robot simulation framework with photorealistic rendering in NVIDIA Omniverse. We provide 14 benchmark surgical tasks for the da Vinci Research Kit (dVRK) and Smart Tissue Autonomous Robot (STAR) which represent common subtasks in surgical training. ORBIT-Surgical leverages GPU parallelization to train reinforcement learning and imitation learning algorithms to facilitate study of robot learning to augment human surgical skills. ORBIT-Surgical also facilitates realistic synthetic data generation for active perception tasks. We demonstrate ORBIT-Surgical sim-to-real transfer of learned policies onto a physical dVRK robot. </i>
           </p>
           
           <pre xml:space="preserve" style="display:none;">
-TODO
+@article{yu2024orbitsurgical,
+title={ORBIT-Surgical: An Open-Simulation Framework 
+for Learning Surgical Augmented Dexterity}, 
+author={Qinxi Yu and Masoud Moghani and 
+Karthik Dharmarajan and Vincent Schorp and 
+William Chung-Ho Panitch and Jingzhou Liu and 
+Kush Hari and Huang Huang and Mayank Mittal and 
+Ken Goldberg and Animesh Garg},
+journal={arXiv},
+year={2024},
+}
           </pre>
         </div>
         <p></p>
