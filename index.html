@@ -551,8 +551,6 @@ year={2023},
     </tr>
 
 
-
-
     <tr onmouseout="orbit_stop()" onmouseover="orbit_start()">
       <td style="padding:20px;width:25%;vertical-align:top">
         <div class="one">
@@ -637,7 +635,7 @@ doi={10.1109/LRA.2023.3270034}
       </td>
     </tr>
         
-
+    
   </tbody></table>
 
           
@@ -647,7 +645,7 @@ doi={10.1109/LRA.2023.3270034}
   <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
     <tbody>
       <tr>
-        <td>
+        <td style="padding-top: 40px;">
           <h2>Education</h2>
         </td>
       </tr>
@@ -696,9 +694,9 @@ doi={10.1109/LRA.2023.3270034}
 
 
         
-        <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>
-            <td>
+            <td style="padding-top: 40px;">
               <h2>Personal Projects</h2>
             </td>
           </tr>
@@ -707,54 +705,101 @@ doi={10.1109/LRA.2023.3270034}
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
-          <tr onmouseout="orbit_stop()" onmouseover="orbit_start()">
+          <tr onmouseout="eng_sci_capstone_stop()" onmouseover="eng_sci_capstone_start()">
             <td style="padding:20px;width:25%;vertical-align:top">
               <div class="one">
-                <div class="two" id='orbit_image'><video  width=100% muted autoplay loop>
-                <source src="images/main_page/orbit_video.mp4" type="video/mp4">
+                <div class="two" id='eng_sci_capstone_image'><video  width=100% muted autoplay loop>
+                <source src="images/main_page/eng_sci_capstone_video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video></div>
-                <img src='images/main_page/orbit.png' width=100%>
+                <img src='images/main_page/eng_sci_capstone.png' width=100%>
               </div>
               <script type="text/javascript">
-                function orbit_start() {
-                  document.getElementById('orbit_image').style.opacity = "1";
+                function eng_sci_capstone_start() {
+                  document.getElementById('eng_sci_capstone_image').style.opacity = "1";
                 }
       
-                function orbit_stop() {
-                  document.getElementById('orbit_image').style.opacity = "0";
+                function eng_sci_capstone_stop() {
+                  document.getElementById('eng_sci_capstone_image').style.opacity = "0";
                 }
-                orbit_stop()
+                eng_sci_capstone_stop()
               </script>
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://isaac-orbit.github.io/">
-                <span class="papertitle">Aasdasdasdsa</span>
+              <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">
+                <span class="papertitle">Safe Drone Teleoperation with Real Time Mapping and Obstacle Avoidance</span>
               </a>
               <br>
-              asd
+              Engineering Science Robotics Capstone
               <br>
-              asdasd
+              University of Toronto
               <br>
               <p></p>
-              <div class="paper" id="orbit_tog">
-                <a href="https://isaac-orbit.github.io/">project page</a>
+              <div class="paper" id="eng_sci_capstone_tog">
+                <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">project page</a>
                 |
-                <a href="javascript:toggleblock('orbit_abs')">abstract</a>
+                <a href="javascript:toggleblock('eng_sci_capstone_abs')">abstract</a>
                 |
-                <a shape="rect" href="javascript:togglebib('orbit_tog')" class="togglebib">bibtex</a>
+                <a href="https://youtube.com/playlist?list=PLXA2xQ2PoSDIsXgDwbFxVmVYZtm3Uqi-j&si=yD0VoFYAUGvRks8F">video</a>
                 |
-                <a href=" TODO ">arXiv</a>
-                |
-                <a href=" TODO ">code</a>
+                <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">code</a>
       
                 <p align="justify">
-                  <i style="display: none;" id="orbit_abs"> TODO </i>
+                  <i style="display: none;" id="eng_sci_capstone_abs">
+                    Teleoperating a drone in a safe manner can be challenging, particularly in cluttered indoor environments with an abundance of obstacles. We present a safe teleoperation system for drones by performing automatic real-time dynamic obstacle avoidance, allowing us to expose a suite of simplified high-level control primitives to the drone operator such as "fly forward", "fly to the left", "fly up", "rotate", etc. This system reduces the complexity and the extent of the manual controls required from drone operators to fly the drone safely. The system accomplishes this by constructing a dynamic map of its environment in real-time and continuously performing path-planning using the map in order to execute a collision-free path to the desired user-specified position target.
+                  </i>
                 </p>
-                
-                <pre xml:space="preserve" style="display:none;">
-      TODO
-                </pre>
+              </div>
+              <p></p>
+              <p></p>
+            </td>
+          </tr>
+
+
+          <tr onmouseout="ball_balance_stop()" onmouseover="ball_balance_start()">
+            <td style="padding:20px;width:25%;vertical-align:top">
+              <div class="one">
+                <div class="two" id='ball_balance_image'><video  width=100% muted autoplay loop>
+                <source src="images/main_page/ball_balance_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='images/main_page/ball_balance.png' width=100%>
+              </div>
+              <script type="text/javascript">
+                function ball_balance_start() {
+                  document.getElementById('ball_balance_image').style.opacity = "1";
+                }
+      
+                function ball_balance_stop() {
+                  document.getElementById('ball_balance_image').style.opacity = "0";
+                }
+                ball_balance_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://github.com/JasonJZLiu/BallBalancingTable">
+                <span class="papertitle">Vision-Based Ball Balancing Table</span>
+              </a>
+              <br>
+              MIE438 Course Project
+              <br>
+              University of Toronto
+              <br>
+              <p></p>
+              <div class="paper" id="eng_sci_capstone_tog">
+                <a href="https://github.com/JasonJZLiu/BallBalancingTable">project page</a>
+                |
+                <a href="javascript:toggleblock('ball_balance_abs')">abstract</a>
+                |
+                <a href="https://www.youtube.com/watch?v=9Cm7HZLUdoY">video</a>
+                |
+                <a href="https://github.com/JasonJZLiu/BallBalancingTable">code</a>
+      
+                <p align="justify">
+                  <i style="display: none;" id="ball_balance_abs">
+                    The ball-balancing table is a robotic platform capable of controlling the position of a ball on a plate by adjusting the plate’s orientation via feedback control. The system has two degrees-of-freedom (DOF), actuated by two servos. The ball position is obtained in real-time by capturing bird’s eye view images using a camera and performing image processing to track the pixel coordinates of the center of the ball. For each servo, the output commands are computed by calculating the error signal and passing it through a PID controller to regulate the ball position.
+                  </i>
+                </p>
               </div>
               <p></p>
               <p></p>
@@ -762,7 +807,7 @@ doi={10.1109/LRA.2023.3270034}
           </tr>
               
       
-        </tbody></table> -->
+        </tbody></table>
 
 
 
