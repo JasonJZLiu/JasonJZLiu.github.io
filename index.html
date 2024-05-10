@@ -12,23 +12,39 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <script type="text/javascript" src="js/hidebib.js"></script>
 
+    <script>
+      function insertContactLinks() {
+        var content = `<p style="text-align:center">
+                         <a href="mailto:liujason@cmu.edu">Email</a> &nbsp;|&nbsp;
+                         <a href="data/main_page/Jason Liu Resume 2024-05-01.pdf">CV</a> &nbsp;|&nbsp;
+                         <a href="https://scholar.google.com/citations?user=iktexc8AAAAJ">Google Scholar</a> &nbsp;|&nbsp;
+                         <a href="https://www.linkedin.com/in/jasonjzliu/">Linkedin</a> &nbsp;|&nbsp;
+                         <a href="https://twitter.com/JasonJZLiu">Twitter</a>
+                       </p>`;
+        document.getElementById('contact-links-desktop').innerHTML = content;
+        document.getElementById('contact-links-mobile').innerHTML = content;
+      }
+    
+      // Call the function when the window loads
+      window.onload = insertContactLinks;
+    </script>
+
   </head>
 
   <body>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
+          <p class="name" style="text-align: center;">
+            Jason Jingzhou Liu
+          </p>
+
+          <p style="text-align: center;">
+            <b>Email:</b> liujason [at] cmu [dot] edu
+          </p>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Jason Jingzhou Liu
-                </p>
-
-                <p style="text-align: center;">
-                  <b>Email:</b> liujason [at] cmu [dot] edu
-                </p>
-                
+              <td class="bio">
                 <p style="text-align: justify;">
                   I am an incoming Robotics PhD student at <a href="https://www.ri.cmu.edu/">Carnegie Mellon University</a> in the School of Computer Science. 
                   I am also working on simulation and robot learning research at <a href="https://developer.nvidia.com/isaac">NVIDIA</a>, collaborating with 
@@ -48,16 +64,15 @@
                   Feel free to contact me via email at liujason [at] cmu [dot] edu!
                 </p>
 
-                <p style="text-align:center">
-                  <a href="mailto:liujason@cmu.edu">Email</a> &nbsp;|&nbsp;
-                  <a href="data/main_page/Jason Liu Resume 2024-05-01.pdf">CV</a> &nbsp;|&nbsp;
-                  <a href="https://scholar.google.com/citations?user=iktexc8AAAAJ">Google Scholar</a> &nbsp;|&nbsp;
-                  <a href="https://www.linkedin.com/in/jasonjzliu/">Linkedin</a> &nbsp;|&nbsp;
-                  <a href="https://twitter.com/JasonJZLiu">Twitter</a>
-                </p>
+                <div id="contact-links-desktop" class="contactdesktop"></div>
               </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/main_page/JasonLiu.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 20%;" alt="profile photo" src="images/main_page/JasonLiu.jpg" class="hoverZoomLink"></a>
+              <td style="padding:2.5%;width:35%;max-width:35%" valign="top" >
+                <a href="images/main_page/JasonLiu.jpg">
+                  <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 20%;" alt="profile photo" src="images/main_page/JasonLiu.jpg" class="hoverZoomLink">
+                </a>
+
+                <div id="contact-links-mobile" class="contactmobile"></div>
+
               </td>
             </tr>
           </tbody></table>
@@ -79,7 +94,7 @@
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
   
     <tr onmouseout="synthetica_stop()" onmouseover="synthetica_start()" bgcolor="#ffffd0">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='synthetica_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/synthetica_video.mp4" type="video/mp4">
@@ -164,7 +179,7 @@ TODO
 
 
     <tr onmouseout="orbit_surgical_stop()" onmouseover="orbit_surgical_start()">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='orbit_surgical_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/orbit_surgical_video.mp4" type="video/mp4">
@@ -240,7 +255,7 @@ year={2024},
 
 
     <tr onmouseout="handypriors_stop()" onmouseover="handypriors_start()">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='handypriors_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/handypriors_video.mp4" type="video/mp4">
@@ -328,7 +343,7 @@ year={2023},
 
 
     <tr onmouseout="dextreme_stop()" onmouseover="dextreme_start()" bgcolor="#ffffd0">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='dextreme_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/dextreme_video.mp4" type="video/mp4">
@@ -409,7 +424,7 @@ year={2022},
 
 
     <tr onmouseout="fast_graspd_stop()" onmouseover="fast_graspd_start()">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='fast_graspd_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/fast_graspd_video.mp4" type="video/mp4">
@@ -484,7 +499,7 @@ year={2023},
     
 
     <tr onmouseout="geomatch_stop()" onmouseover="geomatch_start()">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='geomatch_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/geomatch_video.mp4" type="video/mp4">
@@ -552,7 +567,7 @@ year={2023},
 
 
     <tr onmouseout="orbit_stop()" onmouseover="orbit_start()">
-      <td style="padding:20px;width:25%;vertical-align:top">
+      <td class="paperimage">
         <div class="one">
           <div class="two" id='orbit_image'><video  width=100% muted autoplay loop>
           <source src="images/main_page/orbit_video.mp4" type="video/mp4">
@@ -652,7 +667,7 @@ doi={10.1109/LRA.2023.3270034}
     </tbody>
   </table>
   
-  <table width="100%" align="center" border="0" cellpadding="20">
+  <table width="100%" align="center" border="0" cellpadding="0">
     <tbody>
       <tr>
         <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
@@ -660,14 +675,14 @@ doi={10.1109/LRA.2023.3270034}
             <img src="images/main_page/cmu.png" style="max-width:70%;">
           </a>
         </td>
-        <td width="50%" valign="center">
+        <td width="40%" valign="center">
           Ph.D in Robotics
           <br>
           School of Computer Science
           <br><br>
           Carnegie Mellon University
         </td>
-        <td width="25%" valign="center" align="right">
+        <td width="35%" valign="center" align="right">
           2024 - Present
         </td>
       </tr>
@@ -677,7 +692,7 @@ doi={10.1109/LRA.2023.3270034}
           <img src="images/main_page/uoft.png" style="max-width:90%;">
           </a>
         </td>
-        <td width="50%" valign="center">
+        <td width="40%" valign="center">
           Bachelor of Applied Science and Engineering
           <br>
           Engineering Science Robotics
@@ -685,7 +700,7 @@ doi={10.1109/LRA.2023.3270034}
           University of Toronto
           <br>
         </td>
-        <td width="25%" valign="center" align="right">
+        <td width="35%" valign="center" align="right">
           2019 - 2024
         </td>
       </tr>
@@ -706,7 +721,7 @@ doi={10.1109/LRA.2023.3270034}
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
           <tr onmouseout="eng_sci_capstone_stop()" onmouseover="eng_sci_capstone_start()">
-            <td style="padding:20px;width:25%;vertical-align:top">
+            <td class="paperimage">
               <div class="one">
                 <div class="two" id='eng_sci_capstone_image'><video  width=100% muted autoplay loop>
                 <source src="images/main_page/eng_sci_capstone_video.mp4" type="video/mp4">
@@ -757,7 +772,7 @@ doi={10.1109/LRA.2023.3270034}
 
 
           <tr onmouseout="ball_balance_stop()" onmouseover="ball_balance_start()">
-            <td style="padding:20px;width:25%;vertical-align:top">
+            <td class="paperimage">
               <div class="one">
                 <div class="two" id='ball_balance_image'><video  width=100% muted autoplay loop>
                 <source src="images/main_page/ball_balance_video.mp4" type="video/mp4">

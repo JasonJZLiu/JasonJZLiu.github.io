@@ -96,6 +96,48 @@ h2 {
   font-size: 22px;
 }
 
+.bio {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  width: 65%;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .bio {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 0%;
+    padding-bottom: 2.5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactdesktop {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .contactmobile {
+    display: none;
+  }
+}
+
+.paperimage {
+  padding: 20px;
+  width: 40%;
+  vertical-align: top;
+}
+
+@media (max-width: 768px) {
+  .paperimage {
+    width: 50%;
+  }
+}
+
 .papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 14px;
@@ -110,8 +152,7 @@ h2 {
 }
 
 .one {
-  width: 260px;
-  height: 160px;
+  width: 100%;
   position: relative;
 }
 
@@ -120,8 +161,9 @@ h2 {
 }
 
 .two {
-  width: 260;
-  height: 160px;
+  width: 100%;
+  /* width: 260;
+  height: 160px; */
   position: absolute;
   transition: opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out;
