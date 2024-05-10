@@ -20,13 +20,15 @@
                          <a href="https://scholar.google.com/citations?user=iktexc8AAAAJ">Google Scholar</a> &nbsp;|&nbsp;
                          <a href="https://www.linkedin.com/in/jasonjzliu/">Linkedin</a> &nbsp;|&nbsp;
                          <a href="https://twitter.com/JasonJZLiu">Twitter</a>
-                       </p>`;
+                       </p>
+                       `;
         document.getElementById('contact-links-desktop').innerHTML = content;
         document.getElementById('contact-links-mobile').innerHTML = content;
       }
     
       // Call the function when the window loads
       window.onload = insertContactLinks;
+      document.addEventListener('DOMContentLoaded', insertContactLinks);
     </script>
 
   </head>
