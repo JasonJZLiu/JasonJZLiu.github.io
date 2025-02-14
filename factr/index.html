@@ -920,19 +920,46 @@
 
               <!-- Task 3: Rolling Dough-->
               <br /><br /><br />
-              <div class="task-container">
-                <div class="task-title">Task 3: Rolling Dough</div>
-                <button id="task3_button" class="btn btn-primary task-play-button"
-                  onclick="togglePlay('task3_button', ['c_1', 'c_2', 'c_3', 'c_4'])">
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="task-container">
+                  <div class="task-title">Task 3: Rolling Dough</div>
+                  <button id="task3_button" class="btn btn-primary task-play-button"
+                    onclick="togglePlay('task3_button', ['c_1', 'c_2', 'c_3', 'c_4'])">
+                    Play Videos
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div class="task-container">
+                  <div class="task-title">Task 3: Rolling Dough</div>
+                </div>
+                <button id="task3_button_mobile" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task3_button_mobile', ['c_1', 'c_2', 'c_3', 'c_4'])">
                   Play Videos
                 </button>
+                <br><br>
               </div>
-              <div class="row" style="display: flex;">
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Train Objects</b>
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Train Objects</b>
+                  </div>
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
+                  </div>
                 </div>
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
+              </div>
+
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div>
+                  <b style="font-size: 20px;  color: #333;">Train Scenario</b>
                 </div>
               </div>
               <div class="row" style="display: flex;">
@@ -949,6 +976,13 @@
                         src="./result_videos/roll_dough/roll_red_train.mp4" width="100%" preload="none" loading="lazy"
                         style="border-radius:10px;"></video>
                     </div>
+                  </div>
+                </div>
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div>
+                    <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
                   </div>
                 </div>
                 <div style="width: 50%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
@@ -973,15 +1007,25 @@
                 style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
                 Baseline Failure Modes
               </div>
-              <div class="row" style="display: flex;">
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
-                </div>
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                  </div>
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
+                  </div>
                 </div>
               </div>
               <div class="row" style="display: flex;">
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div style="width: 100%;">
+                    <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                  </div>
+                </div>
+
                 <div
                   style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
                   <div style="display: flex; gap: 7px;">
@@ -995,6 +1039,22 @@
                         src="./result_videos/roll_dough/roll_failure_vision_only_red.mov" width="100%" preload="none"
                         loading="lazy" style="border-radius:10px;"></video>
                     </div>
+                  </div>
+                </div>
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div style="width: 100%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      Policies without force input fails to roll completely.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div style="width: 100%;">
+                    <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
                   </div>
                 </div>
                 <div
@@ -1013,21 +1073,37 @@
                   </div>
                 </div>
               </div>
-              <div class="row" style="display: flex;">
-                <div style="width: 50%; padding: 0 10px;">
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div style="width: 100%; padding: 0 10px;">
                   <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                    Policies without force input fails to roll completely.
+                    Policies without FACTR fail to continuously roll or crush out-of-distribution dough.
                   </p>
                 </div>
-                <div style="width: 25%; padding: 0 10px;">
-                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                    Policies without FACTR fail to continuously roll.
-                  </p>
-                </div>
-                <div style="width: 25%; padding: 0 10px;">
-                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                    Policies without FACTR crush out-of-distribution dough.
-                  </p>
+              </div>
+
+
+
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      Policies without force input fails to roll completely.
+                    </p>
+                  </div>
+                  <div style="width: 25%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      Policies without FACTR fail to continuously roll.
+                    </p>
+                  </div>
+                  <div style="width: 25%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      Policies without FACTR crush out-of-distribution dough.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1035,13 +1111,32 @@
 
               <!-- Task 4: Fruit Pick-->
               <br /><br /><br />
-              <div class="task-container">
-                <div class="task-title">Task 4: Delicate Fruit Pick-and-Place</div>
-                <button id="task4_button" class="btn btn-primary task-play-button"
-                  onclick="togglePlay('task4_button', ['d_1', 'd_2', 'd_3', 'd_4', 'd_5'])">
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="task-container">
+                  <div class="task-title">Task 4: Delicate Fruit Pick-and-Place</div>
+                  <button id="task4_button" class="btn btn-primary task-play-button"
+                    onclick="togglePlay('task4_button', ['d_1', 'd_2', 'd_3', 'd_4', 'd_5'])">
+                    Play Videos
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div class="task-container">
+                  <div class="task-title">Task 4: Delicate Fruit Pick Place</div>
+                </div>
+                <button id="task4_button_mobile" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task4_button_mobile', ['d_1', 'd_2', 'd_3', 'd_4', 'd_5'])">
                   Play Videos
                 </button>
+                <br><br>
               </div>
+
+
+               <!-- Desktop Version (Hidden on Mobile) -->
+               <div class="results-desktop">
               <div class="row" style="display: flex;">
                 <div style="width: 50%;">
                   <b style="font-size: 20px;  color: #333;">Train Object</b>
@@ -1050,13 +1145,29 @@
                   <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
                 </div>
               </div>
+              </div>
 
+
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div>
+                    <b style="font-size: 20px;  color: #333;">Train Scenario</b>
+                  </div>
+                </div>
               <div class="row" style="display: flex;">
                 <div
                   style="width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 3px; height: 100%; border-right: 4px solid #555555;">
                   <video id="d_1" class="center" playsinline muted
                     src="./result_videos/fruit_pick_place/pick_blueberry_train.mp4" width="100%" preload="none"
                     loading="lazy" style="border-radius:10px; margin-bottom: 10px;"></video>
+                </div>
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div>
+                    <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
+                  </div>
                 </div>
                 <div style="width: 50%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
                   <div style="display: flex; gap: 7px;">
@@ -1092,6 +1203,8 @@
                 style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
                 Baseline Failure Modes
               </div>
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
               <div class="row" style="display: flex;">
                 <div style="width: 50%;">
                   <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
@@ -1100,7 +1213,16 @@
                   <b style="font-size: 20px;  color: #333;">Vision-Force ACT</b>
                 </div>
               </div>
+              </div>
+
+
               <div class="row" style="display: flex;">
+                 <!-- Mobile Version (Hidden on Desktop) -->
+                 <div class="results-mobile">
+                  <div style="width: 100%;">
+                    <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                  </div>
+                </div>
                 <div
                   style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
                   <div style="display: flex; gap: 7px;">
@@ -1116,6 +1238,13 @@
                     </div>
                   </div>
                 </div>
+
+                  <!-- Mobile Version (Hidden on Desktop) -->
+                  <div class="results-mobile">
+                    <div style="width: 100%;">
+                      <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
+                    </div>
+                  </div>
                 <div
                   style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;">
                   <div style="display: flex; gap: 7px;">
@@ -1449,47 +1578,47 @@
                 // });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  let videos = document.querySelectorAll("video");
+                document.addEventListener("DOMContentLoaded", function () {
+                  let videos = document.querySelectorAll("video");
 
-  videos.forEach(video => {
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-      video.setAttribute("controls", "controls");
+                  videos.forEach(video => {
+                    if (/Mobi|Android/i.test(navigator.userAgent)) {
+                      video.setAttribute("controls", "controls");
 
-      video.addEventListener("play", function () {
-        setTimeout(() => {
-          if (!video.paused) {
-            video.removeAttribute("controls");
-          }
-        }, 500); // Ensure controls are removed only if still playing
-      });
+                      video.addEventListener("play", function () {
+                        setTimeout(() => {
+                          if (!video.paused) {
+                            video.removeAttribute("controls");
+                          }
+                        }, 500); // Ensure controls are removed only if still playing
+                      });
 
-      video.addEventListener("pause", function () {
-        video.setAttribute("controls", "controls"); // Restore controls when paused
-      });
+                      video.addEventListener("pause", function () {
+                        video.setAttribute("controls", "controls"); // Restore controls when paused
+                      });
 
-      // **Fix: Click event should not interfere with play event**
-      video.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent unwanted UI behavior
-        
-        if (video.controls) {
-          // Only toggle play/pause if controls are visible
-          if (video.paused) {
-            video.play();
-          } else {
-            video.pause();
-          }
-        } else {
-          // If controls are hidden, just show them and let user click again if needed
-          video.setAttribute("controls", "controls");
-        }
-      });
+                      // **Fix: Click event should not interfere with play event**
+                      video.addEventListener("click", function (event) {
+                        event.preventDefault(); // Prevent unwanted UI behavior
 
-    } else {
-      enableHoverControls(video);
-    }
-  });
-});
+                        if (video.controls) {
+                          // Only toggle play/pause if controls are visible
+                          if (video.paused) {
+                            video.play();
+                          } else {
+                            video.pause();
+                          }
+                        } else {
+                          // If controls are hidden, just show them and let user click again if needed
+                          video.setAttribute("controls", "controls");
+                        }
+                      });
+
+                    } else {
+                      enableHoverControls(video);
+                    }
+                  });
+                });
 
 
 
