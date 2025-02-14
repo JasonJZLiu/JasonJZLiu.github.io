@@ -1220,49 +1220,35 @@
 
 
 
-
-
-
                 function enableHoverControls(video) {
-                  // Desktop hover controls
                   video.addEventListener("mouseenter", function () {
-                    if (!isMobile()) {
-                      video.setAttribute("controls", "controls");
-                    }
+                    video.setAttribute("controls", "controls"); // Show controls on hover
                   });
 
                   video.addEventListener("mouseleave", function () {
-                    if (!isMobile()) {
-                      video.removeAttribute("controls");
-                    }
-                  });
-
-                  // Mobile tap behavior
-                  video.addEventListener("touchend", function (event) {
-                    event.preventDefault(); // Prevents ghost clicks
-                    if (video.paused) {
-                      video.play();
-                      video.removeAttribute("controls"); // Hide controls when playing
-                    } else {
-                      video.pause();
-                      video.setAttribute("controls", "controls"); // Show controls when paused
-                    }
+                    video.removeAttribute("controls"); // Hide controls when not hovering
                   });
                 }
+
+                document.addEventListener("DOMContentLoaded", function () {
+                  let videos = document.querySelectorAll("video");
+
+                  videos.forEach(video => {
+                    // Enable controls on mobile devices
+                    if (/Mobi|Android/i.test(navigator.userAgent)) {
+                      video.setAttribute("controls", "controls");
+                    } else {
+                      enableHoverControls(video); // Keep hover behavior for desktop
+                    }
+                  });
+                });
+
+
 
                 // Detect if the user is on a mobile device
                 function isMobile() {
                   return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
                 }
-
-                document.addEventListener("DOMContentLoaded", function () {
-                  // Select all video elements on the page
-                  let videos = document.querySelectorAll("video");
-
-                  // Apply hover and mobile controls to each video
-                  videos.forEach(video => enableHoverControls(video));
-                });
-
 
                 document.addEventListener("DOMContentLoaded", function () {
                   // Select all videos with the class "hover-video"
