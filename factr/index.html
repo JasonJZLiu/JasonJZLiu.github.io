@@ -76,7 +76,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://jasonjzliu.com/">Jason Jingzhou
-                Liu*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Liu*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="https://yulongli42.github.io/">Yulong
                 Li*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
               <a href="https://kennyshaw.net/">Kenneth
@@ -85,7 +85,22 @@
               <a href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan
                 Salakhutdinov&dagger;</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak&dagger;</a><sup></sup>
-              <br /><sup></sup>Carnegie Mellon University<br />
+
+
+              <!-- <br /><sup></sup>Carnegie Mellon University<br /> -->
+
+              <div class="results-desktop">
+                <img width="350px" style="padding-top: 10px; padding-bottom: 5px;"
+                  src="./result_videos/figures/cmu-wordmark-horizontal-r.png" alt="Carnegie Mellon University">
+              </div>
+
+              <div class="results-mobile">
+                <img width="300px" style="padding-top: 10px; padding-bottom: 5px;"
+                  src="./result_videos/figures/cmu-wordmark-horizontal-r.png" alt="Carnegie Mellon University">
+              </div>
+
+
+
               <h6>*Equal contribution. &dagger;Equal Advising.</h6>
           </div>
         </div>
@@ -1305,7 +1320,6 @@
                   <br>
                 </div>
 
-
                 <div style="width: 50%;">
                   <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_2.mov"
                     width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
@@ -1365,58 +1379,116 @@
                   </video>
                 </div>
               </div>
-              <div class="row" style="display: flex; margin-top: 10px; justify-content: center;">
-                <div style="width: 90%; padding: 0 10px;">
-                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                    In the video, we see that when disturbances are applied to the elbow of the leader arm,
-                    the null-space controller ensures the leader arm's elbow returns back to its default posture without
-                    affecting the end-effector pose.
-                  </p>
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex; margin-top: 10px; justify-content: center;">
+                  <div style="width: 60%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      In the video, we see that when disturbances are applied to the elbow of the leader arm,
+                      the null-space controller ensures the leader arm's elbow returns back to its default posture
+                      without
+                      affecting the end-effector pose.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                  In the video, we see that when disturbances are applied to the elbow of the leader arm,
+                  the null-space controller ensures the leader arm's elbow returns back to its default posture without
+                  affecting the end-effector pose.
+                </p>
               </div>
 
               </br>
               <div class="row"
                 style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333;  margin-bottom: 5px;">
-                <!-- Importance of Null-Space Control in </br> -->
                 Confined-Space Manipulation Example
               </div>
-              <div class="row" style="display: flex; margin-bottom: 10px;">
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Poorly-Chosen Rest Posture Can Cause Collisions</b>
-                </div>
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Well-Chosen Rest Posture Avoids Collisions</b>
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex; margin-bottom: 10px;">
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Poorly-Chosen Rest Posture Can Cause Collisions</b>
+                  </div>
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Well-Chosen Rest Posture Avoids Collisions</b>
+                  </div>
                 </div>
               </div>
+
               <div class="row" style="display: flex;">
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <b style="font-size: 15px;  color: #333;">Poorly-Chosen Rest Posture Can Cause Collisions</b>
+
+                </div>
                 <div style="width: 50%;">
                   <video class="hover-video center" playsinline
                     src="./result_videos/actuated_teleop/null_space_default_fail.mov" width="100%" preload="metadata"
                     loading="lazy" style="border-radius:10px;"></video>
                 </div>
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    This video exhibits a case where a poorly-chosen resting posture joint configuration can cause
+                    collisions,
+                    which highlights the importance of having the flexibility for the user to define any resting
+                    posture
+                    for the leader
+                    arm.
+                  </p>
+                  <br>
+                </div>
+
+
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <b style="font-size: 15px;  color: #333;">Well-Chosen Rest Posture Avoids Collisions</b>
+                </div>
+
                 <div style="width: 50%;">
                   <video class="hover-video center" playsinline
                     src="./result_videos/actuated_teleop/null_space_altered_success.mov" width="100%" preload="metadata"
                     loading="lazy" style="border-radius:10px;"></video>
                 </div>
-              </div>
-              <div class="row" style="display: flex;">
-                <div style="width: 50%; padding: 0 10px;">
-                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                    This video exhibits a case where a poorly-chosen resting posture joint configuration can cause
-                    collisions,
-                    which highlights the importance of having the flexibility for the user to define any resting posture
-                    for the leader
-                    arm.
-                  </p>
-                </div>
-                <div style="width: 50%; padding: 0 10px;">
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
                   <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
                     Our leader arm allows the user to define custom resting posture configuration, which helps the
                     follower
                     arm reach targets in confined-spaces during teleoperation.
                   </p>
+                </div>
+              </div>
+
+
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                      This video exhibits a case where a poorly-chosen resting posture joint configuration can cause
+                      collisions,
+                      which highlights the importance of having the flexibility for the user to define any resting
+                      posture
+                      for the leader
+                      arm.
+                    </p>
+                  </div>
+                  <div style="width: 50%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                      Our leader arm allows the user to define custom resting posture configuration, which helps the
+                      follower
+                      arm reach targets in confined-spaces during teleoperation.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1431,19 +1503,35 @@
                     style="border-radius:10px; display: block; margin: 0 auto;">
                   </video>
                 </div>
-                <!-- <div style="width: 40%;">
-                <img src="./images/actuated_teleop/grav_comp_figure.png" width="80%" 
-                  loading="lazy" style="border-radius:10px; display: block; margin: 0 auto;">
-              </div> -->
+
               </div>
-              <div class="row" style="display: flex; margin-top: 10px;">
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex; margin-top: 10px;">
+                  <div style="width: 100%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      We implement active gravity compensation for the leader arms, allowing them to remain suspended
+                      motionless in
+                      midair at any joint configuration.
+                    </p>
+                    <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                      This enables the user to pause or stop teleoperation at any
+                      time and freely release the leader arms, which is especially beneficial for bimanual
+                      teleoperation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
                 <div style="width: 100%; padding: 0 10px;">
-                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
                     We implement active gravity compensation for the leader arms, allowing them to remain suspended
                     motionless in
                     midair at any joint configuration.
-                  </p>
-                  <p>
                     This enables the user to pause or stop teleoperation at any
                     time and freely release the leader arms, which is especially beneficial for bimanual teleoperation.
                   </p>
@@ -1452,20 +1540,17 @@
 
 
 
-
-
               <section class="section" id="BibTeX">
                 <div class="container is-max-desktop content" style="text-align: left;">
                   <h2 class="title">BibTeX</h2>
-                  <pre style="padding-top: 0; padding-bottom: 0;">
-      <code">
-  @inproceedings{liu2025factr,
-    title={FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning},
-    author={Shaw, Kenneth and Li, Yulong and Yang, Jiahui and Srirama, Mohan Kumar and Liu, Ray and Xiong, Haoyu and Mendonca, Russell and Pathak, Deepak},
-    booktitle={8th Annual Conference on Robot Learning},
-    year={2025}
-  }
-    </code></pre>
+                  <pre style="padding-top: 0; padding-bottom: 0; padding-left: 20px; padding-right: 20px;">
+                    <code>
+@inproceedings{liu2025factr,
+  title={FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning},
+  author={Liu, Jason Jingzhou and Li, Yulong and Shaw, Kenneth and Tao, Tony and Salakhutdinov, Ruslan and Pathak, Deepak},
+  year={2025}
+}
+                    </code></pre>
                 </div>
               </section>
 
