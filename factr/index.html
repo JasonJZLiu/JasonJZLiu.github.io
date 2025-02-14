@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
   <meta charset="utf-8">
   <meta name="description" content="FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning">
-  <meta name="keywords" content="Imitation Learning, Behavior Cloning, Robot Learning, Teleoperation, Force, Force Feedback">
+  <meta name="keywords"
+    content="Imitation Learning, Behavior Cloning, Robot Learning, Teleoperation, Force, Force Feedback">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:site_name" content="FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning" />
   <meta property="og:type" content="video.other" />
   <meta property="og:title" content="FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning" />
-  <meta property="og:description" content="FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning" />
+  <meta property="og:description"
+    content="FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning" />
   <meta property="og:url" content="" />
   <meta property="og:image" content="" />
   <meta property="og:video" content="" />
@@ -32,15 +35,15 @@
 
   <title>FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -57,82 +60,102 @@
   <meta name="twitter:player:height" content="360" />
 
 </head>
+
 <body>
   <section class="section">
     <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">
-            <span style="color: #C41230;">FACTR</span>: <span style="color: #C41230;">F</span>orce-<span style="color: #C41230;">A</span>ttending 
-            <span style="color: #C41230;">C</span>urriculum 
-            <span style="color: #C41230;">Tr</span>aining 
-            <br/> for Contact-Rich Policy Learning</h1>
+            <span style="color: #C41230;">FACTR</span>: <span style="color: #C41230;">F</span>orce-<span
+              style="color: #C41230;">A</span>ttending
+            <span style="color: #C41230;">C</span>urriculum
+            <span style="color: #C41230;">Tr</span>aining
+            <br /> for Contact-Rich Policy Learning
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://jasonjzliu.com/">Jason Jingzhou Liu*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://yulongli42.github.io/">Yulong Li*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-              <a href="https://kennyshaw.net/">Kenneth Shaw</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://tony-tao.com/">Tony Tao</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-              <a href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov&dagger;</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://jasonjzliu.com/">Jason Jingzhou
+                Liu*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://yulongli42.github.io/">Yulong
+                Li*</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+              <a href="https://kennyshaw.net/">Kenneth
+                Shaw</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://tony-tao.com/">Tony Tao</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan
+                Salakhutdinov&dagger;</a><sup></sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak&dagger;</a><sup></sup>
-              <br/><sup></sup>Carnegie Mellon University<br/>
-              <h6>*Equal contribution.  &dagger;Equal Advising.</h6>
-          </div>
+              <br /><sup></sup>Carnegie Mellon University<br />
+              <h6>*Equal contribution. &dagger;Equal Advising.</h6>
           </div>
         </div>
       </div>
-      <div class="column has-text-centered">
-        <div class="publication-links">
-          <div class="column has-text-centered">
+    </div>
+    <div class="column has-text-centered">
+      <div class="publication-links">
+        <div class="column has-text-centered">
           <div class="publication-links">
             <!-- twitter Link. -->
             <span class="link-block">
-              <a target="_blank" href="https://x.com/"
-                  class="external-link button is-normal is-rounded is-dark">
+              <a target="_blank" href="https://x.com/" class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
-                    <i class="fab fa-twitter"></i>
+                  <i class="fab fa-twitter"></i>
                 </span>
                 <span>Summary</span>
               </a>
             </span>
-           <!-- arXiv Link. -->
-           <span class="link-block">
-            <a target="_blank" href="https://arxiv.org/abs/2411.13677"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
+            <!-- arXiv Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://arxiv.org/abs/2411.13677"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
                   <i class="ai ai-arxiv"></i>
-              </span>
-              <span>arXiv</span>
-            </a>
-          </span>
-           <!-- github hardware. -->
-          <span class="link-block">
-            <a href="https://github.com/leap-hand/Bidex_Manus_Teleop" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                  <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
-              </span>
-              <span>Hardware (Coming Soon)</span>
-            </a>
-          </span>
-           <!-- github software. -->
-          <span class="link-block">
-            <a href="https://github.com/leap-hand/Bidex_VisionPro_Teleop" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                  <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
-              </span>
-              <span>Code (Coming Soon)</span>
-            </a>
-          </span>
+                </span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <!-- github hardware. -->
+            <span class="link-block">
+              <a href="https://github.com/leap-hand/Bidex_Manus_Teleop"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+                    data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                    </path>
+                  </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Hardware (Coming Soon)</span>
+              </a>
+            </span>
+            <!-- github software. -->
+            <span class="link-block">
+              <a href="https://github.com/leap-hand/Bidex_VisionPro_Teleop"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+                    data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                    </path>
+                  </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Code (Coming Soon)</span>
+              </a>
+            </span>
           </div>
         </div>
-        </div>
+      </div>
       </br>
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-two-thirds">
           <h4 class="title is-34 publication-title">Abstract</h4>
           <div class="content has-text-justified">
-            <p style = "font-size: 20px">
+            <p style="font-size: 20px">
               Many contact-rich tasks humans perform, such
               as box pickup or rolling dough, rely on force feedback for
               reliable execution. However, this force information, which is
@@ -151,720 +174,951 @@
               We demonstrate that by fully utilizing the force information, our
               method significantly improves generalization to unseen objects
               by 43% compared to baseline approaches without a curriculum
+          </div>
         </div>
       </div>
-    </div>
-  <div class="hero-body" style="padding-top: 0px;">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
+      <div class="hero-body" style="padding-top: 0px;">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
 
-          <!-- <p style="color: red; font-size: 20px;">
+              <!-- <p style="color: red; font-size: 20px;">
             If videos appear laggy, please play them one at a time.
             <br>The browser may cause unsmooth playback if multiple videos are playing at once.
             <br>Our robot policies are not unsmooth!
         </p><br> -->
 
-          <h4 class = "title is-34 publication-title">Results Highlights</h4>
-          <div class="row" style="display: flex; margin-bottom: 5px; justify-content: center;">
-            <div style="width: 40%;">
-                <b style="font-size: 20px; color: #1565C0;">Low-Cost Bilateral Teleoperation</b>
-            </div>
-            <div style="width: 40%;">
-                <b style="font-size: 20px; color: #C41230;">FACTR Autonomous Policies</b>
-            </div>
-        </div>
-        <div class="row" style="display: flex; justify-content: center;">
-          <!-- Left Column -->
-          <div style="width:40%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-right: 0px; padding-top: 1px; height: 100%;">
-              <div style="display: flex; flex-direction: column; align-items: center; width: 100%; border-right: 4px solid #555555; padding-right: 20px;">
-                  <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_1.mov" width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-                  <p style="font-size: 18px; margin-bottom: 20px;">Force Feedback</p>
-                  <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/null_space_altered_success.mov" width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-                  <p style="font-size: 18px; margin-bottom: 20px;">Customizable Redundancy Resolution</p>
-                  <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/grav_comp.mov" width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-              </div>
-              <p style="margin-top: 0px; margin-bottom: 20px; font-size: 18px;">Gravity Compensation</p>
-          </div>
-      
-          <!-- Right Column -->
-          <div style="width:40%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-left: 0px; padding-top: 1px; height: 100%;">
-              <div style="display: flex; flex-direction: column; align-items: center; width: 100%; border-left: 4px solid #555555; padding-left: 20px;">
-                  <video class="hover-video center" playsinline src="./result_videos/box_lift/boxlift_continuous_anon.mp4" width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-                  <p style="font-size: 18px; margin-bottom: 20px;">Bimanual Box Lifting</p>
-                  <video class="hover-video center" playsinline src="./result_videos/pivot/pivot_ours_continuous_anon.mp4" width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-                  <p style="font-size: 18px; margin-bottom: 20px;">Non-Prehensile Pivoting</p>
-                  <video class="hover-video center" playsinline src="./result_videos/roll_dough/roll_pink_test.mov" width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-              </div>
-              <p style="margin-top: 0px; margin-bottom: 20px; font-size: 18px;">Rolling Dough</p>
-          </div>
-      </div>
-        
-        
- 
-        
-          
 
 
-            <br><br>
-            <h4 class = "title is-34 publication-title"><span style="color: #C41230;">FACTR Autonomous Policies</span></h4>
-            <!-- Task 1: Box Lift -->
-            <div class="task-container">
-              <div class="task-title">Task 1: Bimanual Box Lift</div>
-                <button id="task1_button" class="btn btn-primary task-play-button" 
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <h4 class="title is-34 publication-title">Results Highlights</h4>
+                <div class="row" style="display: flex; margin-bottom: 5px; justify-content: center;">
+                  <div style="width: 40%;">
+                    <b style="font-size: 20px; color: #1565C0;">Low-Cost Bilateral Teleoperation</b>
+                  </div>
+                  <div style="width: 40%;">
+                    <b style="font-size: 20px; color: #C41230;">FACTR Autonomous Policies</b>
+                  </div>
+                </div>
+                <div class="row" style="display: flex; justify-content: center;">
+                  <!-- Left Column -->
+                  <div
+                    style="width:40%; display: flex; flex-direction: column; align-items: center; padding-right: 0px;">
+                    <div style="width: 100%; border-right: 4px solid #555555; padding-right: 20px;">
+                      <video class="hover-video" playsinline src="./result_videos/actuated_teleop/teleop_force_1.mov"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Force Feedback</p>
+                      <video class="hover-video" playsinline
+                        src="./result_videos/actuated_teleop/null_space_altered_success.mov" width="100%"
+                        preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Customizable Redundancy Resolution</p>
+                      <video class="hover-video" playsinline src="./result_videos/actuated_teleop/grav_comp.mov"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <p>Gravity Compensation</p>
+                  </div>
+                  <!-- Right Column -->
+                  <div
+                    style="width:40%; display: flex; flex-direction: column; align-items: center; padding-left: 0px;">
+                    <div style="width: 100%; border-left: 4px solid #555555; padding-left: 20px;">
+                      <video class="hover-video" playsinline src="./result_videos/box_lift/boxlift_continuous_anon.mp4"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Bimanual Box Lifting</p>
+                      <video class="hover-video" playsinline src="./result_videos/pivot/pivot_ours_continuous_anon.mp4"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Non-Prehensile Pivoting</p>
+                      <video class="hover-video" playsinline src="./result_videos/roll_dough/roll_pink_test.mov"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <p>Rolling Dough</p>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <h4 class="title is-34 publication-title">Results Highlights</h4>
+                <div class="row" style="display: flex; margin-bottom: 5px; justify-content: center;">
+                  <div style="width: 100%;">
+                    <b style="font-size: 20px; color: #1565C0;">Low-Cost Bilateral Teleoperation</b>
+                  </div>
+                </div>
+                <div class="row" style="display: flex; justify-content: center;">
+                  <!-- Left Column -->
+                  <div style="width:100%; display: flex; flex-direction: column; align-items: center; ">
+                    <div style="width: 100%;">
+                      <video class="hover-video" playsinline src="./result_videos/actuated_teleop/teleop_force_1.mov"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Force Feedback</p>
+                      <video class="hover-video" playsinline
+                        src="./result_videos/actuated_teleop/null_space_altered_success.mov" width="100%"
+                        preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Customizable Redundancy Resolution</p>
+                      <video class="hover-video" playsinline src="./result_videos/actuated_teleop/grav_comp.mov"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <p>Gravity Compensation</p>
+                  </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-bottom: 5px; justify-content: center;">
+                  <div style="width: 100%;">
+                    <b style="font-size: 20px; color: #C41230;">FACTR Autonomous Policies</b>
+                  </div>
+                </div>
+                <div class="row" style="display: flex; justify-content: center;">
+                  <!-- Right Column -->
+                  <div style="width:100%; display: flex; flex-direction: column; align-items: center; ">
+                    <div style="width: 100%;">
+                      <video class="hover-video" playsinline src="./result_videos/box_lift/boxlift_continuous_anon.mp4"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Bimanual Box Lifting</p>
+                      <video class="hover-video" playsinline src="./result_videos/pivot/pivot_ours_continuous_anon.mp4"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                      <p>Non-Prehensile Pivoting</p>
+                      <video class="hover-video" playsinline src="./result_videos/roll_dough/roll_pink_test.mov"
+                        width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <p>Rolling Dough</p>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <br><br>
+              <h4 class="title is-34 publication-title"><span style="color: #C41230;">FACTR Autonomous Policies</span>
+              </h4>
+              <!-- Task 1: Box Lift -->
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="task-container">
+                  <div class="task-title">Task 1: Bimanual Box Lift</div>
+                  <button id="task1_button" class="btn btn-primary task-play-button"
                     onclick="togglePlay('task1_button', ['a_1', 'a_2', 'a_3', 'a_4', 'a_5', 'a_6', 'a_7'])">
                     Play Videos
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div class="task-container">
+                  <div class="task-title">Task 1: Bimanual Box Lift</div>
+                </div>
+                <button id="task1_button" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task1_button', ['a_1', 'a_2', 'a_3', 'a_4', 'a_5', 'a_6', 'a_7'])">
+                  Play Videos
                 </button>
-            </div>
+                <br><br>
+              </div>
 
-            <div class="row" style="display: flex;">
-              <div style="width: 40%;">
-                <b style="font-size: 20px;  color: #333;">Train Scenario</b>
-              </div>
-              <div style="width: 60%;">
-                <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 40%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <video id="a_1" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_train.mov" width="100%" preload="none" loading="lazy"
-                  style="border-radius:10px;"></video>
-              </div>
-              <div style="width: 60%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 33%;">
-                    <video id="a_2" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_balloon.mov" width="100%" preload="none" loading="lazy"
-                          style="border-radius:10px;"></video>
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 40%;">
+                    <b style="font-size: 20px;  color: #333;">Train Scenario</b>
                   </div>
-                  <div style="width: 33%;">
-                    <video id="a_3" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_big.mov" width="100%" preload="none" loading="lazy"
-                          style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="a_4" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_cardboard.mov" width="100%" preload="none" loading="lazy"
-                          style="border-radius:10px;"></video>
-                  </div>
-                </div>
-                <div style="display: flex; gap: 7px;">
-                  <div style="width: 33%;">
-                    <video id="a_5" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_motor_box.mov" width="100%" preload="none" loading="lazy"
-                          style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="a_6" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_red.mov" width="100%" preload="none" loading="lazy"
-                          style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="a_7" class="center" playsinline muted src="./result_videos/box_lift/box_lift_ours_white.mov" width="100%" preload="none" loading="lazy"
-                          style="border-radius:10px;"></video>
+                  <div style="width: 60%;">
+                    <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
                   </div>
                 </div>
               </div>
-            </div>
 
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div>
+                  <b style="font-size: 20px;  color: #333;">Train Scenario</b>
+                </div>
+              </div>
 
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
-              Recovery Behavior
-            </div>
-            <div class="row" style="display: flex;  justify-content: center;">
-              <div style="width: 45%;">
-                <b style="font-size: 20px;  color: #333;">Vision-Only ACT (Baseline)</b>
-              </div>
-              <div style="width: 45%;">
-                <b style="font-size: 20px;  color: #333;"><span style="color: #C41230;">FACTR</span> Policy (Ours)</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex;  justify-content: center;">
-              <div style="width: 45%; margin-right: 0px; border-right: 4px solid #555555;">
-                <video class="hover-video center" playsinline src="./result_videos/box_lift/box_lift_vision_only_recovery_fail_anon.mp4" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>   
-              </div>
-              <div style="width: 45%; margin-left: 0px">
-                <video class="hover-video center" playsinline src="./result_videos/box_lift/box_lift_ours_recovery_anon.mp4" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-              </div>
-            </div>
-            <div class="row" style="display: flex;  justify-content: center;">
-              <div style="width: 45%; padding: 0 10px;">
-                <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
-                  Policies trained with no robot force information fails to recover when an object unseen during training is dropped.
-                  This likely occurs because the policy overfits to the Training Objects, hence is unaware when novel objects
-                  are dropped.
-                </p>
-              </div>
-              <div style="width: 45%; padding: 0 10px;">
-                <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
-                  Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are dropped. 
-                  When the arms lose contact with the object, the robot's external joint torque readings to revert to pre-lift values.
-                  Since our policy effectively attends to the robot's forces, the policy can recover to a pre-lift state.
-                </p>
-              </div>
-            </div>
-
-
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
-              Baseline Failure Modes
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
-              </div>
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/box_lift/box_lift_vision_only_fail.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+              <div class="row" style="display: flex;">
+                <div
+                  style="width: 40%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <video id="a_1" class="center" playsinline muted
+                    src="./result_videos/box_lift/box_lift_ours_train.mov" width="100%" preload="none" loading="lazy"
+                    style="border-radius:10px;"></video>
+                </div>
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div>
+                    <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
                   </div>
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/box_lift/box_lift_vision_only_fail_2.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                </div>
+
+                <div style="width: 60%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 33%;">
+                      <video id="a_2" class="center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_ours_balloon.mov" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="a_3" class="center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_ours_big.mov" width="100%" preload="none" loading="lazy"
+                        style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="a_4" class="center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_ours_cardboard.mov" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 33%;">
+                      <video id="a_5" class="center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_ours_motor_box.mov" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="a_6" class="center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_ours_red.mov" width="100%" preload="none" loading="lazy"
+                        style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="a_7" class="center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_ours_white.mov" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;"> 
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/box_lift/box_lift_vision_force_fail.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
+                Recovery Behavior
+              </div>
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;  justify-content: center;">
+                  <div style="width: 45%;">
+                    <b style="font-size: 20px;  color: #333;">Vision-Only ACT (Baseline)</b>
                   </div>
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/box_lift/box_lift_vision_force_fail_2.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Fails to lift up the box.
-                </p>
-              </div>
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Drops the box while lifting.
-                </p>
-              </div>
-            </div>
-
-
-
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
-              Cross Attention Analysis
-            </div>
-            <p>We visualize the average cross attention of the action tokens to the force or vision tokens of the first decoder layer during policy rollout.</p>
-            
-            <div class="row" style="display: flex; justify-content: center;">
-              <div style="width: 40%;">
-                <b style="font-size: 20px;  color: #333;">Vision+Force ACT (Baseline)</b>
-              </div>
-              <div style="width: 40%;">
-                <b style="font-size: 20px;  color: #333;"><span style="color: #C41230;">FACTR</span> Policy (Ours)</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex; justify-content: center;">
-              <div style="width: 40%; margin-right: 10px;">
-                <video class="hover-video center" playsinline src="./result_videos/box_lift/box_lift_analysis_baseline.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>   
-              </div>
-              <div style="width: 40%; margin-left: 10px;">
-                <video class="hover-video center" playsinline src="./result_videos/box_lift/box_lift_analysis_ours.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-              </div>
-            </div>
-            <img src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="40%" height="40%">
-
-
-            <div class="row" style="display: flex; justify-content: center;">
-              <div style="width: 40%; padding: 0 10px;">
-                <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
-                  Without the curriculum, the policy does not pay enough attention to force, and either fails to lift or balance the novel boxes. 
-                </p>
-              </div>
-              <div style="width: 40%; padding: 0 10px;">
-                <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
-                  FACTR learns to attend to force more. We observe that the attention to force 
-                  outweighs that of vision as the arms begin lifting the box, signaling a mode switch.
-                </p>
-              </div>
-            </div>
-
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333;">
-              <p style="margin-bottom: 5px;"><span style="color: #C41230;">FACTR</span> Policy Continuous Rollout Demo</p>
-            </div>
-            <video class="hover-video center" playsinline src="./result_videos/box_lift/boxlift_continuous_anon.mp4" width="50%" 
-            preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-
-
-
-
-            <!-- Task 2: Pivot-->
-            <br/><br/><br/>
-            <div class="task-container">
-              <div class="task-title">Task 2: Non-Prehensile Pivot</div>
-                <button id="task2_button" class="btn btn-primary task-play-button" 
-                    onclick="togglePlay('task2_button', ['b_1', 'b_2', 'b_3', 'b_4', 'b_5', 'b_6', 'b_7', 'b_8'])">
-                    Play Videos
-                </button>
-            </div>
-
-            <div class="row" style="display: flex;">
-              <div style="width: 25.5%;">
-                <b style="font-size: 20px;  color: #333;">Train Objects</b>
-              </div>
-              <div style="width: 74.5%;">
-                <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 25.5%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <video id="b_1" class="center" playsinline muted src="./result_videos/pivot/pviot_train_1.mov" width="100%" preload="none" loading="lazy"
-                  style="border-radius:10px; margin-bottom: 10px;"></video>
-                <video id="b_2" class="center" playsinline muted src="./result_videos/pivot/pivot_train_2.mov" width="100%" preload="none" loading="lazy"
-                  style="border-radius:10px;"></video>
-              </div>
-              <div style="width: 74.5%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 33%;">
-                    <video id="b_3" class="center" playsinline muted src="./result_videos/pivot/pivot_birthday.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="b_4" class="center" playsinline muted src="./result_videos/pivot/pivot_brick.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="b_5" class="center" playsinline muted src="./result_videos/pivot/pivot_tape.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                </div>
-                <div style="display: flex; gap: 7px;">
-                  <div style="width: 33%;">
-                    <video id="b_6" class="center" playsinline muted src="./result_videos/pivot/pivot_playdough.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="b_7" class="center" playsinline muted src="./result_videos/pivot/pivot_small.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 33%;">
-                    <video id="b_8" class="center" playsinline muted src="./result_videos/pivot/pivot_jetson.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                  <div style="width: 45%;">
+                    <b style="font-size: 20px;  color: #333;"><span style="color: #C41230;">FACTR</span> Policy
+                      (Ours)</b>
                   </div>
                 </div>
               </div>
-            </div>
+
+              <div class="row" style="display: flex;  justify-content: center;">
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div>
+                    <b style="font-size: 20px;  color: #333;">Vision-Only ACT (Baseline)</b>
+                  </div>
+                </div>
+
+                <div style="width: 45%; margin-right: 0px; border-right: 4px solid #555555;">
+                  <video class="hover-video center" playsinline
+                    src="./result_videos/box_lift/box_lift_vision_only_recovery_fail_anon.mp4" width="100%"
+                    preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                </div>
 
 
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
-              Baseline Failure Modes
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 33.333%;">
-                <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div>
+                    <b style="font-size: 20px;  color: #333;"><span style="color: #C41230;">FACTR</span> Policy
+                      (Ours)</b>
+                  </div>
+                </div>
+                <div style="width: 45%; margin-left: 0px">
+                  <video class="hover-video center" playsinline
+                    src="./result_videos/box_lift/box_lift_ours_recovery_anon.mp4" width="100%" preload="metadata"
+                    loading="lazy" style="border-radius:10px;"></video>
+                </div>
               </div>
-              <div style="width: 66.666%;">
-                <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;  justify-content: center;">
+                  <div style="width: 45%; padding: 0 10px;">
+                    <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
+                      Policies trained with no robot force information fails to recover when an object unseen during
+                      training is dropped.
+                      This likely occurs because the policy overfits to the Training Objects, hence is unaware when
+                      novel
+                      objects
+                      are dropped.
+                    </p>
+                  </div>
+                  <div style="width: 45%; padding: 0 10px;">
+                    <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
+                      Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are
+                      dropped.
+                      When the arms lose contact with the object, the robot's external joint torque readings to revert
+                      to
+                      pre-lift values.
+                      Since our policy effectively attends to the robot's forces, the policy can recover to a pre-lift
+                      state.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;  gap: 0px;">
-              <div style="width: 33.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <video id="b_1" class="hover-video center" playsinline src="./result_videos/pivot/pivot_failure_vision_only_stuck.mov" width="100%" preload="none" loading="lazy"
-                  style="border-radius:10px; margin-bottom: 0px;"></video>
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div class="row" style="display: flex;  justify-content: center;">
+                  <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
+
+                    Policies trained with no robot force information fails to recover when an object unseen during
+                    training is dropped.
+                    This likely occurs because the policy overfits to the Training Objects, hence is unaware when novel
+                    objects
+                    are dropped.
+
+                  </p>
+                  <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
+                    Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are
+                    dropped.
+                    When the arms lose contact with the object, the robot's external joint torque readings to revert to
+                    pre-lift values.
+                    Since our policy effectively attends to the robot's forces, the policy can recover to a pre-lift
+                    state.
+                  </p>
+                </div>
               </div>
-              <div style="width: 66.666%; display: flex; align-items: center; justify-content: center; padding-top: 0px; height: 100%;  gap: 10px;"> 
+
+
+
+
+              
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
+                Baseline Failure Modes
+              </div>
+              <div class="row" style="display: flex;">
                 <div style="width: 50%;">
-                  <video id="b_3" class="hover-video center" playsinline src="./result_videos/pivot/pivot_failure_vision_force_joint_vio.mov" width="100%" preload="none" loading="lazy"
-                         style="border-radius:10px;"></video>
+                  <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
                 </div>
                 <div style="width: 50%;">
-                  <video id="b_4" class="hover-video center" playsinline src="./result_videos/pivot/pivot_failure_vision_force_fell.mov" width="100%" preload="none" loading="lazy"
-                         style="border-radius:10px;"></video>
+                  <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
                 </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 33%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Gets stuck and does not attempt pivoting.
+              <div class="row" style="display: flex;">
+                <div
+                  style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_vision_only_fail.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_vision_only_fail_2.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_vision_force_fail.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/box_lift/box_lift_vision_force_fail_2.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Fails to lift up the box.
+                  </p>
+                </div>
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Drops the box while lifting.
+                  </p>
+                </div>
+              </div>
+
+
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
+                Cross Attention Analysis
+              </div>
+              <p>We visualize the average cross attention of the action tokens to the force or vision tokens of the
+                first decoder layer during policy rollout.</p>
+
+              <div class="row" style="display: flex; justify-content: center;">
+                <div style="width: 40%;">
+                  <b style="font-size: 20px;  color: #333;">Vision+Force ACT (Baseline)</b>
+                </div>
+                <div style="width: 40%;">
+                  <b style="font-size: 20px;  color: #333;"><span style="color: #C41230;">FACTR</span> Policy (Ours)</b>
+                </div>
+              </div>
+              <div class="row" style="display: flex; justify-content: center;">
+                <div style="width: 40%; margin-right: 10px;">
+                  <video class="hover-video center" playsinline
+                    src="./result_videos/box_lift/box_lift_analysis_baseline.mov" width="100%" preload="metadata"
+                    loading="lazy" style="border-radius:10px;"></video>
+                </div>
+                <div style="width: 40%; margin-left: 10px;">
+                  <video class="hover-video center" playsinline
+                    src="./result_videos/box_lift/box_lift_analysis_ours.mov" width="100%" preload="metadata"
+                    loading="lazy" style="border-radius:10px;"></video>
+                </div>
+              </div>
+              <img src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="40%" height="40%">
+
+
+              <div class="row" style="display: flex; justify-content: center;">
+                <div style="width: 40%; padding: 0 10px;">
+                  <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
+                    Without the curriculum, the policy does not pay enough attention to force, and either fails to lift
+                    or balance the novel boxes.
+                  </p>
+                </div>
+                <div style="width: 40%; padding: 0 10px;">
+                  <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
+                    FACTR learns to attend to force more. We observe that the attention to force
+                    outweighs that of vision as the arms begin lifting the box, signaling a mode switch.
+                  </p>
+                </div>
+              </div>
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333;">
+                <p style="margin-bottom: 5px;"><span style="color: #C41230;">FACTR</span> Policy Continuous Rollout Demo
                 </p>
               </div>
-              <div style="width: 33%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Violates joint velocity limits during motion.
-                </p>
-              </div>
-              <div style="width: 33%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Drops the object during pivoting.
-                </p>
-              </div>
-            </div>
-
-
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333; ">
-              FACTR Policy Continuous Rollout Demo
-            </div>
-            <video class="hover-video center" playsinline src="./result_videos/pivot/pivot_ours_continuous_anon.mp4" width="50%" 
-            preload="metadata" loading="lazy" style="border-radius:10px; margin-top: 10px;"></video>
+              <video class="hover-video center" playsinline src="./result_videos/box_lift/boxlift_continuous_anon.mp4"
+                width="50%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
 
 
 
-            <!-- Task 3: Rolling Dough-->
-            <br/><br/><br/>
-            <div class="task-container">
-              <div class="task-title">Task 3: Rolling Dough</div>
-                <button id="task3_button" class="btn btn-primary task-play-button" 
-                    onclick="togglePlay('task3_button', ['c_1', 'c_2', 'c_3', 'c_4'])">
-                    Play Videos
+
+              <!-- Task 2: Pivot-->
+              <br /><br /><br />
+              <div class="task-container">
+                <div class="task-title">Task 2: Non-Prehensile Pivot</div>
+                <button id="task2_button" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task2_button', ['b_1', 'b_2', 'b_3', 'b_4', 'b_5', 'b_6', 'b_7', 'b_8'])">
+                  Play Videos
                 </button>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Train Objects</b>
               </div>
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
+
+              <div class="row" style="display: flex;">
+                <div style="width: 25.5%;">
+                  <b style="font-size: 20px;  color: #333;">Train Objects</b>
+                </div>
+                <div style="width: 74.5%;">
+                  <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width:50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video id="c_1" class="center" playsinline muted src="./result_videos/roll_dough/roll_blue_train.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+              <div class="row" style="display: flex;">
+                <div
+                  style="width: 25.5%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <video id="b_1" class="center" playsinline muted src="./result_videos/pivot/pviot_train_1.mov"
+                    width="100%" preload="none" loading="lazy" style="border-radius:10px; margin-bottom: 10px;"></video>
+                  <video id="b_2" class="center" playsinline muted src="./result_videos/pivot/pivot_train_2.mov"
+                    width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                </div>
+                <div style="width: 74.5%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 33%;">
+                      <video id="b_3" class="center" playsinline muted src="./result_videos/pivot/pivot_birthday.mov"
+                        width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="b_4" class="center" playsinline muted src="./result_videos/pivot/pivot_brick.mov"
+                        width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="b_5" class="center" playsinline muted src="./result_videos/pivot/pivot_tape.mov"
+                        width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
                   </div>
-                  <div style="width: 50%;">
-                    <video id="c_2" class="center" playsinline muted src="./result_videos/roll_dough/roll_red_train.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 33%;">
+                      <video id="b_6" class="center" playsinline muted src="./result_videos/pivot/pivot_playdough.mov"
+                        width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="b_7" class="center" playsinline muted src="./result_videos/pivot/pivot_small.mov"
+                        width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 33%;">
+                      <video id="b_8" class="center" playsinline muted src="./result_videos/pivot/pivot_jetson.mov"
+                        width="100%" preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div style="width: 50%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video id="c_3" class="center" playsinline muted src="./result_videos/roll_dough/roll_pink_test.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 50%;">
-                    <video id="c_4" class="center" playsinline muted src="./result_videos/roll_dough/roll_yellow_test.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
+
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
+                Baseline Failure Modes
+              </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 33.333%;">
+                  <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
                 </div>
-                
+                <div style="width: 66.666%;">
+                  <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
+                </div>
               </div>
-            </div>
-            
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
-              Baseline Failure Modes
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
-              </div>
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <div style="display: flex; gap: 7px;"> 
+              <div class="row" style="display: flex;  gap: 0px;">
+                <div
+                  style="width: 33.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <video id="b_1" class="hover-video center" playsinline
+                    src="./result_videos/pivot/pivot_failure_vision_only_stuck.mov" width="100%" preload="none"
+                    loading="lazy" style="border-radius:10px; margin-bottom: 0px;"></video>
+                </div>
+                <div
+                  style="width: 66.666%; display: flex; align-items: center; justify-content: center; padding-top: 0px; height: 100%;  gap: 10px;">
                   <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/roll_dough/roll_failure_vision_only_blue.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                    <video id="b_3" class="hover-video center" playsinline
+                      src="./result_videos/pivot/pivot_failure_vision_force_joint_vio.mov" width="100%" preload="none"
+                      loading="lazy" style="border-radius:10px;"></video>
                   </div>
                   <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/roll_dough/roll_failure_vision_only_red.mov" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                    <video id="b_4" class="hover-video center" playsinline
+                      src="./result_videos/pivot/pivot_failure_vision_force_fell.mov" width="100%" preload="none"
+                      loading="lazy" style="border-radius:10px;"></video>
                   </div>
                 </div>
               </div>
-              <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;"> 
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/roll_dough/roll_failure_vision_force_rolls_off.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/roll_dough/roll_failure_vision_force_crush.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 33%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Gets stuck and does not attempt pivoting.
+                  </p>
+                </div>
+                <div style="width: 33%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Violates joint velocity limits during motion.
+                  </p>
+                </div>
+                <div style="width: 33%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Drops the object during pivoting.
+                  </p>
                 </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Policies without force input fails to roll completely.
-                </p>
+
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333; ">
+                FACTR Policy Continuous Rollout Demo
               </div>
-              <div style="width: 25%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Policies without FACTR fail to continuously roll.
-                </p>
-              </div>
-              <div style="width: 25%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  Policies without FACTR crush out-of-distribution dough.
-                </p>
-              </div>
-            </div>
+              <video class="hover-video center" playsinline src="./result_videos/pivot/pivot_ours_continuous_anon.mp4"
+                width="50%" preload="metadata" loading="lazy" style="border-radius:10px; margin-top: 10px;"></video>
 
 
 
-            <!-- Task 4: Fruit Pick-->
-            <br/><br/><br/>
-            <div class="task-container">
-              <div class="task-title">Task 4: Delicate Fruit Pick-and-Place</div>
-                <button id="task4_button" class="btn btn-primary task-play-button" 
-                    onclick="togglePlay('task4_button', ['d_1', 'd_2', 'd_3', 'd_4', 'd_5'])">
-                    Play Videos
+              <!-- Task 3: Rolling Dough-->
+              <br /><br /><br />
+              <div class="task-container">
+                <div class="task-title">Task 3: Rolling Dough</div>
+                <button id="task3_button" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task3_button', ['c_1', 'c_2', 'c_3', 'c_4'])">
+                  Play Videos
                 </button>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Train Object</b>
               </div>
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
-              </div>
-            </div>
-            
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 3px; height: 100%; border-right: 4px solid #555555;"> 
-                <video id="d_1" class="center" playsinline muted src="./result_videos/fruit_pick_place/pick_blueberry_train.mp4" width="100%" preload="none" loading="lazy"
-                  style="border-radius:10px; margin-bottom: 10px;"></video>
-              </div>
-              <div style="width: 50%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video id="d_2" class="center" playsinline muted src="./result_videos/fruit_pick_place/pick_strawberry.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 50%;">
-                    <video id="d_3" class="center" playsinline muted src="./result_videos/fruit_pick_place/pick_blackberry.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Train Objects</b>
                 </div>
-                <div style="display: flex; gap: 7px;">
-                  <div style="width: 50%;">
-                    <video id="d_4" class="center" playsinline muted src="./result_videos/fruit_pick_place/pick_raspberry.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
-                  <div style="width: 50%;">
-                    <video id="d_5" class="center" playsinline muted src="./result_videos/fruit_pick_place/pick_tomato.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
-                  </div>
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
                 </div>
               </div>
-            </div>
-
-
-            <br/>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
-              Baseline Failure Modes
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
-              </div>
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Vision-Force ACT</b>
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;"> 
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/fruit_pick_place/pick_failure_vision_only_strawberry.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+              <div class="row" style="display: flex;">
+                <div
+                  style="width:50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video id="c_1" class="center" playsinline muted
+                        src="./result_videos/roll_dough/roll_blue_train.mp4" width="100%" preload="none" loading="lazy"
+                        style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video id="c_2" class="center" playsinline muted
+                        src="./result_videos/roll_dough/roll_red_train.mp4" width="100%" preload="none" loading="lazy"
+                        style="border-radius:10px;"></video>
+                    </div>
                   </div>
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/fruit_pick_place/pick_failure_vision_only_tomato.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                </div>
+                <div style="width: 50%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video id="c_3" class="center" playsinline muted
+                        src="./result_videos/roll_dough/roll_pink_test.mov" width="100%" preload="none" loading="lazy"
+                        style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video id="c_4" class="center" playsinline muted
+                        src="./result_videos/roll_dough/roll_yellow_test.mp4" width="100%" preload="none" loading="lazy"
+                        style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
+                Baseline Failure Modes
+              </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                </div>
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
+                </div>
+              </div>
+              <div class="row" style="display: flex;">
+                <div
+                  style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/roll_dough/roll_failure_vision_only_blue.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/roll_dough/roll_failure_vision_only_red.mov" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/roll_dough/roll_failure_vision_force_rolls_off.mp4" width="100%"
+                        preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/roll_dough/roll_failure_vision_force_crush.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;"> 
-                <div style="display: flex; gap: 7px;"> 
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/fruit_pick_place/pick_failure_vision_force_strawberry.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Policies without force input fails to roll completely.
+                  </p>
+                </div>
+                <div style="width: 25%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Policies without FACTR fail to continuously roll.
+                  </p>
+                </div>
+                <div style="width: 25%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    Policies without FACTR crush out-of-distribution dough.
+                  </p>
+                </div>
+              </div>
+
+
+
+              <!-- Task 4: Fruit Pick-->
+              <br /><br /><br />
+              <div class="task-container">
+                <div class="task-title">Task 4: Delicate Fruit Pick-and-Place</div>
+                <button id="task4_button" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task4_button', ['d_1', 'd_2', 'd_3', 'd_4', 'd_5'])">
+                  Play Videos
+                </button>
+              </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Train Object</b>
+                </div>
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
+                </div>
+              </div>
+
+              <div class="row" style="display: flex;">
+                <div
+                  style="width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 3px; height: 100%; border-right: 4px solid #555555;">
+                  <video id="d_1" class="center" playsinline muted
+                    src="./result_videos/fruit_pick_place/pick_blueberry_train.mp4" width="100%" preload="none"
+                    loading="lazy" style="border-radius:10px; margin-bottom: 10px;"></video>
+                </div>
+                <div style="width: 50%; display: flex; flex-direction: column; gap: 2px; padding-left: 10px">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video id="d_2" class="center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_strawberry.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video id="d_3" class="center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_blackberry.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
                   </div>
-                  <div style="width: 50%;">
-                    <video class="hover-video center" playsinline muted src="./result_videos/fruit_pick_place/pick_failure_vision_force_tomato.mp4" width="100%" preload="none" loading="lazy"
-                           style="border-radius:10px;"></video>
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video id="d_4" class="center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_raspberry.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video id="d_5" class="center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_tomato.mp4" width="100%" preload="none"
+                        loading="lazy" style="border-radius:10px;"></video>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 100%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                  Both vision-only policies and vision-force policies without FACTR get stuck after the gripper closes on these unseen fruits.
-                  Since these fruits are visually out of the training distribution, vision-only policies fail to generate appropriate actions to proceed. 
-                  Vision-force policies without FACTR likely do not learn to effectively utilize force input, leading to overfitting to 
-                  visual input and resulting in the same failure as vision-only policies. In contrast, FACTR policies properly attend to force 
-                  input. As a result, even when the vision input is out of distribution, the force input can remain within distribution, facilitating
-                  FACTR policies to predict the correct next actions in the pick-and-place trajectory.
-                </p>
+
+
+              <br />
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333">
+                Baseline Failure Modes
               </div>
-            </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                </div>
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Vision-Force ACT</b>
+                </div>
+              </div>
+              <div class="row" style="display: flex;">
+                <div
+                  style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%; border-right: 4px solid #555555;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_failure_vision_only_strawberry.mp4" width="100%"
+                        preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_failure_vision_only_tomato.mp4" width="100%"
+                        preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;">
+                  <div style="display: flex; gap: 7px;">
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_failure_vision_force_strawberry.mp4" width="100%"
+                        preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                    <div style="width: 50%;">
+                      <video class="hover-video center" playsinline muted
+                        src="./result_videos/fruit_pick_place/pick_failure_vision_force_tomato.mp4" width="100%"
+                        preload="none" loading="lazy" style="border-radius:10px;"></video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="display: flex;">
+                <div style="width: 100%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    Both vision-only policies and vision-force policies without FACTR get stuck after the gripper closes
+                    on these unseen fruits.
+                    Since these fruits are visually out of the training distribution, vision-only policies fail to
+                    generate appropriate actions to proceed.
+                    Vision-force policies without FACTR likely do not learn to effectively utilize force input, leading
+                    to overfitting to
+                    visual input and resulting in the same failure as vision-only policies. In contrast, FACTR policies
+                    properly attend to force
+                    input. As a result, even when the vision input is out of distribution, the force input can remain
+                    within distribution, facilitating
+                    FACTR policies to predict the correct next actions in the pick-and-place trajectory.
+                  </p>
+                </div>
+              </div>
 
 
 
-            <br/><br/>
-            <h4 class = "title is-34 publication-title">
-              <span style="color: #1565C0;">Low-Cost Teleoperation with Force Feedback</span>
-            </h4>
-            
-            <!-- Force-Feedback -->
-            <div class="task-container">
-              <div class="task-title">Feature 1: Force Feedback</div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_1.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>
-              </div>
-              <div style="width: 50%;">
-                <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_2.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>   
-              </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                  The follower arm relays its contact forces in the form of external joint torques back to the leader arm.
-                </p>
-              </div>
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                  Force feedback allows the user to feel the geometric constraints of the environment through the
-                  leader arm.
-                </p>
-              </div>
-            </div>
+              <br /><br />
+              <h4 class="title is-34 publication-title">
+                <span style="color: #1565C0;">Low-Cost Teleoperation with Force Feedback</span>
+              </h4>
 
-            <br>
-            <div class="task-container">
-              <div class="task-title">Feature 2: Customizable Redundancy Resolution</div>
-            </div>
-            <div class="row" style="display: flex; margin-top: 10px;">
-              <div style="width: 100%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                  For 7-DOF manipulators, an unregulated joint-space causes the arm to drift into undesirable configurations under the
-                  influence of gravity during teleoperation due to kinematic redundancy.
-                  We leverage a null-space projection control law that allows us to resolve kinematic redundancy at any user-defined Rest
-                  posture configurations. Note that this control law, by construction, does not impose additional end-effector wrenches 
-                  regardless of the arm's configuration.
-                </p>
+              <!-- Force-Feedback -->
+              <div class="task-container">
+                <div class="task-title">Feature 1: Force Feedback</div>
               </div>
-            </div>
-          </br>
-            <div class="row" style="display: flex; justify-content: center;">
-              <div style="width: 60%;">
-                <video class="hover-video" playsinline src="./result_videos/actuated_teleop/null_space_following.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px; display: block; margin: 0 auto;">
-                </video>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%;">
+                  <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_1.mov"
+                    width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                </div>
+                <div style="width: 50%;">
+                  <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_2.mov"
+                    width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex; margin-top: 10px; justify-content: center;">
-              <div style="width: 90%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  In the video, we see that when disturbances are applied to the elbow of the leader arm,
-                  the null-space controller ensures the leader arm's elbow returns back to its default posture without affecting the end-effector pose.
-                </p>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    The follower arm relays its contact forces in the form of external joint torques back to the leader
+                    arm.
+                  </p>
+                </div>
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    Force feedback allows the user to feel the geometric constraints of the environment through the
+                    leader arm.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            </br>
-            <div class="row" style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333;  margin-bottom: 5px;">
-              <!-- Importance of Null-Space Control in </br> -->
-              Confined-Space Manipulation Example
-            </div>
-            <div class="row" style="display: flex; margin-bottom: 10px;">
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Poorly-Chosen Rest Posture Can Cause Collisions</b>
+              <br>
+              <div class="task-container">
+                <div class="task-title">Feature 2: Customizable Redundancy Resolution</div>
               </div>
-              <div style="width: 50%;">
-                <b style="font-size: 20px;  color: #333;">Well-Chosen Rest Posture Avoids Collisions</b>
+              <div class="row" style="display: flex; margin-top: 10px;">
+                <div style="width: 100%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    For 7-DOF manipulators, an unregulated joint-space causes the arm to drift into undesirable
+                    configurations under the
+                    influence of gravity during teleoperation due to kinematic redundancy.
+                    We leverage a null-space projection control law that allows us to resolve kinematic redundancy at
+                    any user-defined Rest
+                    posture configurations. Note that this control law, by construction, does not impose additional
+                    end-effector wrenches
+                    regardless of the arm's configuration.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%;">
-                <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/null_space_default_fail.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+              </br>
+              <div class="row" style="display: flex; justify-content: center;">
+                <div style="width: 60%;">
+                  <video class="hover-video" playsinline src="./result_videos/actuated_teleop/null_space_following.mov"
+                    width="100%" preload="metadata" loading="lazy"
+                    style="border-radius:10px; display: block; margin: 0 auto;">
+                  </video>
+                </div>
               </div>
-              <div style="width: 50%;">
-                <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/null_space_altered_success.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px;"></video>   
+              <div class="row" style="display: flex; margin-top: 10px; justify-content: center;">
+                <div style="width: 90%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    In the video, we see that when disturbances are applied to the elbow of the leader arm,
+                    the null-space controller ensures the leader arm's elbow returns back to its default posture without
+                    affecting the end-effector pose.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex;">
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                  This video exhibits a case where a poorly-chosen resting posture joint configuration can cause collisions,
-                  which highlights the importance of having the flexibility for the user to define any resting posture for the leader
-                  arm.
-                </p>
+
+              </br>
+              <div class="row"
+                style="display: flex; justify-content: center; font-size: 20px; font-weight: bold; text-align: center; color: #333;  margin-bottom: 5px;">
+                <!-- Importance of Null-Space Control in </br> -->
+                Confined-Space Manipulation Example
               </div>
-              <div style="width: 50%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                  Our leader arm allows the user to define custom resting posture configuration, which helps the follower 
-                  arm reach targets in confined-spaces during teleoperation.
-                </p>
+              <div class="row" style="display: flex; margin-bottom: 10px;">
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Poorly-Chosen Rest Posture Can Cause Collisions</b>
+                </div>
+                <div style="width: 50%;">
+                  <b style="font-size: 20px;  color: #333;">Well-Chosen Rest Posture Avoids Collisions</b>
+                </div>
               </div>
-            </div>
-            
-            <br>
-            <div class="task-container">
-              <div class="task-title">Feature 3: Gravity Compensation</div>
-            </div>
-            <div class="row" style="display: flex; justify-content: center;">
-              <div style="width: 60%;">
-                <video class="hover-video" playsinline src="./result_videos/actuated_teleop/grav_comp.mov" width="100%" 
-                  preload="metadata" loading="lazy" style="border-radius:10px; display: block; margin: 0 auto;">
-                </video>
+              <div class="row" style="display: flex;">
+                <div style="width: 50%;">
+                  <video class="hover-video center" playsinline
+                    src="./result_videos/actuated_teleop/null_space_default_fail.mov" width="100%" preload="metadata"
+                    loading="lazy" style="border-radius:10px;"></video>
+                </div>
+                <div style="width: 50%;">
+                  <video class="hover-video center" playsinline
+                    src="./result_videos/actuated_teleop/null_space_altered_success.mov" width="100%" preload="metadata"
+                    loading="lazy" style="border-radius:10px;"></video>
+                </div>
               </div>
-              <!-- <div style="width: 40%;">
+              <div class="row" style="display: flex;">
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    This video exhibits a case where a poorly-chosen resting posture joint configuration can cause
+                    collisions,
+                    which highlights the importance of having the flexibility for the user to define any resting posture
+                    for the leader
+                    arm.
+                  </p>
+                </div>
+                <div style="width: 50%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    Our leader arm allows the user to define custom resting posture configuration, which helps the
+                    follower
+                    arm reach targets in confined-spaces during teleoperation.
+                  </p>
+                </div>
+              </div>
+
+              <br>
+              <div class="task-container">
+                <div class="task-title">Feature 3: Gravity Compensation</div>
+              </div>
+              <div class="row" style="display: flex; justify-content: center;">
+                <div style="width: 60%;">
+                  <video class="hover-video" playsinline src="./result_videos/actuated_teleop/grav_comp.mov"
+                    width="100%" preload="metadata" loading="lazy"
+                    style="border-radius:10px; display: block; margin: 0 auto;">
+                  </video>
+                </div>
+                <!-- <div style="width: 40%;">
                 <img src="./images/actuated_teleop/grav_comp_figure.png" width="80%" 
                   loading="lazy" style="border-radius:10px; display: block; margin: 0 auto;">
               </div> -->
-            </div>
-            <div class="row" style="display: flex; margin-top: 10px;">
-              <div style="width: 100%; padding: 0 10px;">
-                <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
-                  We implement active gravity compensation for the leader arms, allowing them to remain suspended motionless in 
-                  midair at any joint configuration. 
-                </p>
-                <p>
-                  This enables the user to pause or stop teleoperation at any 
-                  time and freely release the leader arms, which is especially beneficial for bimanual teleoperation.
-                </p>
               </div>
-            </div>
+              <div class="row" style="display: flex; margin-top: 10px;">
+                <div style="width: 100%; padding: 0 10px;">
+                  <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
+                    We implement active gravity compensation for the leader arms, allowing them to remain suspended
+                    motionless in
+                    midair at any joint configuration.
+                  </p>
+                  <p>
+                    This enables the user to pause or stop teleoperation at any
+                    time and freely release the leader arms, which is especially beneficial for bimanual teleoperation.
+                  </p>
+                </div>
+              </div>
 
 
 
 
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content" style="text-align: left;">
-    <h2 class="title">BibTeX</h2>
-    <pre  style="padding-top: 0; padding-bottom: 0;">
+              <section class="section" id="BibTeX">
+                <div class="container is-max-desktop content" style="text-align: left;">
+                  <h2 class="title">BibTeX</h2>
+                  <pre style="padding-top: 0; padding-bottom: 0;">
       <code">
   @inproceedings{liu2025factr,
     title={FACTR: Force-Attending Curriculum Training for Contact-Rich Policy Learning},
@@ -873,142 +1127,143 @@
     year={2025}
   }
     </code></pre>
-  </div>
-</section>
+                </div>
+              </section>
 
 
-<section class="section" id="Ack">
-  <div class="container is-max-desktop content" style="text-align: left;">
-    <h2 class="title">Acknowledgements</h2>
-    We thank Arthur Allshire, Andrew Wang, Mohan Kumar Srirama, Ritvik Singh for 
-    discussions about the paper. We also thank Tiffany Tse, Sri Snumakonda with teleoperation.
-    This work is supported in part by .....
-</div>
-</section>
+              <section class="section" id="Ack">
+                <div class="container is-max-desktop content" style="text-align: left;">
+                  <h2 class="title">Acknowledgements</h2>
+                  We thank Arthur Allshire, Andrew Wang, Mohan Kumar Srirama, Ritvik Singh for
+                  discussions about the paper. We also thank Tiffany Tse, Sri Snumakonda with teleoperation.
+                  This work is supported in part by .....
+                </div>
+              </section>
 
 
-<script>
-var mainId = setInterval(function(){
-    $('video').not('#teaser').each(function(){
-        if ($(this).is(":in-viewport") && !$(this).hasClass("played")) {
-            $(this)[0].load(); // Only load when in viewport
-            $(this).addClass("played");
-        }
-    })
-}, 500);
-</script>
+              <script>
+                var mainId = setInterval(function () {
+                  $('video').not('#teaser').each(function () {
+                    if ($(this).is(":in-viewport") && !$(this).hasClass("played")) {
+                      $(this)[0].load(); // Only load when in viewport
+                      $(this).addClass("played");
+                    }
+                  })
+                }, 500);
+              </script>
 
-<script>
+              <script>
 
-function play_list_videos(videoList) {
-    let index = 0;
+                function play_list_videos(videoList) {
+                  let index = 0;
 
-    function playNext() {
-        if (index < videoList.length) {
-            let video = document.getElementById(videoList[index]);
-            if (video) video.play();
-            index++;
-            requestAnimationFrame(playNext); // Queue the next video to play
-        }
-    }
+                  function playNext() {
+                    if (index < videoList.length) {
+                      let video = document.getElementById(videoList[index]);
+                      if (video) video.play();
+                      index++;
+                      requestAnimationFrame(playNext); // Queue the next video to play
+                    }
+                  }
 
-    playNext();
-}
-function pause_list_videos(videoList) {
-    videoList.forEach(id => {
-        var video = document.getElementById(id);
-        if (video) video.pause();
-    });
-}
+                  playNext();
+                }
+                function pause_list_videos(videoList) {
+                  videoList.forEach(id => {
+                    var video = document.getElementById(id);
+                    if (video) video.pause();
+                  });
+                }
 
-function togglePlay(buttonId, videoList) {
-    var button = document.getElementById(buttonId);
-    var firstVideo = document.getElementById(videoList[0]); 
+                function togglePlay(buttonId, videoList) {
+                  var button = document.getElementById(buttonId);
+                  var firstVideo = document.getElementById(videoList[0]);
 
-    if (firstVideo && !firstVideo.paused) {
-        button.textContent = `Play Videos`;
-        pause_list_videos(videoList);
-    } else {
-        button.textContent = `Pause Videos`;
-        play_list_videos(videoList);
-    }
-}
- 
-
-  function enableHoverControls(video) {
-    video.addEventListener("mouseenter", function() {
-        video.setAttribute("controls", "controls"); // Show controls on hover
-    });
-
-    video.addEventListener("mouseleave", function() {
-        video.removeAttribute("controls"); // Hide controls when not hovering
-    });
-}
+                  if (firstVideo && !firstVideo.paused) {
+                    button.textContent = `Play Videos`;
+                    pause_list_videos(videoList);
+                  } else {
+                    button.textContent = `Pause Videos`;
+                    play_list_videos(videoList);
+                  }
+                }
 
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // Select all video elements on the page
-    let videos = document.querySelectorAll("video");
+                function enableHoverControls(video) {
+                  video.addEventListener("mouseenter", function () {
+                    video.setAttribute("controls", "controls"); // Show controls on hover
+                  });
 
-    // Apply hover controls to each video
-    videos.forEach(video => enableHoverControls(video));
-
-});
-
-
+                  video.addEventListener("mouseleave", function () {
+                    video.removeAttribute("controls"); // Hide controls when not hovering
+                  });
+                }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all videos with the class "hover-video"
-    let videos = document.querySelectorAll(".hover-video");
+                document.addEventListener("DOMContentLoaded", function () {
+                  // Select all video elements on the page
+                  let videos = document.querySelectorAll("video");
 
-    videos.forEach(video => {
-      video.addEventListener("mouseenter", function() {
-        video.setAttribute("controls", "controls"); // Show controls on hover
-      });
+                  // Apply hover controls to each video
+                  videos.forEach(video => enableHoverControls(video));
 
-      video.addEventListener("mouseleave", function() {
-        video.removeAttribute("controls"); // Hide controls when not hovering
-      });
-    });
-  });
+                });
 
-</script>
 
-<!-- Floating Menu Container -->
-<div class="topnav">
-  <button id="contents-button" class="menu_icon" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-  </button>
-  <div id="menu-list" class="dropdown-menu" style="display: none;">
-    <!-- Menu items will be populated here -->
-  </div>
-</div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuList = document.getElementById('menu-list');
-    const headers = document.querySelectorAll('h4');
 
-    headers.forEach((header, index) => {
-      const link = document.createElement('a');
-      link.textContent = header.textContent;
-      link.href = `#header-${index}`;
-      menuList.appendChild(link);
+                document.addEventListener("DOMContentLoaded", function () {
+                  // Select all videos with the class "hover-video"
+                  let videos = document.querySelectorAll(".hover-video");
 
-      // Add an ID to each header for linking
-      header.id = `header-${index}`;
-    });
-  });
+                  videos.forEach(video => {
+                    video.addEventListener("mouseenter", function () {
+                      video.setAttribute("controls", "controls"); // Show controls on hover
+                    });
 
-  function toggleMenu() {
-    const menuList = document.getElementById('menu-list');
-    if (menuList.style.display === 'none') {
-      menuList.style.display = 'block';
-    } else {
-      menuList.style.display = 'none';
-    }
-  }
-</script>
+                    video.addEventListener("mouseleave", function () {
+                      video.removeAttribute("controls"); // Hide controls when not hovering
+                    });
+                  });
+                });
+
+              </script>
+
+              <!-- Floating Menu Container -->
+              <div class="topnav">
+                <button id="contents-button" class="menu_icon" onclick="toggleMenu()">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <div id="menu-list" class="dropdown-menu" style="display: none;">
+                  <!-- Menu items will be populated here -->
+                </div>
+              </div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const menuList = document.getElementById('menu-list');
+                  const headers = document.querySelectorAll('h4');
+
+                  headers.forEach((header, index) => {
+                    const link = document.createElement('a');
+                    link.textContent = header.textContent;
+                    link.href = `#header-${index}`;
+                    menuList.appendChild(link);
+
+                    // Add an ID to each header for linking
+                    header.id = `header-${index}`;
+                  });
+                });
+
+                function toggleMenu() {
+                  const menuList = document.getElementById('menu-list');
+                  if (menuList.style.display === 'none') {
+                    menuList.style.display = 'block';
+                  } else {
+                    menuList.style.display = 'none';
+                  }
+                }
+              </script>
 </body>
+
 </html>
