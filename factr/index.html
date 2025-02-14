@@ -300,8 +300,8 @@
                 <div class="task-container">
                   <div class="task-title">Task 1: Bimanual Box Lift</div>
                 </div>
-                <button id="task1_button" class="btn btn-primary task-play-button"
-                  onclick="togglePlay('task1_button', ['a_1', 'a_2', 'a_3', 'a_4', 'a_5', 'a_6', 'a_7'])">
+                <button id="task1_button_mobile" class="btn btn-primary task-play-button"
+                  onclick="togglePlay('task1_button_mobile', ['a_1', 'a_2', 'a_3', 'a_4', 'a_5', 'a_6', 'a_7'])">
                   Play Videos
                 </button>
                 <br><br>
@@ -1180,46 +1180,6 @@
                 }
 
 
-                // function enableHoverControls(video) {
-                //   video.addEventListener("mouseenter", function () {
-                //     video.setAttribute("controls", "controls"); // Show controls on hover
-                //   });
-
-                //   video.addEventListener("mouseleave", function () {
-                //     video.removeAttribute("controls"); // Hide controls when not hovering
-                //   });
-                // }
-
-
-                // document.addEventListener("DOMContentLoaded", function () {
-                //   // Select all video elements on the page
-                //   let videos = document.querySelectorAll("video");
-
-                //   // Apply hover controls to each video
-                //   videos.forEach(video => enableHoverControls(video));
-
-                // });
-
-
-
-
-                // document.addEventListener("DOMContentLoaded", function () {
-                //   // Select all videos with the class "hover-video"
-                //   let videos = document.querySelectorAll(".hover-video");
-
-                //   videos.forEach(video => {
-                //     video.addEventListener("mouseenter", function () {
-                //       video.setAttribute("controls", "controls"); // Show controls on hover
-                //     });
-
-                //     video.addEventListener("mouseleave", function () {
-                //       video.removeAttribute("controls"); // Hide controls when not hovering
-                //     });
-                //   });
-                // });
-
-
-
                 function enableHoverControls(video) {
                   video.addEventListener("mouseenter", function () {
                     video.setAttribute("controls", "controls"); // Show controls on hover
@@ -1230,57 +1190,60 @@
                   });
                 }
 
+
+                // document.addEventListener("DOMContentLoaded", function () {
+                //   let videos = document.querySelectorAll("video");
+
+                //   videos.forEach(video => {
+                //     // Enable controls on mobile devices
+                //     if (/Mobi|Android/i.test(navigator.userAgent)) {
+                //       video.setAttribute("controls", "controls");
+                //     } else {
+                //       enableHoverControls(video); // Keep hover behavior for desktop
+                //     }
+                //   });
+                // });
+
                 document.addEventListener("DOMContentLoaded", function () {
                   let videos = document.querySelectorAll("video");
 
                   videos.forEach(video => {
-                    // Enable controls on mobile devices
                     if (/Mobi|Android/i.test(navigator.userAgent)) {
                       video.setAttribute("controls", "controls");
+
+                      video.addEventListener("play", function () {
+                        setTimeout(() => {
+                          video.removeAttribute("controls");
+                        }, 1500); // Adjust time (in milliseconds) as needed
+                      });
+
+                      video.addEventListener("pause", function () {
+                        video.setAttribute("controls", "controls"); // Restore controls when paused
+                      });
                     } else {
-                      enableHoverControls(video); // Keep hover behavior for desktop
+                      enableHoverControls(video);
                     }
                   });
                 });
 
 
 
-                // Detect if the user is on a mobile device
-                function isMobile() {
-                  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                }
 
                 document.addEventListener("DOMContentLoaded", function () {
                   // Select all videos with the class "hover-video"
                   let videos = document.querySelectorAll(".hover-video");
 
                   videos.forEach(video => {
-                    // Desktop hover behavior
                     video.addEventListener("mouseenter", function () {
-                      if (!isMobile()) {
-                        video.setAttribute("controls", "controls");
-                      }
+                      video.setAttribute("controls", "controls"); // Show controls on hover
                     });
 
                     video.addEventListener("mouseleave", function () {
-                      if (!isMobile()) {
-                        video.removeAttribute("controls");
-                      }
-                    });
-
-                    // Mobile tap behavior
-                    video.addEventListener("touchend", function (event) {
-                      event.preventDefault(); // Prevents ghost clicks
-                      if (video.paused) {
-                        video.play();
-                        video.removeAttribute("controls"); // Hide controls when playing
-                      } else {
-                        video.pause();
-                        video.setAttribute("controls", "controls"); // Show controls when paused
-                      }
+                      video.removeAttribute("controls"); // Hide controls when not hovering
                     });
                   });
                 });
+
 
 
 
