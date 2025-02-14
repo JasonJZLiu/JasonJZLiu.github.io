@@ -1191,14 +1191,14 @@
                 }
 
 
-                document.addEventListener("DOMContentLoaded", function () {
-                  // Select all video elements on the page
-                  let videos = document.querySelectorAll("video");
+                // document.addEventListener("DOMContentLoaded", function () {
+                //   // Select all video elements on the page
+                //   let videos = document.querySelectorAll("video");
 
-                  // Apply hover controls to each video
-                  videos.forEach(video => enableHoverControls(video));
+                //   // Apply hover controls to each video
+                //   videos.forEach(video => enableHoverControls(video));
 
-                });
+                // });
 
 
 
@@ -1215,6 +1215,20 @@
                     video.addEventListener("mouseleave", function () {
                       video.removeAttribute("controls"); // Hide controls when not hovering
                     });
+                  });
+                });
+
+
+                document.addEventListener("DOMContentLoaded", function () {
+                  let videos = document.querySelectorAll("video");
+
+                  videos.forEach(video => {
+                    // Enable controls on mobile devices
+                    if (/Mobi|Android/i.test(navigator.userAgent)) {
+                      video.setAttribute("controls", "controls");
+                    } else {
+                      enableHoverControls(video); // Keep hover behavior for desktop
+                    }
                   });
                 });
 
