@@ -1135,26 +1135,26 @@
               </div>
 
 
-               <!-- Desktop Version (Hidden on Mobile) -->
-               <div class="results-desktop">
-              <div class="row" style="display: flex;">
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Train Object</b>
-                </div>
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
-                </div>
-              </div>
-              </div>
-
-
-
-                <!-- Mobile Version (Hidden on Desktop) -->
-                <div class="results-mobile">
-                  <div>
-                    <b style="font-size: 20px;  color: #333;">Train Scenario</b>
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Train Object</b>
+                  </div>
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Unseen Objects</b>
                   </div>
                 </div>
+              </div>
+
+
+
+              <!-- Mobile Version (Hidden on Desktop) -->
+              <div class="results-mobile">
+                <div>
+                  <b style="font-size: 20px;  color: #333;">Train Scenario</b>
+                </div>
+              </div>
               <div class="row" style="display: flex;">
                 <div
                   style="width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 10px; padding-top: 3px; height: 100%; border-right: 4px solid #555555;">
@@ -1205,20 +1205,20 @@
               </div>
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
-              <div class="row" style="display: flex;">
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
+                  </div>
+                  <div style="width: 50%;">
+                    <b style="font-size: 20px;  color: #333;">Vision-Force ACT</b>
+                  </div>
                 </div>
-                <div style="width: 50%;">
-                  <b style="font-size: 20px;  color: #333;">Vision-Force ACT</b>
-                </div>
-              </div>
               </div>
 
 
               <div class="row" style="display: flex;">
-                 <!-- Mobile Version (Hidden on Desktop) -->
-                 <div class="results-mobile">
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
                   <div style="width: 100%;">
                     <b style="font-size: 20px;  color: #333;">Vision-Only ACT</b>
                   </div>
@@ -1239,12 +1239,12 @@
                   </div>
                 </div>
 
-                  <!-- Mobile Version (Hidden on Desktop) -->
-                  <div class="results-mobile">
-                    <div style="width: 100%;">
-                      <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
-                    </div>
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <div style="width: 100%;">
+                    <b style="font-size: 20px;  color: #333;">Vision+Force ACT</b>
                   </div>
+                </div>
                 <div
                   style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10px; padding-top: 1px; height: 100%;">
                   <div style="display: flex; gap: 7px;">
@@ -1295,23 +1295,46 @@
                   <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_1.mov"
                     width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
                 </div>
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
+                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                    The follower arm relays its contact forces in the form of external joint torques back to the
+                    leader
+                    arm.
+                  </p>
+                  <br>
+                </div>
+
+
                 <div style="width: 50%;">
                   <video class="hover-video center" playsinline src="./result_videos/actuated_teleop/teleop_force_2.mov"
                     width="100%" preload="metadata" loading="lazy" style="border-radius:10px;"></video>
                 </div>
-              </div>
-              <div class="row" style="display: flex;">
-                <div style="width: 50%; padding: 0 10px;">
-                  <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
-                    The follower arm relays its contact forces in the form of external joint torques back to the leader
-                    arm.
-                  </p>
-                </div>
-                <div style="width: 50%; padding: 0 10px;">
+                <!-- Mobile Version (Hidden on Desktop) -->
+                <div class="results-mobile">
                   <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
                     Force feedback allows the user to feel the geometric constraints of the environment through the
                     leader arm.
                   </p>
+                </div>
+              </div>
+
+              <!-- Desktop Version (Hidden on Mobile) -->
+              <div class="results-desktop">
+                <div class="row" style="display: flex;">
+                  <div style="width: 50%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                      The follower arm relays its contact forces in the form of external joint torques back to the
+                      leader
+                      arm.
+                    </p>
+                  </div>
+                  <div style="width: 50%; padding: 0 10px;">
+                    <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
+                      Force feedback allows the user to feel the geometric constraints of the environment through the
+                      leader arm.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1517,67 +1540,6 @@
 
 
 
-                // document.addEventListener("DOMContentLoaded", function () {
-                //   let videos = document.querySelectorAll("video");
-
-                //   videos.forEach(video => {
-                //     if (/Mobi|Android/i.test(navigator.userAgent)) {
-                //       video.setAttribute("controls", "controls");
-
-                //       video.addEventListener("play", function () {
-                //         setTimeout(() => {
-                //           video.removeAttribute("controls");
-                //         }, 500); // Adjust time (in milliseconds) as needed
-                //       });
-
-                //       video.addEventListener("pause", function () {
-                //         video.setAttribute("controls", "controls"); // Restore controls when paused
-                //       });
-                //     } else {
-                //       enableHoverControls(video);
-                //     }
-                //   });
-                // });
-
-
-                // document.addEventListener("DOMContentLoaded", function () {
-                //   let videos = document.querySelectorAll("video");
-
-                //   videos.forEach(video => {
-                //     if (/Mobi|Android/i.test(navigator.userAgent)) {
-                //       video.setAttribute("controls", "controls");
-
-                //       video.addEventListener("play", function () {
-                //         setTimeout(() => {
-                //           video.removeAttribute("controls");
-                //         }, 500); // Adjust time (in milliseconds) as needed
-                //       });
-
-                //       video.addEventListener("pause", function () {
-                //         video.setAttribute("controls", "controls"); // Restore controls when paused
-                //       });
-
-                //       // **Fix: Toggle play/pause on tap**
-                //       video.addEventListener("click", function (event) {
-                //         event.preventDefault(); // Prevents unwanted UI behavior
-                //         if (video.paused) {
-                //           video.play();
-                //           setTimeout(() => {
-                //             video.removeAttribute("controls");
-                //           }, 500);
-                //         } else {
-                //           video.pause();
-                //           video.setAttribute("controls", "controls");
-                //         }
-                //       });
-
-                //     } else {
-                //       enableHoverControls(video);
-                //     }
-                //   });
-                // });
-
-
                 document.addEventListener("DOMContentLoaded", function () {
                   let videos = document.querySelectorAll("video");
 
@@ -1587,38 +1549,19 @@
 
                       video.addEventListener("play", function () {
                         setTimeout(() => {
-                          if (!video.paused) {
-                            video.removeAttribute("controls");
-                          }
-                        }, 500); // Ensure controls are removed only if still playing
+                          video.removeAttribute("controls");
+                        }, 500); // Adjust time (in milliseconds) as needed
                       });
 
                       video.addEventListener("pause", function () {
                         video.setAttribute("controls", "controls"); // Restore controls when paused
                       });
-
-                      // **Fix: Click event should not interfere with play event**
-                      video.addEventListener("click", function (event) {
-                        event.preventDefault(); // Prevent unwanted UI behavior
-
-                        if (video.controls) {
-                          // Only toggle play/pause if controls are visible
-                          if (video.paused) {
-                            video.play();
-                          } else {
-                            video.pause();
-                          }
-                        } else {
-                          // If controls are hidden, just show them and let user click again if needed
-                          video.setAttribute("controls", "controls");
-                        }
-                      });
-
                     } else {
                       enableHoverControls(video);
                     }
                   });
                 });
+
 
 
 
