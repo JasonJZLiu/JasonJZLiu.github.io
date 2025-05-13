@@ -56,7 +56,8 @@
                     I am a first-year Robotics PhD student at <a href="https://www.ri.cmu.edu/">Carnegie Mellon
                       University</a> in the School of Computer Science. I am advised by
                     <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a> and <a
-                      href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a>, working on robot learning and dexterous
+                      href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a>, working on robot learning and
+                    dexterous
                     manipulation.
                   </p>
 
@@ -120,6 +121,95 @@
             <tbody>
 
 
+              <tr onmouseout="dexwild_stop()" onmouseover="dexwild_start()">
+                <td class="paperimage">
+                  <div class="one" align="center">
+                    <div class="two" id='dexwild_image'>
+                      <video width=100% muted autoplay loop>
+                        <source src="images/main_page/dexwild.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <img src='images/main_page/dexwild_image.png' width=97%>
+                  </div>
+                  <script type="text/javascript">
+                    function dexwild_start() {
+                      document.getElementById('dexwild_image').style.opacity = "1";
+                    }
+
+                    function dexwild_stop() {
+                      document.getElementById('dexwild_image').style.opacity = "0";
+                    }
+                    dexwild_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                  <a href="https://dexwild.github.io/">
+                    <span class="papertitle">DexWild: Dexterous Human Interactions for In-the-Wild Robot Policies</span>
+                  </a>
+                  <br>
+                  Tony Tao*,
+                  Mohan Kumar Srirama*,
+                  <strong>Jason Jingzhou Liu</strong>,
+                  Kenneth Shaw,
+                  Deepak Pathak
+                  <br>
+                  <br>
+                  RSS 2025
+                  <br>
+                  <!-- <p></p> -->
+                  <div class="paper" id="dexwild_tog">
+                    <a href="https://dexwild.github.io/">website</a>
+                    |
+                    <a href="javascript:toggleblock('dexwild_abs')">abstract</a>
+                    |
+                    <a shape="rect" href="javascript:togglebib('dexwild_tog')" class="togglebib">bibtex</a>
+                    |
+                    <a href="https://arxiv.org/abs/2505.07813">arXiv</a>
+                    <!-- |
+                    <a href="https://github.com/RaindragonD/factr/">code</a> -->
+
+                    <p align="justify">
+                      <i style="display: none;" id="dexwild_abs">
+                        Large-scale, diverse robot datasets have emerged as a promising path toward enabling dexterous
+                        manipulation policies
+                        to generalize to novel environments, but acquiring such datasets presents many challenges. While
+                        teleoperation provides
+                        high-fidelity datasets, its high cost limits its scalability. Instead, what if people could use
+                        their own hands, just
+                        as they do in everyday life, to collect data? In DexWild, a diverse team of data collectors uses
+                        their hands to collect
+                        hours of interactions across a multitude of environments and objects. To record this data, we
+                        create DexWild-System,
+                        a low-cost, mobile, and easy-to-use device. The DexWild learning framework co-trains on both
+                        human and robot
+                        demonstrations, leading to improved performance compared to training on each dataset
+                        individually. This combination
+                        results in robust robot policies capable of generalizing to novel environments, tasks, and
+                        embodiments with minimal
+                        additional robot-specific data. Experimental results demonstrate that DexWild significantly
+                        improves performance,
+                        achieving a 68.5% success rate in unseen environments-nearly four times higher than policies
+                        trained with robot data
+                        only-and offering 5.8x better cross-embodiment generalization.
+                      </i>
+                    </p>
+
+                    <pre xml:space="preserve" style="display:none;">
+@article{tao2025dexwild,
+title={DexWild: Dexterous Human Interactions for In-the-Wild Robot Policies},
+author={Tao, Tony and Srirama, Mohan Kumar and Liu, Jason Jingzhou and Shaw, Kenneth and Pathak, Deepak},
+journal={Robotics: Science and Systems (RSS)},
+year={2025},
+}
+          </pre>
+                  </div>
+                  <p></p>
+                  <p></p>
+                </td>
+              </tr>
+
+
               <tr onmouseout="factr_stop()" onmouseover="factr_start()" bgcolor="#ffffd0">
                 <!-- bgcolor="#ffffd0" -->
                 <td class="paperimage">
@@ -156,9 +246,9 @@
                   Ruslan Salakhutdinov,
                   Deepak Pathak
                   <br>
+                  <br>
                   RSS 2025
                   <br>
-                  <p></p>
                   <div class="paper" id="factr_tog">
                     <a href="https://jasonjzliu.com/factr/">website</a>
                     |
@@ -172,20 +262,20 @@
 
                     <p align="justify">
                       <i style="display: none;" id="factr_abs">
-                        Many contact-rich tasks humans perform, such as box pickup or rolling dough, rely on 
-                        force feedback for reliable execution. However, this force information, which is readily 
-                        available in most robot arms, is not commonly used in teleoperation and policy learning. 
+                        Many contact-rich tasks humans perform, such as box pickup or rolling dough, rely on
+                        force feedback for reliable execution. However, this force information, which is readily
+                        available in most robot arms, is not commonly used in teleoperation and policy learning.
                         Consequently, robot behavior is often limited to quasi-static kinematic tasks that do not
-                         require intricate force-feedback. In this paper, we first present a low-cost, intuitive, 
-                         bilateral teleoperation setup that relays external forces of the follower arm back to 
-                         the teacher arm, facilitating data collection for complex, contact-rich tasks. We 
-                         then introduce FACTR, a policy learning method that employs a curriculum which corrupts 
-                         the visual input with decreasing intensity throughout training. The curriculum prevents 
-                         our transformer-based policy from over-fitting to the visual input and guides the policy 
-                         to properly attend to the force modality. We demonstrate that by fully utilizing the 
-                         force information, our method significantly improves generalization to unseen objects 
-                         by 43% compared to baseline approaches without a curriculum.
-                        </i>
+                        require intricate force-feedback. In this paper, we first present a low-cost, intuitive,
+                        bilateral teleoperation setup that relays external forces of the follower arm back to
+                        the teacher arm, facilitating data collection for complex, contact-rich tasks. We
+                        then introduce FACTR, a policy learning method that employs a curriculum which corrupts
+                        the visual input with decreasing intensity throughout training. The curriculum prevents
+                        our transformer-based policy from over-fitting to the visual input and guides the policy
+                        to properly attend to the force modality. We demonstrate that by fully utilizing the
+                        force information, our method significantly improves generalization to unseen objects
+                        by 43% compared to baseline approaches without a curriculum.
+                      </i>
                     </p>
 
                     <pre xml:space="preserve" style="display:none;">
@@ -241,10 +331,9 @@ year={2025},
                   Florian Shkurti,
                   Nathan Ratliff,
                   Ankur Handa
+                  <br><br>
+                  <em>In submission</em>
                   <br>
-                  <!-- <em>In submission</em>
-        <br> -->
-                  <p></p>
                   <div class="paper" id="synthetica_tog">
                     <a href="https://sites.google.com/view/synthetica-vision">website</a>
                     |
@@ -339,10 +428,9 @@ year={2024},
                   Mayank Mittal,
                   Ken Goldberg,
                   Animesh Garg
-                  <br>
+                  <br><br>
                   ICRA 2024
                   <br>
-                  <p></p>
                   <div class="paper" id="orbit_surgical_tog">
                     <a href="https://orbit-surgical.github.io/">website</a>
                     |
@@ -424,10 +512,9 @@ year={2024},
                   Ming Lin,
                   Miles Macklin,
                   Animesh Garg
-                  <br>
+                  <br><br>
                   ICRA 2024
                   <br>
-                  <p></p>
                   <div class="paper" id="handypriors_tog">
                     <a href="https://handypriors.github.io/">website</a>
                     |
@@ -522,10 +609,9 @@ year={2023},
                   Jean-Francois Lafleche,
                   Dieter Fox,
                   Gavriel State
-                  <br>
+                  <br><br>
                   ICRA 2023
                   <br>
-                  <p></p>
                   <div class="paper" id="dextreme_tog">
                     <a href="https://dextreme.org/">website</a>
                     |
@@ -616,10 +702,9 @@ year={2022},
                   Stavros Tsogkas,
                   Sven Dickinson,
                   Animesh Garg
-                  <br>
+                  <br><br>
                   ICRA 2023
                   <br>
-                  <p></p>
                   <div class="paper" id="fast_graspd_tog">
                     <a href="https://dexgrasp.github.io/">website</a>
                     |
@@ -701,10 +786,9 @@ year={2023},
                   Animesh Garg,
                   Igor Gilitschenski,
                   Jonathan Tompson
-                  <br>
+                  <br><br>
                   CoRL 2023
                   <br>
-                  <p></p>
                   <div class="paper" id="geomatch_tog">
                     <a href="https://geo-match.github.io/">website</a>
                     |
@@ -787,10 +871,9 @@ year={2023},
                   Gavriel State,
                   Marco Hutter,
                   Animesh Garg
-                  <br>
+                  <br><br>
                   IROS 2023 | RA-L
                   <br>
-                  <p></p>
                   <div class="paper" id="orbit_tog">
                     <a href="https://isaac-orbit.github.io/">website</a>
                     |
