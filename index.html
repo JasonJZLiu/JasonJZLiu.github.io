@@ -118,6 +118,87 @@
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
+              <tr onmouseout="drp_stop()" onmouseover="drp_start()" bgcolor="#ffffd0">
+                <td class="paperimage">
+                  <div class="one" align="center">
+                    <div class="two" id='drp_image'>
+                      <video width=100% muted autoplay loop>
+                        <source src="images/main_page/drp.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <img src='images/main_page/drp_image.jpg' width=97%>
+                  </div>
+                  <script type="text/javascript">
+                    function drp_start() {
+                      document.getElementById('drp_image').style.opacity = "1";
+                    }
+
+                    function drp_stop() {
+                      document.getElementById('drp_image').style.opacity = "0";
+                    }
+                    drp_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                  <a href="https://drp-impact.github.io/">
+                    <span class="papertitle">Deep Reactive Policy: Learning Reactive Manipulator Motion Planning for Dynamic Environments</span>
+                  </a>
+                  <br>
+                  Jiahui Yang*,
+                  <strong>Jason Jingzhou Liu*</strong>,
+                  Yulong Li,
+                  Youssef Khaky,
+                  Kenneth Shaw,
+                  Deepak Pathak
+                  <br>
+                  <br>
+                  CoRL 2025 
+                  <br>
+                  <!-- <p></p> -->
+                  <div class="paper" id="drp_tog">
+                    <a href="https://drp-impact.github.io/">website</a>
+                    |
+                    <a href="javascript:toggleblock('drp_abs')">abstract</a>
+                    <!-- |
+                    <a shape="rect" href="javascript:togglebib('drp_tog')" class="togglebib">bibtex</a> -->
+                    <!-- | -->
+                    <!-- <a href="https://arxiv.org/abs/2505.07813">arXiv</a> -->
+                    <!-- |
+                    <a href="https://github.com/RaindragonD/factr/">code</a> -->
+
+                    <p align="justify">
+                      <i style="display: none;" id="drp_abs">
+                        Generating collision-free motion in dynamic, partially observable environments is a fundamental challenge 
+                        for robotic manipulators. Classical motion planners can compute globally optimal trajectories but require 
+                        full environment knowledge and are typically too slow for dynamic scenes. Neural motion policies offer a 
+                        promising alternative by operating in closed-loop directly on raw sensory inputs but often struggle to generalize 
+                        in complex or dynamic settings. We propose Deep Reactive Policy (DRP), a visuo-motor neural motion policy designed 
+                        for reactive motion generation in diverse dynamic environments, operating directly on point cloud sensory input. 
+                        At its core is IMPACT, a transformer-based neural motion policy pretrained on 10 million generated expert trajectories
+                         across diverse simulation scenarios. We further improve IMPACT's static obstacle avoidance through iterative 
+                         student-teacher finetuning. We additionally enhance the policy's dynamic obstacle avoidance at inference time 
+                         using DCP-RMP, a locally reactive goal-proposal module. We evaluate DRP on challenging tasks featuring cluttered 
+                         scenes, dynamic moving obstacles, and goal obstructions. DRP achieves strong generalization, outperforming prior 
+                         classical and neural methods in success rate across both simulated and real-world settings. We will release the 
+                         dataset, simulation environments, and trained models upon acceptance.
+                      </i>
+                    </p>
+
+                    <pre xml:space="preserve" style="display:none;">
+@article{tao2025dexwild,
+title={DexWild: Dexterous Human Interactions for In-the-Wild Robot Policies},
+author={Tao, Tony and Srirama, Mohan Kumar and Liu, Jason Jingzhou and Shaw, Kenneth and Pathak, Deepak},
+journal={Robotics: Science and Systems (RSS)},
+year={2025},
+}
+          </pre>
+                  </div>
+                  <p></p>
+                  <p></p>
+                </td>
+              </tr>
+
 
               <tr onmouseout="dexwild_stop()" onmouseover="dexwild_start()">
                 <td class="paperimage">
@@ -153,7 +234,9 @@
                   Deepak Pathak
                   <br>
                   <br>
-                  RSS 2025
+                  RSS 2025 
+                  <br>
+                  <b><span style="color: red;">Best Paper Award at EgoAct Workshop</span></b>
                   <br>
                   <!-- <p></p> -->
                   <div class="paper" id="dexwild_tog">
@@ -164,8 +247,8 @@
                     <a shape="rect" href="javascript:togglebib('dexwild_tog')" class="togglebib">bibtex</a>
                     |
                     <a href="https://arxiv.org/abs/2505.07813">arXiv</a>
-                    <!-- |
-                    <a href="https://github.com/RaindragonD/factr/">code</a> -->
+                    |
+                    <a href="https://github.com/dexwild/dexwild">code</a>
 
                     <p align="justify">
                       <i style="display: none;" id="dexwild_abs">
