@@ -474,6 +474,11 @@
                   <video class="hover-video center" playsinline
                     src="./result_videos/box_lift/box_lift_vision_only_recovery_fail_anon.mp4" width="100%"
                     preload="metadata" loading="lazy" style="border-radius:10px;"></video>
+                  <p class="panel-caption is-justified">
+                    Policies trained with no robot force information fails to recover when an object unseen during
+                    training is dropped. This likely occurs because the policy overfits to the Training Objects, hence
+                    is unaware when novel objects are dropped.
+                  </p>
                 </div>
 
 
@@ -488,12 +493,18 @@
                   <video class="hover-video center" playsinline
                     src="./result_videos/box_lift/box_lift_ours_recovery_anon.mp4" width="100%" preload="metadata"
                     loading="lazy" style="border-radius:10px;"></video>
+                  <p class="panel-caption is-justified">
+                    Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are
+                    dropped. When the arms lose contact with the object, the robot's external joint torque readings
+                    revert to pre-lift values. Since our policy effectively attends to the robot's forces, the policy
+                    can recover to a pre-lift state.
+                  </p>
                 </div>
               </div>
 
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
-                <div class="row" style="display: flex;  justify-content: center;">
+                <div class="row panel-caption-row" style="display: flex;  justify-content: center;">
                   <div style="width: 45%; padding: 0 10px;">
                     <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
                       Policies trained with no robot force information fails to recover when an object unseen during
@@ -581,6 +592,7 @@
                         loading="lazy" style="border-radius:10px;"></video>
                     </div>
                   </div>
+                  <p class="panel-caption">Fails to lift up the box.</p>
                 </div>
 
                 <!-- Mobile Version (Hidden on Desktop) -->
@@ -615,6 +627,7 @@
                         loading="lazy" style="border-radius:10px;"></video>
                     </div>
                   </div>
+                  <p class="panel-caption">Drops the box while lifting.</p>
                 </div>
               </div>
 
@@ -629,7 +642,7 @@
 
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
-                <div class="row" style="display: flex;">
+                <div class="row panel-caption-row" style="display: flex;">
                   <div style="width: 50%; padding: 0 10px;">
                     <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
                       Fails to lift up the box.
@@ -891,6 +904,7 @@
                   <video id="b_1" class="hover-video center" playsinline
                     src="./result_videos/pivot/pivot_failure_vision_only_stuck.mp4" width="100%" preload="none"
                     loading="lazy" style="border-radius:10px; margin-bottom: 0px;"></video>
+                  <p class="panel-caption">Gets stuck and does not attempt pivoting.</p>
                 </div>
 
                 <!-- Mobile Version (Hidden on Desktop) -->
@@ -911,7 +925,7 @@
                 </div>
 
                 <div class="result-panel" data-panel-label="Vision+Force ACT"
-                  style="width: 66.666%; display: flex; align-items: center; justify-content: center; padding-top: 0px; height: 100%;  gap: 10px;">
+                  style="width: 66.666%; display: flex; align-items: center; justify-content: center; padding-top: 0px; height: 100%;">
                   <div style="display: flex; gap: 10px; width: 100%;">
                     <div style="width: 50%;">
                       <video id="b_3" class="hover-video center" playsinline
@@ -923,6 +937,10 @@
                         src="./result_videos/pivot/pivot_failure_vision_force_fell.mp4" width="100%" preload="none"
                         loading="lazy" style="border-radius:10px;"></video>
                     </div>
+                  </div>
+                  <div class="panel-caption-grid">
+                    <p class="panel-caption">Violates joint velocity limits during motion.</p>
+                    <p class="panel-caption">Drops the object during pivoting.</p>
                   </div>
                 </div>
               </div>
@@ -941,7 +959,7 @@
 
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
-                <div class="row" style="display: flex;">
+                <div class="row panel-caption-row" style="display: flex;">
                   <div style="width: 33%; padding: 0 10px;">
                     <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
                       Gets stuck and does not attempt pivoting.
@@ -1103,6 +1121,7 @@
                         loading="lazy" style="border-radius:10px;"></video>
                     </div>
                   </div>
+                  <p class="panel-caption">Policies without force input fails to roll completely.</p>
                 </div>
 
                 <!-- Mobile Version (Hidden on Desktop) -->
@@ -1134,6 +1153,10 @@
                         loading="lazy" style="border-radius:10px;"></video>
                     </div>
                   </div>
+                  <div class="panel-caption-grid">
+                    <p class="panel-caption">Policies without FACTR fail to continuously roll.</p>
+                    <p class="panel-caption">Policies without FACTR crush out-of-distribution dough.</p>
+                  </div>
                 </div>
               </div>
 
@@ -1151,7 +1174,7 @@
 
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
-                <div class="row" style="display: flex;">
+                <div class="row panel-caption-row" style="display: flex;">
                   <div style="width: 50%; padding: 0 10px;">
                     <p style="font-size: 17px; color: #333; text-align: center; margin: 0 20px;">
                       Policies without force input fails to roll completely.
@@ -1324,7 +1347,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row" style="display: flex;">
+              <div class="row panel-note-row" style="display: flex;">
                 <div style="width: 100%; padding: 0 10px;">
                   <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
                     Both vision-only policies and vision-force policies without FACTR get stuck after the gripper closes

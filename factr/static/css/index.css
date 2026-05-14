@@ -571,6 +571,11 @@ body {
   box-shadow: none;
 }
 
+.factr-page .panel-caption,
+.factr-page .panel-caption-grid {
+  display: none;
+}
+
 @media (min-width: 769px) {
   .factr-page .row {
     width: 100%;
@@ -583,6 +588,10 @@ body {
     display: none !important;
   }
 
+  .factr-page .panel-caption-row {
+    display: none !important;
+  }
+
   .factr-page .panel-row {
     gap: .85rem !important;
     align-items: stretch;
@@ -592,6 +601,8 @@ body {
   .factr-page .panel-row .result-panel {
     box-sizing: border-box;
     min-width: 0;
+    height: auto !important;
+    align-self: stretch !important;
     flex-shrink: 1;
     display: flex !important;
     flex-direction: column !important;
@@ -602,6 +613,23 @@ body {
     border: 1px solid rgba(203, 213, 225, .9) !important;
     border-radius: 14px;
     box-shadow: 0 8px 18px rgba(15, 23, 42, .05);
+  }
+
+  .factr-page .panel-note-row {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1012px;
+    margin: .85rem auto 0 !important;
+    padding: .85rem 1rem !important;
+    background: rgba(255, 255, 255, .68);
+    border: 1px solid rgba(203, 213, 225, .9);
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, .05);
+  }
+
+  .factr-page .panel-note-row p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .factr-page .result-panel::before {
@@ -631,6 +659,32 @@ body {
   .factr-page .result-panel video {
     display: block;
     width: 100% !important;
+  }
+
+  .factr-page .panel-caption {
+    display: block;
+    width: 100%;
+    margin: .6rem 0 0 !important;
+    color: var(--factr-text) !important;
+    font-size: .94rem !important;
+    line-height: 1.4;
+    text-align: center !important;
+  }
+
+  .factr-page .panel-caption.is-justified {
+    text-align: justify !important;
+  }
+
+  .factr-page .panel-caption-grid {
+    display: flex;
+    width: 100%;
+    gap: .6rem;
+    margin-top: .6rem;
+  }
+
+  .factr-page .panel-caption-grid .panel-caption {
+    width: 50%;
+    margin-top: 0 !important;
   }
 }
 
