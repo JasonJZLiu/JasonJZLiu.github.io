@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
 
   <title>Jason Jingzhou Liu</title>
 
@@ -15,7 +15,7 @@
 
   <script>
     function insertContactLinks() {
-      var content = `<p style="text-align:center">
+      const content = `<p class="text-center">
                          <a href="mailto:liujason@cmu.edu">Email</a> &nbsp;|&nbsp;
                          <a href="data/main_page/Jason_Liu_CV_2025-08-26.pdf">CV</a> &nbsp;|&nbsp;
                          <a href="https://scholar.google.com/citations?user=iktexc8AAAAJ">Google Scholar</a> &nbsp;|&nbsp;
@@ -27,32 +27,54 @@
       document.getElementById('contact-links-mobile').innerHTML = content;
     }
 
-    // Call the function when the window loads
-    window.onload = insertContactLinks;
-    document.addEventListener('DOMContentLoaded', insertContactLinks);
+    function setHoverMediaVisibility(row, isVisible) {
+      const media = document.getElementById(row.dataset.hoverMedia);
+      if (media) {
+        media.style.opacity = isVisible ? "1" : "0";
+        const video = media.querySelector('video');
+        if (video) {
+          if (isVisible) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        }
+      }
+    }
+
+    function initHoverMedia() {
+      document.querySelectorAll('.paper-hover[data-hover-media]').forEach((row) => {
+        setHoverMediaVisibility(row, false);
+        row.addEventListener('mouseenter', () => setHoverMediaVisibility(row, true));
+        row.addEventListener('mouseleave', () => setHoverMediaVisibility(row, false));
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      insertContactLinks();
+      initHoverMedia();
+    });
   </script>
 
 </head>
 
 <body>
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <table class="page-table">
     <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <p class="name" style="text-align: center;">
+      <tr class="no-padding-row">
+        <td class="no-padding">
+          <p class="name text-center">
             Jason Jingzhou Liu
           </p>
 
-          <p style="text-align: center;">
+          <p class="text-center">
             <b>Email:</b> liujason [at] cmu [dot] edu
           </p>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
-              <tr style="padding:0px">
+              <tr class="no-padding-row">
                 <td class="bio">
-                  <p style="text-align: justify;">
+                  <p class="text-justify">
                     I am a second-year Robotics PhD student at <a href="https://www.ri.cmu.edu/">Carnegie Mellon
                       University</a> in the School of Computer Science. I am advised by
                     <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a> and <a
@@ -61,7 +83,7 @@
                     manipulation.
                   </p>
 
-                  <p style="text-align: justify;">
+                  <p class="text-justify">
                     I graduated from <a
                       href="https://discover.engineering.utoronto.ca/programs/engineering-programs/engineering-science/">Engineering
                       Science</a>
@@ -75,16 +97,16 @@
                     and <a href="https://www.nathanratliff.com/">Nathan Ratliff</a>.
                   </p>
 
-                  <p style="text-align: justify;">
+                  <p class="text-justify">
                     Feel free to contact me via email at liujason [at] cmu [dot] edu!
                   </p>
 
                   <div id="contact-links-desktop" class="desktoponly"></div>
                 </td>
-                <td style="padding:2.5%;width:35%;max-width:35%" valign="top">
+                <td class="profile-image-cell">
                   <a href="images/main_page/JasonLiu.jpg">
-                    <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 20%;" alt="profile photo"
-                      src="images/main_page/JasonLiu.jpg" class="hoverZoomLink">
+                    <img class="profile-photo hoverZoomLink" alt="profile photo" src="images/main_page/JasonLiu.jpg"
+                      decoding="async" fetchpriority="high">
                   </a>
 
                   <div id="contact-links-mobile" class="mobileonly"></div>
@@ -94,13 +116,12 @@
             </tbody>
           </table>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
+                <td class="section-cell">
                   <h2>Research</h2>
-                  <p style="text-align: justify;">
+                  <p class="text-justify">
                     I am interested in building robotic systems capable of performing dexterous, robust, human-like
                     skills that can generalize to
                     unstructrued and diverse environemnts. My research focuses on robot learning for manipulation and
@@ -114,33 +135,22 @@
           </table>
 
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
 
-              <tr onmouseout="drp_stop()" onmouseover="drp_start()" bgcolor="#ffffd0">
+              <tr class="paper-hover highlighted-publication" data-hover-media="drp_image">
                 <td class="paperimage">
-                  <div class="one" align="center">
+                  <div class="one text-center">
                     <div class="two" id='drp_image'>
-                      <video width=100% muted autoplay loop>
+                      <video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/drp.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/drp_image.jpg' width=97%>
+                    <img src='images/main_page/drp_image.jpg' width=97% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function drp_start() {
-                      document.getElementById('drp_image').style.opacity = "1";
-                    }
-
-                    function drp_stop() {
-                      document.getElementById('drp_image').style.opacity = "0";
-                    }
-                    drp_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://drp-impact.github.io/">
                     <span class="papertitle">Deep Reactive Policy: Learning Reactive Manipulator Motion Planning for Dynamic Environments</span>
                   </a>
@@ -155,7 +165,7 @@
                   <br>
                   CoRL 2025 
                   <br>
-                  <b><span style="color: red;">Best Paper Award at LeaPRiDE Workshop</span></b>
+                  <b><span class="award">Best Paper Award at LeaPRiDE Workshop</span></b>
                   <!-- <p></p> -->
                   <div class="paper" id="drp_tog">
                     <a href="https://drp-impact.github.io/">website</a>
@@ -168,7 +178,7 @@
                     <!-- |
                     <a href="TBD">code</a> -->
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="drp_abs">
                         Generating collision-free motion in dynamic, partially observable environments is a fundamental challenge 
                         for robotic manipulators. Classical motion planners can compute globally optimal trajectories but require 
@@ -204,29 +214,19 @@ year={2025},
 
 
 
-              <tr onmouseout="dexwild_stop()" onmouseover="dexwild_start()" bgcolor="#ffffd0">
+              <tr class="paper-hover highlighted-publication" data-hover-media="dexwild_image">
                 <td class="paperimage">
-                  <div class="one" align="center">
+                  <div class="one text-center">
                     <div class="two" id='dexwild_image'>
-                      <video width=100% muted autoplay loop>
+                      <video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/dexwild.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/dexwild_image.jpg' width=97%>
+                    <img src='images/main_page/dexwild_image.jpg' width=97% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function dexwild_start() {
-                      document.getElementById('dexwild_image').style.opacity = "1";
-                    }
-
-                    function dexwild_stop() {
-                      document.getElementById('dexwild_image').style.opacity = "0";
-                    }
-                    dexwild_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://dexwild.github.io/">
                     <span class="papertitle">DexWild: Dexterous Human Interactions for In-the-Wild Robot Policies</span>
                   </a>
@@ -240,7 +240,7 @@ year={2025},
                   <br>
                   RSS 2025 (Oral)
                   <br>
-                  <b><span style="color: red;">Best Paper Award at EgoAct Workshop</span></b>
+                  <b><span class="award">Best Paper Award at EgoAct Workshop</span></b>
                   <br>
                   <!-- <p></p> -->
                   <div class="paper" id="dexwild_tog">
@@ -254,7 +254,7 @@ year={2025},
                     |
                     <a href="https://github.com/dexwild/dexwild">code</a>
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="dexwild_abs">
                         Large-scale, diverse robot datasets have emerged as a promising path toward enabling dexterous
                         manipulation policies
@@ -297,30 +297,19 @@ year={2025},
               </tr>
 
 
-              <tr onmouseout="factr_stop()" onmouseover="factr_start()" bgcolor="#ffffd0">
-                <!-- bgcolor="#ffffd0" -->
+              <tr class="paper-hover highlighted-publication" data-hover-media="factr_image">
                 <td class="paperimage">
-                  <div class="one" align="center">
+                  <div class="one text-center">
                     <div class="two" id='factr_image'>
-                      <video width=100% muted autoplay loop>
+                      <video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/factr.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/factr_image.jpg' width=97%>
+                    <img src='images/main_page/factr_image.jpg' width=97% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function factr_start() {
-                      document.getElementById('factr_image').style.opacity = "1";
-                    }
-
-                    function factr_stop() {
-                      document.getElementById('factr_image').style.opacity = "0";
-                    }
-                    factr_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://jasonjzliu.com/factr/">
                     <span class="papertitle">FACTR: Force-Attending Curriculum Training
                       for Contact-Rich Policy Learning</span>
@@ -347,7 +336,7 @@ year={2025},
                     |
                     <a href="https://github.com/RaindragonD/factr/">code</a>
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="factr_abs">
                         Many contact-rich tasks humans perform, such as box pickup or rolling dough, rely on
                         force feedback for reliable execution. However, this force information, which is readily
@@ -383,28 +372,17 @@ year={2025},
 
 
 
-              <tr onmouseout="synthetica_stop()" onmouseover="synthetica_start()">
-                <!-- bgcolor="#ffffd0" -->
+              <tr class="paper-hover" data-hover-media="synthetica_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='synthetica_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='synthetica_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/synthetica_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/synthetica.png' width=100%>
+                    <img src='images/main_page/synthetica.png' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function synthetica_start() {
-                      document.getElementById('synthetica_image').style.opacity = "1";
-                    }
-
-                    function synthetica_stop() {
-                      document.getElementById('synthetica_image').style.opacity = "0";
-                    }
-                    synthetica_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://sites.google.com/view/synthetica-vision">
                     <span class="papertitle">Synthetica: Large Scale Synthetic Data Generation for Robot
                       Perception</span>
@@ -432,7 +410,7 @@ year={2025},
                     <!-- | -->
                     <!-- <a href=" TODO ">code</a> -->
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="synthetica_abs">Vision-based object detectors are a crucial basis
                         for robotics
                         applications as they provide valuable information about object localisa-
@@ -478,27 +456,17 @@ year={2024},
               </tr>
 
 
-              <tr onmouseout="orbit_surgical_stop()" onmouseover="orbit_surgical_start()">
+              <tr class="paper-hover" data-hover-media="orbit_surgical_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='orbit_surgical_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='orbit_surgical_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/orbit_surgical_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/orbit_surgical.png' width=100%>
+                    <img src='images/main_page/orbit_surgical.png' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function orbit_surgical_start() {
-                      document.getElementById('orbit_surgical_image').style.opacity = "1";
-                    }
-
-                    function orbit_surgical_stop() {
-                      document.getElementById('orbit_surgical_image').style.opacity = "0";
-                    }
-                    orbit_surgical_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://orbit-surgical.github.io/">
                     <span class="papertitle">ORBIT-Surgical: An Open-Simulation Framework for Accelerated Learning
                       Environments in Surgical Autonomy</span>
@@ -529,7 +497,7 @@ year={2024},
                     <!-- | -->
                     <!-- <a href=" TODO ">code</a> -->
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="orbit_surgical_abs"> Physics-based simulations have accelerated
                         progress in robot learning for driving, manipulation, and locomotion. Yet, a fast, accurate, and
                         robust surgical simulation environment remains a challenge. In this paper, we present
@@ -564,27 +532,17 @@ year={2024},
 
 
 
-              <tr onmouseout="handypriors_stop()" onmouseover="handypriors_start()">
+              <tr class="paper-hover" data-hover-media="handypriors_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='handypriors_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='handypriors_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/handypriors_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/handypriors.png' width=100%>
+                    <img src='images/main_page/handypriors.png' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function handypriors_start() {
-                      document.getElementById('handypriors_image').style.opacity = "1";
-                    }
-
-                    function handypriors_stop() {
-                      document.getElementById('handypriors_image').style.opacity = "0";
-                    }
-                    handypriors_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://handypriors.github.io/">
                     <span class="papertitle">HandyPriors: Physically Consistent Perception of Hand-Object Interactions
                       with Differentiable Priors</span>
@@ -613,7 +571,7 @@ year={2024},
                     <!-- |
           <a href=" TODO ">code</a> -->
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="handypriors_abs">Various heuristic objectives for modeling
                         handobject interaction have been proposed in past work. However,
                         due to the lack of a cohesive framework, these objectives often
@@ -656,27 +614,17 @@ year={2023},
 
 
 
-              <tr onmouseout="dextreme_stop()" onmouseover="dextreme_start()" bgcolor="#ffffd0">
+              <tr class="paper-hover highlighted-publication" data-hover-media="dextreme_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='dextreme_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='dextreme_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/dextreme_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/dextreme.png' width=100%>
+                    <img src='images/main_page/dextreme.png' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function dextreme_start() {
-                      document.getElementById('dextreme_image').style.opacity = "1";
-                    }
-
-                    function dextreme_stop() {
-                      document.getElementById('dextreme_image').style.opacity = "0";
-                    }
-                    dextreme_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://dextreme.org/">
                     <span class="papertitle">DeXtreme: Transfer of Agile In-Hand Manipulation from Simulation to
                       Reality</span>
@@ -711,7 +659,7 @@ year={2023},
                     <a
                       href="https://github.com/NVIDIA-Omniverse/IsaacGymEnvs/tree/main/isaacgymenvs/tasks/dextreme">code</a>
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="dextreme_abs">Recent work has demonstrated the ability of deep
                         reinforcement learning (RL) algorithms to learn complex robotic behaviours in simulation,
                         including in the domain of multi-fingered manipulation. However, such models can be challenging
@@ -752,27 +700,17 @@ year={2022},
 
 
 
-              <tr onmouseout="fast_graspd_stop()" onmouseover="fast_graspd_start()">
+              <tr class="paper-hover" data-hover-media="fast_graspd_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='fast_graspd_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='fast_graspd_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/fast_graspd_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/fast_graspd.png' width=100%>
+                    <img src='images/main_page/fast_graspd.png' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function fast_graspd_start() {
-                      document.getElementById('fast_graspd_image').style.opacity = "1";
-                    }
-
-                    function fast_graspd_stop() {
-                      document.getElementById('fast_graspd_image').style.opacity = "0";
-                    }
-                    fast_graspd_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://dexgrasp.github.io/">
                     <span class="papertitle">Fast-Grasp'D: Dexterous Multi-finger Grasp Generation Through
                       Differentiable Simulation</span>
@@ -803,7 +741,7 @@ year={2022},
                     <!-- |
           <a href=" TODO ">code</a> -->
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="fast_graspd_abs"> Multi-finger grasping relies on high quality
                         training data, which is hard to obtain: human data is hard to transfer and synthetic data relies
                         on simplifying assumptions that reduce grasp quality. By making grasp simulation differentiable,
@@ -841,27 +779,17 @@ year={2023},
 
 
 
-              <tr onmouseout="geomatch_stop()" onmouseover="geomatch_start()">
+              <tr class="paper-hover" data-hover-media="geomatch_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='geomatch_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='geomatch_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/geomatch_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/geomatch.png' width=100%>
+                    <img src='images/main_page/geomatch.png' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function geomatch_start() {
-                      document.getElementById('geomatch_image').style.opacity = "1";
-                    }
-
-                    function geomatch_stop() {
-                      document.getElementById('geomatch_image').style.opacity = "0";
-                    }
-                    geomatch_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://geo-match.github.io/">
                     <span class="papertitle">Geometry Matching for Multi-Embodiment Grasping.</span>
                   </a>
@@ -887,7 +815,7 @@ year={2023},
                     |
                     <a href="https://github.com/google-deepmind/geomatch">code</a>
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="geomatch_abs">Many existing learning-based grasping approaches
                         concentrate on a single embodiment, provide limited generalization to higher DoF end-effectors
                         and cannot capture a diverse set of grasp modes. We tackle the problem of grasping using
@@ -917,27 +845,17 @@ year={2023},
               </tr>
 
 
-              <tr onmouseout="orbit_stop()" onmouseover="orbit_start()" bgcolor="#ffffd0">
+              <tr class="paper-hover highlighted-publication" data-hover-media="orbit_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='orbit_image'><video width=100% muted autoplay loop>
+                    <div class="two" id='orbit_image'><video width=100% muted loop playsinline preload="metadata">
                         <source src="images/main_page/orbit_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/orbit.jpg' width=100%>
+                    <img src='images/main_page/orbit.jpg' width=100% loading="lazy" decoding="async">
                   </div>
-                  <script type="text/javascript">
-                    function orbit_start() {
-                      document.getElementById('orbit_image').style.opacity = "1";
-                    }
-
-                    function orbit_stop() {
-                      document.getElementById('orbit_image').style.opacity = "0";
-                    }
-                    orbit_stop()
-                  </script>
                 </td>
-                <td style="padding:20px;width:75%;vertical-align:middle;text-align:justify;">
+                <td class="paperdetails text-justify">
                   <a href="https://isaac-orbit.github.io/">
                     <span class="papertitle">Orbit: A Unified Simulation Framework for Interactive Robot Learning
                       Environments</span>
@@ -972,7 +890,7 @@ year={2023},
                     |
                     <a href="https://github.com/NVIDIA-Omniverse/orbit">code</a>
 
-                    <p align="justify">
+                    <p class="text-justify">
                       <i style="display: none;" id="orbit_abs">We present Orbit, a unified and modular framework for
                         robot learning powered by NVIDIA Isaac Sim. It offers a modular design to easily and efficiently
                         create robotic environments with photo-realistic scenes and high-fidelity rigid and deformable
@@ -1023,45 +941,45 @@ doi={10.1109/LRA.2023.3270034}
 
 
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-title-table">
             <tbody>
               <tr>
-                <td style="padding-top: 40px;">
+                <td class="section-heading-cell">
                   <h2>Education</h2>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellpadding="0">
+          <table class="education-table">
             <tbody>
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
+                <td class="education-logo-cell">
                   <a href="https://www.ri.cmu.edu/">
-                    <img src="images/main_page/cmu.png" style="max-width:70%;">
+                    <img class="cmu-logo" src="images/main_page/cmu.png" loading="lazy" decoding="async">
                   </a>
                 </td>
-                <td width="50%" valign="center">
+                <td class="education-detail-cell">
                   <b>Ph.D in Robotics</b>
                   <br>
                   School of Computer Science
                   <br><br>
                   Carnegie Mellon University
                 </td>
-                <td width="25%" valign="center" align="right">
+                <td class="education-date-cell">
                   2024 - Present
                 </td>
               </tr>
-              <tr style="height:20px;" class="mobileonly">
+              <tr class="mobileonly education-spacer-row">
                 <td colspan="3"></td>
               </tr>
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
+                <td class="education-logo-cell">
                   <a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/engineering-science/">
-                    <img src="images/main_page/uoft.png" style="max-width:90%;">
+                    <img class="uoft-logo" src="images/main_page/uoft.png" loading="lazy" decoding="async">
                   </a>
                 </td>
-                <td width="50%" valign="center">
+                <td class="education-detail-cell">
                   <b>Bachelor of Applied Science and Engineering</b>
                   <br>
                   Engineering Science Robotics
@@ -1069,7 +987,7 @@ doi={10.1109/LRA.2023.3270034}
                   University of Toronto
                   <br>
                 </td>
-                <td width="25%" valign="center" align="right">
+                <td class="education-date-cell">
                   2019 - 2024
                 </td>
               </tr>
@@ -1078,81 +996,67 @@ doi={10.1109/LRA.2023.3270034}
 
 
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-title-table">
             <tbody>
               <tr>
-                <td style="padding-top: 40px;">
+                <td class="section-heading-cell">
                   <h2>Personal Projects</h2>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table width="100%" align="center" border="0" cellpadding="20">
+          <table class="content-table">
             <tbody>
 
-              <table
-                style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                <tbody>
+              <tr class="paper-hover" data-hover-media="eng_sci_capstone_image">
+                <td class="paperimage">
+                  <div class="one">
+                    <div class="two" id='eng_sci_capstone_image'><video width=100% muted loop playsinline preload="metadata">
+                        <source src="images/main_page/eng_sci_capstone_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div>
+                    <img src='images/main_page/eng_sci_capstone.png' width=100% loading="lazy" decoding="async">
+                  </div>
+                </td>
+                <td class="paperdetails">
+                  <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">
+                    <span class="papertitle">Safe Drone Teleoperation with Real Time Mapping and Obstacle
+                      Avoidance</span>
+                  </a>
+                  <br>
+                  Engineering Science Robotics Capstone
+                  <br>
+                  University of Toronto
+                  <br>
+                  <p></p>
+                  <div class="paper" id="eng_sci_capstone_tog">
+                    <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">website</a>
+                    |
+                    <a href="javascript:toggleblock('eng_sci_capstone_abs')">abstract</a>
+                    |
+                    <a
+                      href="https://youtube.com/playlist?list=PLXA2xQ2PoSDIsXgDwbFxVmVYZtm3Uqi-j&si=yD0VoFYAUGvRks8F">video</a>
+                    |
+                    <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">code</a>
 
-                  <tr onmouseout="eng_sci_capstone_stop()" onmouseover="eng_sci_capstone_start()">
-                    <td class="paperimage">
-                      <div class="one">
-                        <div class="two" id='eng_sci_capstone_image'><video width=100% muted autoplay loop>
-                            <source src="images/main_page/eng_sci_capstone_video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video></div>
-                        <img src='images/main_page/eng_sci_capstone.png' width=100%>
-                      </div>
-                      <script type="text/javascript">
-                        function eng_sci_capstone_start() {
-                          document.getElementById('eng_sci_capstone_image').style.opacity = "1";
-                        }
-
-                        function eng_sci_capstone_stop() {
-                          document.getElementById('eng_sci_capstone_image').style.opacity = "0";
-                        }
-                        eng_sci_capstone_stop()
-                      </script>
-                    </td>
-                    <td style="padding:20px;width:75%;vertical-align:middle">
-                      <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">
-                        <span class="papertitle">Safe Drone Teleoperation with Real Time Mapping and Obstacle
-                          Avoidance</span>
-                      </a>
-                      <br>
-                      Engineering Science Robotics Capstone
-                      <br>
-                      University of Toronto
-                      <br>
-                      <p></p>
-                      <div class="paper" id="eng_sci_capstone_tog">
-                        <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">website</a>
-                        |
-                        <a href="javascript:toggleblock('eng_sci_capstone_abs')">abstract</a>
-                        |
-                        <a
-                          href="https://youtube.com/playlist?list=PLXA2xQ2PoSDIsXgDwbFxVmVYZtm3Uqi-j&si=yD0VoFYAUGvRks8F">video</a>
-                        |
-                        <a href="https://github.com/JasonJZLiu/ROB498-Capstone-Project">code</a>
-
-                        <p align="justify">
-                          <i style="display: none;" id="eng_sci_capstone_abs">
-                            Teleoperating a drone in a safe manner can be challenging, particularly in cluttered indoor
-                            environments with an abundance of obstacles. We present a safe teleoperation system for
-                            drones by performing automatic real-time dynamic obstacle avoidance, allowing us to expose a
-                            suite of simplified high-level control primitives to the drone operator such as "fly
-                            forward", "fly to the left", "fly up", "rotate", etc. This system reduces the complexity and
-                            the extent of the manual controls required from drone operators to fly the drone safely. The
-                            system accomplishes this by constructing a dynamic map of its environment in real-time and
-                            continuously performing path-planning using the map in order to execute a collision-free
-                            path to the desired user-specified position target.
-                          </i>
-                        </p>
-                      </div>
-                      <p></p>
-                      <p></p>
-                    </td>
-                  </tr>
+                    <p class="text-justify">
+                      <i style="display: none;" id="eng_sci_capstone_abs">
+                        Teleoperating a drone in a safe manner can be challenging, particularly in cluttered indoor
+                        environments with an abundance of obstacles. We present a safe teleoperation system for
+                        drones by performing automatic real-time dynamic obstacle avoidance, allowing us to expose a
+                        suite of simplified high-level control primitives to the drone operator such as "fly
+                        forward", "fly to the left", "fly up", "rotate", etc. This system reduces the complexity and
+                        the extent of the manual controls required from drone operators to fly the drone safely. The
+                        system accomplishes this by constructing a dynamic map of its environment in real-time and
+                        continuously performing path-planning using the map in order to execute a collision-free
+                        path to the desired user-specified position target.
+                      </i>
+                    </p>
+                  </div>
+                  <p></p>
+                  <p></p>
+                </td>
+              </tr>
 
 
                   <!-- <tr onmouseout="ball_balance_stop()" onmouseover="ball_balance_start()">
@@ -1175,7 +1079,7 @@ doi={10.1109/LRA.2023.3270034}
                 ball_balance_stop()
               </script>
             </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
+            <td class="paperdetails">
               <a href="https://github.com/JasonJZLiu/BallBalancingTable">
                 <span class="papertitle">Vision-Based Ball Balancing Table</span>
               </a>
@@ -1194,7 +1098,7 @@ doi={10.1109/LRA.2023.3270034}
                 |
                 <a href="https://github.com/JasonJZLiu/BallBalancingTable">code</a>
       
-                <p align="justify">
+                <p class="text-justify">
                   <i style="display: none;" id="ball_balance_abs">
                     The ball-balancing table is a robotic platform capable of controlling the position of a ball on a plate by adjusting the plate’s orientation via feedback control. The system has two degrees-of-freedom (DOF), actuated by two servos. The ball position is obtained in real-time by capturing bird’s eye view images using a camera and performing image processing to track the pixel coordinates of the center of the ball. For each servo, the output commands are computed by calculating the error signal and passing it through a PID controller to regulate the ball position.
                   </i>
@@ -1205,32 +1109,25 @@ doi={10.1109/LRA.2023.3270034}
             </td>
           </tr> -->
 
+            </tbody>
+          </table>
 
-                </tbody>
-              </table>
-
-
-
-
-
-
-
-              <table
-                style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                <tbody>
-                  <tr>
-                    <td style="padding:0px">
-                      <br>
-                      <p style="text-align:right;font-size:xx-small;">
-                        Modified template from <a style="font-size:xx-small;"
-                          href="https://github.com/jonbarron/jonbarron_website">here</a>.
-                      </p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          <table class="content-table">
+            <tbody>
+              <tr>
+                <td class="no-padding">
+                  <br>
+                  <p class="footer-credit">
+                    Modified template from <a
+                      href="https://github.com/jonbarron/jonbarron_website">here</a>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </td>
       </tr>
+    </tbody>
   </table>
 </body>
 
