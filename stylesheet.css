@@ -282,6 +282,16 @@ h2 {
   font-weight: 700;
 }
 
+.venue {
+  display: inline-block;
+  margin-top: 7px;
+}
+
+.institution {
+  display: inline-block;
+  margin-top: 7px;
+}
+
 .education-logo-cell {
   padding: 20px;
   width: 25%;
@@ -339,7 +349,7 @@ h2 {
 .papertitle {
   color: #102a43;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -475,16 +485,26 @@ span.highlight {
     font-size: 15px;
   }
 
+  .intro-row {
+    display: flex;
+    flex-direction: column;
+  }
+
   .bio {
-    padding: 16px 10px 6px;
-    width: 65%;
+    display: block;
+    order: 2;
+    padding: 6px 10px 6px;
+    width: auto;
     vertical-align: middle;
   }
 
   .profile-image-cell {
-    padding: 16px 10px 10px;
-    width: 35%;
-    max-width: 35%;
+    display: block;
+    order: 1;
+    max-width: 240px;
+    margin: 0 auto;
+    padding: 10px 14px 6px;
+    width: auto;
     vertical-align: top;
   }
 
