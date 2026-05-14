@@ -783,7 +783,12 @@ body {
 
 @media (max-width: 768px) {
   .factr-page > .section {
-    padding: 1.35rem .85rem 1.5rem;
+    padding: 4.4rem .85rem 1.5rem;
+  }
+
+  .factr-page .topnav {
+    top: .75rem;
+    left: .75rem;
   }
 
   .factr-page .container {
