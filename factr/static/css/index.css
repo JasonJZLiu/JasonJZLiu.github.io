@@ -432,6 +432,10 @@ body {
   color: var(--factr-red) !important;
 }
 
+.factr-page .title-nowrap {
+  white-space: nowrap;
+}
+
 .factr-page h4.publication-title,
 .factr-page #BibTeX .title,
 .factr-page #Ack .title {
@@ -821,6 +825,10 @@ body {
 
   .factr-page h1.publication-title {
     font-size: 1.85rem;
+  }
+
+  .factr-page .title-nowrap {
+    white-space: normal;
   }
 
   .factr-page .publication-links {
