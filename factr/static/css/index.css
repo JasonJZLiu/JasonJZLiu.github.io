@@ -546,10 +546,6 @@ body {
   box-shadow: 0 12px 28px rgba(15, 23, 42, .12);
 }
 
-.factr-page video {
-  background: #05070b;
-}
-
 .factr-page img[src*="cmu-wordmark"] {
   border: 0;
   box-shadow: none;
