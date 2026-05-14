@@ -91,12 +91,12 @@ tr,
 p,
 a {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 strong {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h2 {
@@ -265,6 +265,10 @@ h2 {
   border-top: 1px solid #edf2f7;
 }
 
+.section-title-table + .content-table .paper-hover:first-child > td {
+  border-top: 0;
+}
+
 .paper-hover:hover {
   background-color: #f7fbff;
 }
@@ -335,7 +339,7 @@ h2 {
 .papertitle {
   color: #102a43;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -432,16 +436,16 @@ span.highlight {
   background-color: #fff9df;
 }
 
-.footer-credit {
-  text-align: right;
-  font-size: xx-small;
-}
-
-.footer-credit a {
-  font-size: xx-small;
-}
-
 @media (max-width: 768px) {
+  td,
+  th,
+  tr,
+  p,
+  a,
+  strong {
+    font-size: 14px;
+  }
+
   body {
     background: #ffffff;
   }
@@ -465,6 +469,10 @@ span.highlight {
   .name {
     padding-top: 24px;
     font-size: 31px;
+  }
+
+  .papertitle {
+    font-size: 15px;
   }
 
   .bio {
@@ -507,6 +515,10 @@ span.highlight {
 
   .paper-hover > td {
     display: block;
+    border-top: 0;
+  }
+
+  .section-title-table + .content-table .paper-hover:first-child {
     border-top: 0;
   }
 
