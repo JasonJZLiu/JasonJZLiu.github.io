@@ -28,6 +28,7 @@
     }
 
     function setHoverMediaVisibility(row, isVisible) {
+      row.classList.toggle('is-hovering', isVisible);
       const media = document.getElementById(row.dataset.hoverMedia);
       if (media) {
         media.style.opacity = isVisible ? "1" : "0";
@@ -67,7 +68,7 @@
             Jason Jingzhou Liu
           </p>
 
-          <p class="text-center">
+          <p class="text-center intro-email">
             <b>Email:</b> liujason [at] cmu [dot] edu
           </p>
           <table class="content-table">
@@ -78,9 +79,7 @@
                     I am a second-year Robotics PhD student at <a href="https://www.ri.cmu.edu/">Carnegie Mellon
                       University</a> in the School of Computer Science. I am advised by
                     <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a> and <a
-                      href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a>, working on robot learning and
-                    dexterous
-                    manipulation.
+                      href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a>, working on robot learning for manipulation.
                   </p>
 
                   <p class="text-justify">
@@ -92,8 +91,8 @@
                     at the <a href="https://rvl.cs.toronto.edu/">Robot Vision & Learning Lab</a>. I also worked on
                     simulation and robot learning research at <a href="https://developer.nvidia.com/isaac">NVIDIA</a>,
                     collaborating with
-                    <a href="https://scholar.google.com/citations?user=sCTJI-0AAAAJ">Ankur Handa</a>,
-                    <a href="https://scholar.google.com/citations?user=TCYAoF8AAAAJ">Karl Van Wyk</a>,
+                    <a href="https://scholar.google.com/citations?user=sCTJI-0AAAAJ">Ankur Handa</a>
+                    <!-- <a href="https://scholar.google.com/citations?user=TCYAoF8AAAAJ">Karl Van Wyk</a>, -->
                     and <a href="https://www.nathanratliff.com/">Nathan Ratliff</a>.
                   </p>
 
@@ -122,11 +121,11 @@
                 <td class="section-cell">
                   <h2>Research</h2>
                   <p class="text-justify">
-                    I am interested in building robotic systems capable of performing dexterous, robust, human-like
-                    skills that can generalize to
-                    unstructrued and diverse environemnts. My research focuses on robot learning for manipulation and
-                    perception with an emphasis on
-                    sim-to-real.
+                    I am interested in scaling robot learning systems toward dexterous, 
+                    robust manipulation in unstructured and diverse environments. 
+                    I enjoy working across the full stack, from improving robot learning algorithms 
+                    to designing hardware systems that enable scalable, high-quality data collection.
+                    Most recently, my work has focused on mobile manipulation systems.
                     Representative papers are <span class="highlight">highlighted</span>.
                   </p>
                 </td>
