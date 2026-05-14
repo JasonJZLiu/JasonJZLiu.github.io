@@ -11,7 +11,7 @@
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
   <!-- <link rel="shortcut icon" href="https://www.cs.cmu.edu/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon"> -->
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <script type="text/javascript" src="js/hidebib.js"></script>
+  <script type="text/javascript" src="js/hidebib.js" defer></script>
 
   <script>
     function insertContactLinks() {
@@ -27,6 +27,14 @@
       document.getElementById('contact-links-mobile').innerHTML = content;
     }
 
+    function loadHoverVideo(video) {
+      if (!video || video.dataset.loaded === 'true') {
+        return;
+      }
+      video.load();
+      video.dataset.loaded = 'true';
+    }
+
     function setHoverMediaVisibility(row, isVisible) {
       row.classList.toggle('is-hovering', isVisible);
       const media = document.getElementById(row.dataset.hoverMedia);
@@ -35,6 +43,7 @@
         const video = media.querySelector('video');
         if (video) {
           if (isVisible) {
+            loadHoverVideo(video);
             video.play().catch(() => {});
           } else {
             video.pause();
@@ -155,7 +164,7 @@
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='drp_image'>
-                      <video width=100% muted loop playsinline preload="metadata">
+                      <video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/drp.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
@@ -230,7 +239,7 @@ year={2025},
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='dexwild_image'>
-                      <video width=100% muted loop playsinline preload="metadata">
+                      <video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/dexwild.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
@@ -312,7 +321,7 @@ year={2025},
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='factr_image'>
-                      <video width=100% muted loop playsinline preload="metadata">
+                      <video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/factr.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
@@ -385,7 +394,7 @@ year={2025},
               <tr class="paper-hover" data-hover-media="synthetica_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='synthetica_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='synthetica_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/synthetica_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -469,7 +478,7 @@ year={2024},
               <tr class="paper-hover" data-hover-media="orbit_surgical_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='orbit_surgical_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='orbit_surgical_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/orbit_surgical_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -545,7 +554,7 @@ year={2024},
               <tr class="paper-hover" data-hover-media="handypriors_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='handypriors_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='handypriors_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/handypriors_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -627,7 +636,7 @@ year={2023},
               <tr class="paper-hover highlighted-publication" data-hover-media="dextreme_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='dextreme_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='dextreme_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/dextreme_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -713,7 +722,7 @@ year={2022},
               <tr class="paper-hover" data-hover-media="fast_graspd_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='fast_graspd_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='fast_graspd_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/fast_graspd_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -792,7 +801,7 @@ year={2023},
               <tr class="paper-hover" data-hover-media="geomatch_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='geomatch_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='geomatch_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/geomatch_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -858,7 +867,7 @@ year={2023},
               <tr class="paper-hover highlighted-publication" data-hover-media="orbit_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='orbit_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='orbit_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/orbit_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
@@ -1069,7 +1078,7 @@ doi={10.1109/LRA.2023.3270034}
               <tr class="paper-hover" data-hover-media="eng_sci_capstone_image">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='eng_sci_capstone_image'><video width=100% muted loop playsinline preload="metadata">
+                    <div class="two" id='eng_sci_capstone_image'><video width=100% muted loop playsinline preload="none">
                         <source src="images/main_page/eng_sci_capstone_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
