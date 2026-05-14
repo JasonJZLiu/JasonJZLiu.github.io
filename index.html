@@ -89,11 +89,11 @@
                     at the University of Toronto, where I received my B.ASc. Previously, I worked with <a
                       href="https://www.cs.toronto.edu/~florian/">Florian Shkurti</a>
                     at the <a href="https://rvl.cs.toronto.edu/">Robot Vision & Learning Lab</a>. I also worked on
-                    simulation and robot learning research at <a href="https://developer.nvidia.com/isaac">NVIDIA</a>,
+                    simulation and robot learning research at <a href="https://developer.nvidia.com/blog/reinforcing-the-value-of-simulation-by-teaching-dexterity-to-a-real-robot-hand/">NVIDIA</a>,
                     collaborating with
                     <a href="https://scholar.google.com/citations?user=sCTJI-0AAAAJ">Ankur Handa</a>
                     <!-- <a href="https://scholar.google.com/citations?user=TCYAoF8AAAAJ">Karl Van Wyk</a>, -->
-                    and <a href="https://www.nathanratliff.com/">Nathan Ratliff</a>.
+                    and <a href="https://scholar.google.com/citations?user=4bl7qAgAAAAJ">Nathan Ratliff</a>.
                   </p>
 
                   <p class="text-justify">
@@ -116,12 +116,27 @@
           <table class="content-table">
             <tbody>
               <tr>
+                <td class="section-cell news-section">
+                  <h2>News</h2>
+                  <ul class="news-list">
+                    <li><span class="news-date">[09/2025]</span> <span class="news-text"><a href="https://drp-impact.github.io/">Deep Reactive Policy</a> won <strong>Best Paper Award</strong> at the IROS 2025 LeaPRiDE Workshop.</span></li>
+                    <li><span class="news-date">[06/2025]</span> <span class="news-text"><a href="https://dexwild.github.io/">DexWild</a> won <strong>Best Paper Award</strong> at the RSS 2025 EgoAct Workshop.</span></li>
+                    <li><span class="news-date">[06/2024]</span> <span class="news-text">I received the <strong>W.S. Wilson Medal</strong> for ranking 1st in the University of Toronto Engineering class of 2024.</span></li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="content-table">
+            <tbody>
+              <tr>
                 <td class="section-cell">
                   <h2>Research</h2>
                   <p class="text-justify">
-                    I am interested in scaling robot learning systems toward dexterous, 
-                    robust manipulation in unstructured and diverse environments. 
-                    I enjoy working across the full stack, from improving robot learning algorithms 
+                    I am interested in scaling robot learning systems toward dexterous,
+                    robust manipulation in unstructured and diverse environments.
+                    I enjoy working across the full stack, from improving robot learning algorithms
                     to designing hardware systems that enable scalable, high-quality data collection.
                     Most recently, my work has focused on mobile manipulation systems.
                     Representative papers are <span class="highlight">highlighted</span>.
@@ -1001,6 +1016,54 @@ doi={10.1109/LRA.2023.3270034}
           </table>
           <table class="content-table">
             <tbody>
+
+              <tr class="paper-hover">
+                <td class="paperimage">
+                  <div class="project-image">
+                    <img class="project-thumbnail" src='images/main_page/undergrad_thesis.png' width=100% loading="lazy"
+                      decoding="async">
+                  </div>
+                </td>
+                <td class="paperdetails">
+                  <a href="data/Jingzhou_Liu_University_of_Toronto_Engineering_Science_Thesis.pdf">
+                    <span class="papertitle">Geometric Fabrics Guided Learning for Collision-Free Manipulator Global
+                      Motion Generation</span>
+                  </a>
+                  <br>
+                  Engineering Science Undergraduate Thesis
+                  <br>
+                  University of Toronto
+                  <br>
+                  <p></p>
+                  <div class="paper" id="geometric_fabrics_tog">
+                    <a href="data/Jingzhou_Liu_University_of_Toronto_Engineering_Science_Thesis.pdf">thesis</a>
+                    |
+                    <a href="javascript:toggleblock('geometric_fabrics_abs')">abstract</a>
+                    |
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iktexc8AAAAJ&citation_for_view=iktexc8AAAAJ:ULOm3_A8WrAC">related patent</a>
+
+                    <p class="text-justify">
+                      <i style="display: none;" id="geometric_fabrics_abs">
+                        Collision-free global motion generation for manipulators in unknown and dynamic environments
+                        remains a challenging yet important problem for any manipulation tasks. Traditional methods,
+                        such as global planners and locally-reactive controllers, either lack the sufficient runtime
+                        speed necessary for reactive settings or fail to find valid solutions in complex environments.
+                        Recent advances in neural motion generation seek to amalgamate the strengths of these existing
+                        methods by training neural network policies on expert datasets, but they typically struggle to
+                        generalize to problems that are out of the training distribution. In this work, we present a
+                        novel neural motion generation method that aims to improve the performance of prior neural motion
+                        generation policies. We leverage geometric fabrics as a safe guiding medium to train a
+                        reinforcement learning policy conditioned on the scene. We show that our approach achieves
+                        superior performance over existing neural generation methods in terms of completeness, collision
+                        rate, and reactiveness, thereby demonstrating a new promising direction towards robust and
+                        reactive global manipulator motion generation.
+                      </i>
+                    </p>
+                  </div>
+                  <p></p>
+                  <p></p>
+                </td>
+              </tr>
 
               <tr class="paper-hover" data-hover-media="eng_sci_capstone_image">
                 <td class="paperimage">
