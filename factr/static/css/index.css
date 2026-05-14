@@ -627,6 +627,10 @@ body {
   font-size: .95rem;
 }
 
+.factr-page #BibTeX pre code {
+  font-size: .82rem;
+}
+
 .factr-page #BibTeX,
 .factr-page #Ack {
   padding-top: 1rem;
