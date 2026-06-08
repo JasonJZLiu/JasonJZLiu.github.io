@@ -662,8 +662,12 @@ video {
   font-weight: 900;
   line-height: 1;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.72);
-  content: "Autonomous 2X";
+  content: var(--autonomous-label, "Autonomous 2X");
   pointer-events: none;
+}
+
+.highlight-frame--autonomous-label-4x {
+  --autonomous-label: "Autonomous 4X";
 }
 
 .highlight-frame--tool-cleanup video {
