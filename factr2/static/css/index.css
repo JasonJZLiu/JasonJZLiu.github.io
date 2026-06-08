@@ -16,7 +16,7 @@
   --first-accent-2: #d48a32;
   --first-tint: #fff1e8;
   --first-line: rgba(184, 85, 42, 0.24);
-  --shadow: 0 18px 38px rgba(26, 37, 32, 0.1);
+  --shadow: 0 10px 22px rgba(26, 37, 32, 0.055);
   --font-main: Aptos, "Aptos Display", "Aptos Text", "Segoe UI", Arial, sans-serif;
   --page-gutter: clamp(2rem, 6vw, 6rem);
   --small-text-weight: 500;
@@ -660,7 +660,7 @@ video {
   line-height: 1;
   cursor: pointer;
   transform: translateY(-50%);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
 }
 
 .highlight-carousel-button:hover {
@@ -1406,7 +1406,7 @@ video {
   border-bottom: 3px solid var(--section-line);
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 14px 28px rgba(26, 37, 32, 0.06);
+  box-shadow: 0 7px 16px rgba(26, 37, 32, 0.035);
   aspect-ratio: 3.4 / 1;
 }
 
@@ -1867,7 +1867,7 @@ video {
 }
 
 .task-secondary {
-  box-shadow: 0 12px 28px rgba(14, 39, 31, 0.1);
+  box-shadow: 0 7px 16px rgba(14, 39, 31, 0.055);
 }
 
 .task-showcase-block {

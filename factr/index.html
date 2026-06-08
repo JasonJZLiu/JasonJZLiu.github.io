@@ -58,6 +58,28 @@
 </head>
 
 <body class="factr-page">
+  <nav class="factr-site-nav" aria-label="project navigation">
+    <a class="factr-site-nav__brand" href="#">FACTR</a>
+    <details class="factr-site-nav__research">
+      <summary>More Research</summary>
+      <div class="factr-site-nav__research-menu">
+        <a href="https://jasonjzliu.com/factr2/">FACTR 2</a>
+      </div>
+    </details>
+    <button class="factr-site-nav__toggle" type="button" aria-expanded="false" aria-controls="factr-site-nav-links" aria-label="Open navigation menu" data-factr-nav-toggle>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+    <div class="factr-site-nav__links" id="factr-site-nav-links" data-factr-nav-links>
+      <a href="#abstract">Abstract</a>
+      <a href="#results">Results</a>
+      <a href="#FACTR_autonomous_policies">Policies</a>
+      <a href="#low_cost_bilateral_teleop">Teleop</a>
+      <a href="#BibTeX">BibTeX</a>
+    </div>
+  </nav>
+
   <section class="section">
     <div class="container">
       <div class="columns is-centered">
@@ -180,7 +202,7 @@
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-two-thirds">
-          <h4 class="title is-34 publication-title">Abstract</h4>
+          <h4 class="title is-34 publication-title" id="abstract">Abstract</h4>
           <div class="content has-text-justified">
             <p style="font-size: 17px">
               Many contact-rich tasks humans perform, such
@@ -208,7 +230,7 @@
         <div class="container">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h4 class="title is-34 publication-title">Results Highlights</h4>
+              <h4 class="title is-34 publication-title" id="results">Results Highlights</h4>
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
                 <div class="row panel-label-row" style="display: flex; margin-bottom: 5px; justify-content: center;">
@@ -454,7 +476,7 @@
                 </div>
               </div>
 
-              <div class="row panel-row" style="display: flex;  justify-content: center;">
+              <div class="row panel-row task1-recovery-panel-row" style="display: flex;  justify-content: center;">
                 <!-- Mobile Version (Hidden on Desktop) -->
                 <div class="results-mobile">
                   <div>
@@ -466,11 +488,6 @@
                   <video class="hover-video center" playsinline
                     src="./result_videos/box_lift/box_lift_vision_only_recovery_fail_anon.mp4" width="100%"
                     preload="none" loading="lazy" style="border-radius:10px;"></video>
-                  <p class="panel-caption is-justified">
-                    Policies trained with no robot force information fails to recover when an object unseen during
-                    training is dropped. This likely occurs because the policy overfits to the Training Objects, hence
-                    is unaware when novel objects are dropped.
-                  </p>
                 </div>
 
 
@@ -485,18 +502,12 @@
                   <video class="hover-video center" playsinline
                     src="./result_videos/box_lift/box_lift_ours_recovery_anon.mp4" width="100%" preload="none"
                     loading="lazy" style="border-radius:10px;"></video>
-                  <p class="panel-caption is-justified">
-                    Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are
-                    dropped. When the arms lose contact with the object, the robot's external joint torque readings
-                    revert to pre-lift values. Since our policy effectively attends to the robot's forces, the policy
-                    can recover to a pre-lift state.
-                  </p>
                 </div>
               </div>
 
               <!-- Desktop Version (Hidden on Mobile) -->
               <div class="results-desktop">
-                <div class="row panel-caption-row" style="display: flex;  justify-content: center;">
+                <div class="row panel-caption-row task1-recovery-caption-row" style="display: flex;  justify-content: center;">
                   <div style="width: 45%; padding: 0 10px;">
                     <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
                       Policies trained with no robot force information fails to recover when an object unseen during
@@ -511,8 +522,7 @@
                     <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
                       Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are
                       dropped.
-                      When the arms lose contact with the object, the robot's external joint torque readings to revert
-                      to
+                      When the arms lose contact with the object, the robot's external joint torque readings revert to
                       pre-lift values.
                       Since our policy effectively attends to the robot's forces, the policy can recover to a pre-lift
                       state.
@@ -522,7 +532,7 @@
               </div>
 
               <!-- Mobile Version (Hidden on Desktop) -->
-              <div class="results-mobile">
+              <div class="results-mobile task1-recovery-caption-mobile">
                 <div class="row" style="display: flex;  justify-content: center;">
                   <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
 
@@ -536,7 +546,7 @@
                   <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
                     Our FACTR policies demonstrate robust recovery behavior when objects unseen during training are
                     dropped.
-                    When the arms lose contact with the object, the robot's external joint torque readings to revert to
+                    When the arms lose contact with the object, the robot's external joint torque readings revert to
                     pre-lift values.
                     Since our policy effectively attends to the robot's forces, the policy can recover to a pre-lift
                     state.
@@ -678,18 +688,18 @@
                   <b style="font-size: 15px;  color: #333;">Vision+Force ACT (Baseline)</b>
                 </div>
               </div>
-              <div class="row" style="display: flex; justify-content: center;">
+              <div class="row cross-attention-media-row" style="display: flex; justify-content: center;">
                 <div style="width: 40%; margin-right: 10px;">
                   <video class="hover-video center" playsinline
                     src="./result_videos/box_lift/box_lift_analysis_baseline.mp4" width="100%" preload="none"
                     loading="lazy" style="border-radius:10px;"></video>
                 </div>
                 <!-- Mobile Version (Hidden on Desktop) -->
-                <div class="results-mobile">
-                  <img src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="80%" height="80%">
+                <div class="results-mobile cross-attention-legend-mobile">
+                  <img class="cross-attention-legend" src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="80%" height="80%">
                 </div>
                 <!-- Mobile Version (Hidden on Desktop) -->
-                <div class="results-mobile">
+                <div class="results-mobile cross-attention-caption-mobile">
                   <div style="width: 100%; padding: 0 10px;">
                     <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
                       Without the curriculum, the policy does not pay enough attention to force, and either fails to
@@ -713,11 +723,11 @@
                 </div>
               </div>
               <!-- Mobile Version (Hidden on Desktop) -->
-              <div class="results-mobile">
-                <img src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="80%" height="80%">
+              <div class="results-mobile cross-attention-legend-mobile">
+                <img class="cross-attention-legend" src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="80%" height="80%">
               </div>
               <!-- Mobile Version (Hidden on Desktop) -->
-              <div class="results-mobile">
+              <div class="results-mobile cross-attention-caption-mobile">
                 <div style="width: 100%; padding: 0 10px;">
                   <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
                     FACTR learns to attend to force more. We observe that the attention to force
@@ -728,15 +738,15 @@
 
 
               <!-- Desktop Version (Hidden on Mobile) -->
-              <div class="results-desktop">
-                <img src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="40%" height="40%">
+              <div class="results-desktop cross-attention-legend-desktop">
+                <img class="cross-attention-legend" src="./result_videos/box_lift/box_lift_analysis_legend.png" alt="" width="40%" height="40%">
               </div>
 
 
 
 
               <!-- Desktop Version (Hidden on Mobile) -->
-              <div class="results-desktop">
+              <div class="results-desktop cross-attention-caption-desktop">
                 <div class="row" style="display: flex; justify-content: center;">
                   <div style="width: 40%; padding: 0 10px;">
                     <p style="font-size: 15px; color: #333; text-align: justify; margin: 0 20px;">
@@ -1339,7 +1349,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row panel-note-row" style="display: flex;">
+              <div class="row task4-failure-note-row" style="display: flex;">
                 <div style="width: 100%; padding: 0 10px;">
                   <p style="font-size: 17px; color: #333; text-align: justify; margin: 0 20px;">
                     Both vision-only policies and vision-force policies without FACTR get stuck after the gripper closes
@@ -1730,43 +1740,37 @@
 
 
               </script>
-
-
-
-              <!-- Floating Menu Container -->
-              <div class="topnav">
-                <button id="contents-button" class="menu_icon" onclick="toggleMenu()">
-                  <i class="fa fa-bars"></i>
-                </button>
-                <div id="menu-list" class="dropdown-menu" style="display: none;">
-                  <!-- Menu items will be populated here -->
-                </div>
-              </div>
-
               <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                  const menuList = document.getElementById('menu-list');
-                  const headers = document.querySelectorAll('h4');
-
-                  headers.forEach((header, index) => {
-                    const link = document.createElement('a');
-                    link.textContent = header.textContent;
-                    link.href = `#header-${index}`;
-                    menuList.appendChild(link);
-
-                    // Add an ID to each header for linking
-                    header.id = `header-${index}`;
-                  });
-                });
-
-                function toggleMenu() {
-                  const menuList = document.getElementById('menu-list');
-                  if (menuList.style.display === 'none') {
-                    menuList.style.display = 'block';
-                  } else {
-                    menuList.style.display = 'none';
+                (function () {
+                  const nav = document.querySelector('.factr-site-nav');
+                  const navToggle = document.querySelector('[data-factr-nav-toggle]');
+                  const navLinks = document.querySelector('[data-factr-nav-links]');
+                  if (!nav || !navToggle || !navLinks) {
+                    return;
                   }
-                }
+
+                  function setNavOpen(isOpen) {
+                    nav.classList.toggle('factr-site-nav--open', isOpen);
+                    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+                  }
+
+                  navToggle.addEventListener('click', function () {
+                    setNavOpen(!nav.classList.contains('factr-site-nav--open'));
+                  });
+
+                  navLinks.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                      setNavOpen(false);
+                    });
+                  });
+
+                  document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape') {
+                      setNavOpen(false);
+                    }
+                  });
+                }());
               </script>
 </body>
 
