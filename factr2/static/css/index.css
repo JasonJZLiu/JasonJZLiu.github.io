@@ -177,12 +177,16 @@ video {
 }
 
 .factr-title {
-  max-width: min(100%, 900px) !important;
-  font-size: 2.48rem !important;
+  max-width: min(100%, 980px) !important;
+  font-size: 2.36rem !important;
   line-height: 1.1 !important;
   letter-spacing: 0 !important;
   overflow-wrap: anywhere;
   text-wrap: balance;
+}
+
+.factr-title__line {
+  display: block;
 }
 
 .factr-title__name {
@@ -195,6 +199,18 @@ video {
   color: #404443;
   font-weight: 900;
   overflow-wrap: anywhere;
+}
+
+@media (min-width: 841px) {
+  .factr-title__line {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 841px) {
+  .factr-title {
+    font-size: 2rem !important;
+  }
 }
 
 .paper-title {
