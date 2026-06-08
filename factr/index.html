@@ -1644,7 +1644,6 @@
 
 
               <script>
-                const activeTaskVideos = new Set();
                 let allFactrVideos = [];
 
                 function getVideosById(videoList) {
@@ -1681,7 +1680,9 @@
 
                 function safePlayVideo(video) {
                   if (!video || document.hidden || !isVideoInView(video)) return;
+                  if (video.dataset.userPaused === "true") return;
                   video.muted = true;
+                  video.defaultMuted = true;
                   video.playsInline = true;
                   loadVideo(video);
                   const playPromise = video.play();
@@ -1704,49 +1705,29 @@
                   requestAnimationFrame(playNextBatch);
                 }
 
-                function pauseTaskVideos(videos, clearActive) {
+                function pauseTaskVideos(videos, userPaused) {
                   videos.forEach(video => {
                     video.pause();
-                    if (clearActive) {
-                      delete video.dataset.taskAutoplay;
-                      activeTaskVideos.delete(video);
+                    if (userPaused) {
+                      video.dataset.userPaused = "true";
                     }
                   });
                 }
 
-                function pauseInactiveTaskVideos(allowedVideos) {
-                  activeTaskVideos.forEach(video => {
-                    if (!allowedVideos.has(video)) {
-                      video.pause();
-                      delete video.dataset.taskAutoplay;
-                      activeTaskVideos.delete(video);
-                    }
-                  });
+                function resumeVisibleVideos() {
+                  playVideosInBatches(allFactrVideos.filter(video => isVideoInView(video)));
                 }
 
-                function resumeVisibleTaskVideos() {
-                  activeTaskVideos.forEach(video => {
-                    if (video.dataset.taskAutoplay === "true") {
-                      safePlayVideo(video);
-                    }
-                  });
-                }
-
-                function setTaskButtonStates(activeButtonId) {
-                  document.querySelectorAll(".task-play-button").forEach(button => {
-                    button.textContent = button.id === activeButtonId ? "Pause Videos" : "Play Videos";
-                  });
+                function setTaskButtonState(buttonId, isPaused) {
+                  const button = document.getElementById(buttonId);
+                  if (button) button.textContent = isPaused ? "Play Videos" : "Pause Videos";
                 }
 
                 function play_list_videos(videoList) {
                   const videos = getVideosById(videoList);
-                  const allowedVideos = new Set(videos);
-
-                  pauseInactiveTaskVideos(allowedVideos);
 
                   videos.forEach(video => {
-                    video.dataset.taskAutoplay = "true";
-                    activeTaskVideos.add(video);
+                    delete video.dataset.userPaused;
                   });
 
                   playVideosInBatches(videos);
@@ -1757,16 +1738,15 @@
                 }
 
                 function togglePlay(buttonId, videoList) {
-                  const button = document.getElementById(buttonId);
                   const videos = getVideosById(videoList);
-                  const isTaskActive = videos.some(video => video.dataset.taskAutoplay === "true");
+                  const isTaskPaused = videos.some(video => video.dataset.userPaused === "true");
 
-                  if (isTaskActive) {
-                    if (button) button.textContent = "Play Videos";
-                    pauseTaskVideos(videos, true);
-                  } else {
-                    setTaskButtonStates(buttonId);
+                  if (isTaskPaused) {
+                    setTaskButtonState(buttonId, false);
                     play_list_videos(videoList);
+                  } else {
+                    setTaskButtonState(buttonId, true);
+                    pauseTaskVideos(videos, true);
                   }
                 }
 
@@ -1786,36 +1766,25 @@
 
                   allFactrVideos.forEach(video => {
                     video.preload = "none";
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.defaultMuted = true;
                     video.playsInline = true;
-
-                    video.addEventListener("play", function () {
-                      if (video.dataset.taskAutoplay === "true") return;
-                      allFactrVideos.forEach(otherVideo => {
-                        if (otherVideo !== video && otherVideo.dataset.taskAutoplay !== "true") {
-                          otherVideo.pause();
-                        }
-                      });
-                    });
+                    video.setAttribute("autoplay", "");
+                    video.setAttribute("loop", "");
+                    video.setAttribute("muted", "");
+                    video.setAttribute("playsinline", "");
 
                     video.addEventListener("ended", function () {
-                      delete video.dataset.taskAutoplay;
-                      activeTaskVideos.delete(video);
-                      if (activeTaskVideos.size === 0) {
-                        setTaskButtonStates(null);
-                      }
+                      video.currentTime = 0;
                     });
 
                     if (isTouchDevice) {
-                      video.setAttribute("controls", "controls");
-
-                      video.addEventListener("play", function () {
-                        setTimeout(() => {
+                      video.addEventListener("click", function () {
+                        if (video.hasAttribute("controls")) {
                           video.removeAttribute("controls");
-                        }, 500);
-                      });
-
-                      video.addEventListener("pause", function () {
-                        if (video.dataset.taskAutoplay !== "true") {
+                        } else {
                           video.setAttribute("controls", "controls");
                         }
                       });
@@ -1838,14 +1807,20 @@
                     });
 
                     const playbackObserver = new IntersectionObserver(entries => {
+                      const videosToPlay = [];
+
                       entries.forEach(entry => {
                         const video = entry.target;
                         if (!entry.isIntersecting || entry.intersectionRatio < .12) {
                           video.pause();
-                        } else if (video.dataset.taskAutoplay === "true") {
-                          safePlayVideo(video);
+                        } else {
+                          videosToPlay.push(video);
                         }
                       });
+
+                      if (videosToPlay.length) {
+                        playVideosInBatches(videosToPlay);
+                      }
                     }, {
                       threshold: [0, .12, .5]
                     });
@@ -1855,14 +1830,21 @@
                       playbackObserver.observe(video);
                     });
                   } else {
-                    allFactrVideos.forEach(loadVideo);
+                    allFactrVideos.forEach(video => {
+                      loadVideo(video);
+                      safePlayVideo(video);
+                    });
                   }
+
+                  document.querySelectorAll(".task-play-button").forEach(button => {
+                    button.textContent = "Pause Videos";
+                  });
 
                   document.addEventListener("visibilitychange", function () {
                     if (document.hidden) {
                       allFactrVideos.forEach(video => video.pause());
                     } else {
-                      resumeVisibleTaskVideos();
+                      resumeVisibleVideos();
                     }
                   });
 
