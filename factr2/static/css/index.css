@@ -258,13 +258,13 @@ video {
 
 .factr-title__name {
   color: var(--ink);
-  font-weight: 900;
+  font-weight: 800;
   white-space: nowrap;
 }
 
 .factr-title__subtitle {
   color: #404443;
-  font-weight: 900;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
