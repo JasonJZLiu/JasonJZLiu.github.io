@@ -1644,43 +1644,128 @@
 
 
               <script>
+                const activeTaskVideos = new Set();
+                let allFactrVideos = [];
+
+                function getVideosById(videoList) {
+                  return videoList
+                    .map(id => document.getElementById(id))
+                    .filter(Boolean);
+                }
+
                 function loadVideo(video) {
                   if (!video || video.dataset.loaded === "true") return;
+                  video.preload = "metadata";
                   video.load();
                   video.dataset.loaded = "true";
                 }
 
-                function play_list_videos(videoList) {
-                  const videos = videoList
-                    .map(id => document.getElementById(id))
-                    .filter(Boolean);
+                function scheduleVideoLoad(video) {
+                  if ("requestIdleCallback" in window) {
+                    window.requestIdleCallback(() => loadVideo(video), { timeout: 800 });
+                  } else {
+                    window.setTimeout(() => loadVideo(video), 0);
+                  }
+                }
 
-                  videos.forEach(loadVideo);
+                function isVideoInView(video) {
+                  if (!video || !video.getClientRects().length) return false;
+                  const rect = video.getBoundingClientRect();
+                  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+                  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+                  const visibleWidth = Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0);
+                  const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+                  if (visibleWidth <= 0 || visibleHeight <= 0 || rect.width <= 0 || rect.height <= 0) return false;
+                  return (visibleWidth * visibleHeight) / (rect.width * rect.height) > 0.12;
+                }
 
-                  requestAnimationFrame(() => {
-                    videos.forEach(video => {
-                      const playPromise = video.play();
-                      if (playPromise) playPromise.catch(() => {});
-                    });
+                function safePlayVideo(video) {
+                  if (!video || document.hidden || !isVideoInView(video)) return;
+                  video.muted = true;
+                  video.playsInline = true;
+                  loadVideo(video);
+                  const playPromise = video.play();
+                  if (playPromise) playPromise.catch(() => {});
+                }
+
+                function playVideosInBatches(videos) {
+                  let index = 0;
+
+                  function playNextBatch() {
+                    for (let count = 0; count < 2 && index < videos.length; count += 1, index += 1) {
+                      safePlayVideo(videos[index]);
+                    }
+
+                    if (index < videos.length) {
+                      window.setTimeout(playNextBatch, 80);
+                    }
+                  }
+
+                  requestAnimationFrame(playNextBatch);
+                }
+
+                function pauseTaskVideos(videos, clearActive) {
+                  videos.forEach(video => {
+                    video.pause();
+                    if (clearActive) {
+                      delete video.dataset.taskAutoplay;
+                      activeTaskVideos.delete(video);
+                    }
                   });
                 }
 
-                function pause_list_videos(videoList) {
-                  videoList.forEach(id => {
-                    const video = document.getElementById(id);
-                    if (video) video.pause();
+                function pauseInactiveTaskVideos(allowedVideos) {
+                  activeTaskVideos.forEach(video => {
+                    if (!allowedVideos.has(video)) {
+                      video.pause();
+                      delete video.dataset.taskAutoplay;
+                      activeTaskVideos.delete(video);
+                    }
                   });
+                }
+
+                function resumeVisibleTaskVideos() {
+                  activeTaskVideos.forEach(video => {
+                    if (video.dataset.taskAutoplay === "true") {
+                      safePlayVideo(video);
+                    }
+                  });
+                }
+
+                function setTaskButtonStates(activeButtonId) {
+                  document.querySelectorAll(".task-play-button").forEach(button => {
+                    button.textContent = button.id === activeButtonId ? "Pause Videos" : "Play Videos";
+                  });
+                }
+
+                function play_list_videos(videoList) {
+                  const videos = getVideosById(videoList);
+                  const allowedVideos = new Set(videos);
+
+                  pauseInactiveTaskVideos(allowedVideos);
+
+                  videos.forEach(video => {
+                    video.dataset.taskAutoplay = "true";
+                    activeTaskVideos.add(video);
+                  });
+
+                  playVideosInBatches(videos);
+                }
+
+                function pause_list_videos(videoList) {
+                  pauseTaskVideos(getVideosById(videoList), true);
                 }
 
                 function togglePlay(buttonId, videoList) {
                   const button = document.getElementById(buttonId);
-                  const firstVideo = document.getElementById(videoList[0]);
+                  const videos = getVideosById(videoList);
+                  const isTaskActive = videos.some(video => video.dataset.taskAutoplay === "true");
 
-                  if (firstVideo && !firstVideo.paused) {
-                    button.textContent = `Play Videos`;
-                    pause_list_videos(videoList);
+                  if (isTaskActive) {
+                    if (button) button.textContent = "Play Videos";
+                    pauseTaskVideos(videos, true);
                   } else {
-                    button.textContent = `Pause Videos`;
+                    setTaskButtonStates(buttonId);
                     play_list_videos(videoList);
                   }
                 }
@@ -1696,11 +1781,29 @@
                 }
 
                 document.addEventListener("DOMContentLoaded", function () {
-                  const videos = Array.from(document.querySelectorAll("video"));
+                  allFactrVideos = Array.from(document.querySelectorAll("video"));
                   const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
-                  videos.forEach(video => {
+                  allFactrVideos.forEach(video => {
                     video.preload = "none";
+                    video.playsInline = true;
+
+                    video.addEventListener("play", function () {
+                      if (video.dataset.taskAutoplay === "true") return;
+                      allFactrVideos.forEach(otherVideo => {
+                        if (otherVideo !== video && otherVideo.dataset.taskAutoplay !== "true") {
+                          otherVideo.pause();
+                        }
+                      });
+                    });
+
+                    video.addEventListener("ended", function () {
+                      delete video.dataset.taskAutoplay;
+                      activeTaskVideos.delete(video);
+                      if (activeTaskVideos.size === 0) {
+                        setTaskButtonStates(null);
+                      }
+                    });
 
                     if (isTouchDevice) {
                       video.setAttribute("controls", "controls");
@@ -1712,7 +1815,9 @@
                       });
 
                       video.addEventListener("pause", function () {
-                        video.setAttribute("controls", "controls");
+                        if (video.dataset.taskAutoplay !== "true") {
+                          video.setAttribute("controls", "controls");
+                        }
                       });
                     } else {
                       enableHoverControls(video);
@@ -1720,25 +1825,51 @@
                   });
 
                   if ("IntersectionObserver" in window) {
-                    const videoObserver = new IntersectionObserver(entries => {
+                    const lazyVideoObserver = new IntersectionObserver(entries => {
                       entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                          loadVideo(entry.target);
-                          videoObserver.unobserve(entry.target);
+                          scheduleVideoLoad(entry.target);
+                          lazyVideoObserver.unobserve(entry.target);
                         }
                       });
                     }, {
-                      rootMargin: "500px 0px",
+                      rootMargin: "180px 0px",
                       threshold: .01
                     });
 
-                    videos.forEach(video => videoObserver.observe(video));
+                    const playbackObserver = new IntersectionObserver(entries => {
+                      entries.forEach(entry => {
+                        const video = entry.target;
+                        if (!entry.isIntersecting || entry.intersectionRatio < .12) {
+                          video.pause();
+                        } else if (video.dataset.taskAutoplay === "true") {
+                          safePlayVideo(video);
+                        }
+                      });
+                    }, {
+                      threshold: [0, .12, .5]
+                    });
+
+                    allFactrVideos.forEach(video => {
+                      lazyVideoObserver.observe(video);
+                      playbackObserver.observe(video);
+                    });
                   } else {
-                    videos.forEach(loadVideo);
+                    allFactrVideos.forEach(loadVideo);
                   }
+
+                  document.addEventListener("visibilitychange", function () {
+                    if (document.hidden) {
+                      allFactrVideos.forEach(video => video.pause());
+                    } else {
+                      resumeVisibleTaskVideos();
+                    }
+                  });
+
+                  window.addEventListener("pagehide", function () {
+                    allFactrVideos.forEach(video => video.pause());
+                  });
                 });
-
-
               </script>
               <script>
                 (function () {
