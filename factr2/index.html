@@ -140,7 +140,7 @@
             <div class="highlight-video-row highlight-video-row--single highlight-video-stack highlight-carousel highlight-carousel--stack" data-highlight-carousel>
               <figure class="video-card highlight-card">
                 <div class="media-frame highlight-frame highlight-frame--stacked highlight-frame--autonomous-label highlight-frame--autonomous-label-4x">
-                  <video autoplay muted loop playsinline preload="metadata" data-playback-rate="4">
+                  <video autoplay muted loop playsinline preload="metadata" data-playback-rate="2">
                     <source
                       src="./static/videos/factr2/web/highlight/nist_task-web.mp4"
                       type="video/mp4"
@@ -775,12 +775,8 @@
     }());
 
     (function () {
-      function playVideo(video) {
-        var playPromise = video.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(function () {});
-        }
-      }
+      var managedAutoplayVideos = [];
+      var autoplayVisibility = typeof WeakMap === 'function' ? new WeakMap() : null;
 
       function applyPlaybackRate(video) {
         var rate = Number(video.getAttribute('data-playback-rate'));
@@ -790,6 +786,108 @@
 
         video.defaultPlaybackRate = rate;
         video.playbackRate = rate;
+      }
+
+      function isNearViewport(video) {
+        var rect = video.getBoundingClientRect();
+        var margin = 320;
+        var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+        return rect.bottom >= -margin &&
+          rect.top <= viewportHeight + margin &&
+          rect.right >= -margin &&
+          rect.left <= viewportWidth + margin;
+      }
+
+      function shouldPlayVideo(video) {
+        if (!video || document.hidden || video.closest('[hidden]')) {
+          return false;
+        }
+
+        if (!video.hasAttribute('data-managed-autoplay') || !autoplayVisibility) {
+          return true;
+        }
+
+        return autoplayVisibility.get(video) === true || isNearViewport(video);
+      }
+
+      function pauseVideo(video) {
+        if (!video.paused) {
+          video.pause();
+        }
+      }
+
+      function playVideo(video) {
+        applyPlaybackRate(video);
+        if (!shouldPlayVideo(video)) {
+          pauseVideo(video);
+          return;
+        }
+
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {});
+        }
+      }
+
+      function refreshAutoplayVideo(video) {
+        if (shouldPlayVideo(video)) {
+          playVideo(video);
+        } else {
+          pauseVideo(video);
+        }
+      }
+
+      function refreshAutoplayVideos() {
+        managedAutoplayVideos.forEach(refreshAutoplayVideo);
+      }
+
+      function scheduleAutoplayRefresh() {
+        if ('requestAnimationFrame' in window) {
+          window.requestAnimationFrame(refreshAutoplayVideos);
+        } else {
+          refreshAutoplayVideos();
+        }
+      }
+
+      function setupAutoplayOptimization() {
+        managedAutoplayVideos = Array.prototype.slice.call(document.querySelectorAll('video[autoplay]'));
+        if (!managedAutoplayVideos.length) {
+          return;
+        }
+
+        managedAutoplayVideos.forEach(function (video) {
+          video.setAttribute('data-managed-autoplay', '');
+          video.autoplay = false;
+          if (!isNearViewport(video)) {
+            video.preload = 'none';
+          }
+          pauseVideo(video);
+        });
+
+        if ('IntersectionObserver' in window && autoplayVisibility) {
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              autoplayVisibility.set(entry.target, entry.isIntersecting);
+              refreshAutoplayVideo(entry.target);
+            });
+          }, {
+            rootMargin: '320px 0px',
+            threshold: 0.05
+          });
+
+          managedAutoplayVideos.forEach(function (video) {
+            autoplayVisibility.set(video, false);
+            observer.observe(video);
+          });
+        } else {
+          refreshAutoplayVideos();
+        }
+
+        document.addEventListener('visibilitychange', refreshAutoplayVideos);
+        window.addEventListener('resize', refreshAutoplayVideos);
+        scheduleAutoplayRefresh();
       }
 
       function swapVideoSource(source, nextSrc) {
@@ -826,6 +924,7 @@
               video.pause();
             }
           });
+          scheduleAutoplayRefresh();
         });
       });
 
@@ -851,6 +950,7 @@
               }
             });
           });
+          scheduleAutoplayRefresh();
         });
       });
 
@@ -911,6 +1011,7 @@
               }
             });
           });
+          scheduleAutoplayRefresh();
         });
       });
 
@@ -921,6 +1022,7 @@
         });
       });
 
+      setupAutoplayOptimization();
     }());
   </script>
 </body>
