@@ -145,9 +145,75 @@ video {
   border-bottom: 2px solid transparent;
 }
 
-.site-nav__links a:hover {
+.site-nav__links a:hover,
+.site-nav__research summary:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+.site-nav__research {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+}
+
+.site-nav__research summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  color: inherit;
+  list-style: none;
+  cursor: pointer;
+}
+
+.site-nav__research summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav__research summary::after {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: "";
+  transform: translateY(-0.12rem) rotate(45deg);
+}
+
+.site-nav__research[open] summary {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.site-nav__research-menu {
+  position: absolute;
+  top: calc(100% + 0.52rem);
+  left: 50%;
+  z-index: 30;
+  min-width: 9rem;
+  padding: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(251, 252, 250, 0.98);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+
+.site-nav__research-menu a {
+  display: block;
+  padding: 0.45rem 0.58rem;
+  border-bottom: 0;
+  border-radius: 0.45rem;
+}
+
+.site-nav__research-menu a:hover {
+  background: var(--band);
+  border-bottom-color: transparent;
 }
 
 .hero-section {
@@ -2085,6 +2151,43 @@ video {
   .site-nav__links a:hover {
     background: var(--band);
     border-bottom-color: transparent;
+  }
+
+  .site-nav__research {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .site-nav__research summary {
+    display: inline-flex;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+  }
+
+  .site-nav__research[open] summary {
+    background: transparent;
+    border-bottom-color: var(--accent);
+  }
+
+  .site-nav__research-menu {
+    position: absolute;
+    top: calc(100% + 0.52rem);
+    left: 50%;
+    min-width: 9rem;
+    margin: 0;
+    padding: 0.35rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(251, 252, 250, 0.98);
+    box-shadow: var(--shadow);
+    transform: translateX(-50%);
+  }
+
+  .site-nav__research-menu a {
+    padding: 0.45rem 0.58rem;
   }
 
   .hero-section {
