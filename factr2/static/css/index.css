@@ -70,7 +70,7 @@ video {
 }
 
 .page-container {
-  width: min(100%, calc(980px + var(--page-gutter) + var(--page-gutter)));
+  width: min(100%, calc(882px + var(--page-gutter) + var(--page-gutter)));
   max-width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -79,11 +79,11 @@ video {
 }
 
 .page-container--wide {
-  width: min(100%, calc(1180px + var(--page-gutter) + var(--page-gutter)));
+  width: min(100%, calc(1062px + var(--page-gutter) + var(--page-gutter)));
 }
 
 .page-container--narrow {
-  width: min(100%, calc(900px + var(--page-gutter) + var(--page-gutter)));
+  width: min(100%, calc(810px + var(--page-gutter) + var(--page-gutter)));
 }
 
 .site-nav {
@@ -312,7 +312,7 @@ video {
 
 .authors {
   max-width: 1120px;
-  margin: 1.05rem auto 0;
+  margin: 1.35rem auto 0;
   color: var(--muted);
   font-family: var(--font-main);
   font-size: clamp(0.98rem, 1.22vw, 1.15rem);
@@ -353,7 +353,7 @@ video {
 }
 
 .affiliation-row {
-  margin-top: 0.38rem;
+  margin-top: 0.72rem;
   column-gap: clamp(1.1rem, 3vw, 2.6rem);
   color: var(--ink);
   font-size: clamp(1rem, 1.38vw, 1.28rem);
@@ -769,6 +769,8 @@ video {
   color: var(--ink);
   font-size: clamp(1rem, 1.3vw, 1.12rem);
   line-height: 1.72;
+  text-align: justify;
+  text-align-last: left;
 }
 
 .abstract-copy strong {
@@ -790,6 +792,10 @@ video {
 
 .section {
   padding: 3.6rem 0;
+}
+
+#bibtex {
+  padding-top: 1.8rem;
 }
 
 .section-tight {
@@ -1268,7 +1274,7 @@ video {
   margin: 0 auto;
   color: var(--muted);
   font-size: clamp(0.84rem, 1vw, 0.94rem);
-  font-weight: var(--small-text-weight);
+  font-weight: 400;
   line-height: 1.42;
   text-align: justify;
   text-align-last: left;
@@ -1310,7 +1316,7 @@ video {
   margin: 0;
   color: var(--muted);
   font-size: clamp(0.88rem, 1vw, 0.98rem);
-  font-weight: var(--small-text-weight);
+  font-weight: 400;
   line-height: 1.38;
   text-align: justify;
   text-align-last: left;
@@ -2148,7 +2154,8 @@ video {
   font-size: clamp(0.95rem, 1.08vw, 1.05rem);
   font-weight: var(--small-text-weight);
   line-height: 1.6;
-  text-align: center;
+  text-align: justify;
+  text-align-last: left;
   text-wrap: pretty;
 }
 
