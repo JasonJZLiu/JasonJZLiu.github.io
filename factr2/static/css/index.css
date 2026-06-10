@@ -8,7 +8,7 @@
   --accent: #177d68;
   --accent-2: #b8552a;
   --accent-3: #354f9b;
-  --next-accent: #16836c;
+  --next-accent: #177d68;
   --next-accent-2: #315ba7;
   --next-tint: #e8f4f0;
   --next-line: rgba(22, 131, 108, 0.24);
@@ -774,6 +774,18 @@ video {
 .abstract-copy strong {
   color: var(--ink);
   font-weight: 800;
+}
+
+.video-card.abstract-teaser {
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: 1.45rem auto 0;
+  background: #0e1110;
+}
+
+.abstract-teaser-frame {
+  aspect-ratio: 16 / 9;
+  background: #0e1110;
 }
 
 .section {
@@ -2052,10 +2064,71 @@ video {
   box-shadow: none;
 }
 
+.bibtex-wrap {
+  position: relative;
+}
+
+.bibtex-copy {
+  position: absolute;
+  top: 0.62rem;
+  right: 0.62rem;
+  z-index: 1;
+  display: inline-flex;
+  width: 2.15rem;
+  height: 2.15rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(243, 247, 244, 0.22);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f3f7f4;
+  font: inherit;
+  cursor: pointer;
+}
+
+.bibtex-copy:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.bibtex-copy--copied {
+  border-color: rgba(23, 125, 104, 0.72);
+  background: rgba(23, 125, 104, 0.22);
+}
+
+.bibtex-copy--failed {
+  border-color: rgba(184, 85, 42, 0.72);
+  background: rgba(184, 85, 42, 0.22);
+}
+
+.bibtex-copy:focus-visible {
+  outline: 2px solid rgba(243, 247, 244, 0.76);
+  outline-offset: 2px;
+}
+
+.bibtex-copy__icon {
+  display: block;
+  width: 1.16rem;
+  height: 1.16rem;
+  fill: currentColor;
+}
+
+.bibtex-copy__icon--done {
+  display: none;
+}
+
+.bibtex-copy--copied .bibtex-copy__icon--copy {
+  display: none;
+}
+
+.bibtex-copy--copied .bibtex-copy__icon--done {
+  display: block;
+}
+
 .bibtex {
   overflow-x: auto;
   margin: 0;
-  padding: 1.1rem;
+  padding: 1.1rem 3.5rem 1.1rem 1.1rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #18211d;

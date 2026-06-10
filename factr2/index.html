@@ -107,6 +107,13 @@
           <p class="method-kicker">Abstract</p>
           <p>Contact-rich manipulation requires force sensitivity, but many robot arms lack dedicated force sensors due to their high cost. We present <strong>Neural External Torque Estimation (NEXT)</strong>, a data-driven method that estimates external joint torques without needing any dedicated force sensors. NEXT trains in 1 minute from only 10 minutes of free-motion data, yet achieves estimates comparable to dedicated joint-torque sensors. NEXT enables force-feedback teleoperation on low-cost arms and improves policy learning through <strong>Force-Informed Re-Sampling Training (FIRST)</strong>, which re-samples the training batch distribution to emphasize critical task phases during behavior cloning. Across five long-horizon tasks, FIRST outperforms prior force-aware policies by over 17% in task progress. Together, NEXT and FIRST bring force-aware teleoperation and policy learning to off-the-shelf robots without additional sensing hardware.</p>
         </div>
+        <figure class="video-card abstract-teaser">
+          <div class="media-frame abstract-teaser-frame">
+            <video controls playsinline preload="metadata">
+              <source src="./static/videos/factr2/web/teaser/1_factr2_teaser.mp4" type="video/mp4">
+            </video>
+          </div>
+        </figure>
       </div>
     </section>
 
@@ -713,7 +720,7 @@
         <div class="gallery-heading">
           <h2>Acknowledgements</h2>
         </div>
-        <p>We thank Andrew Wang, Yulong Li, Koki Yamane, Yangcen Liu, Yongliang Wang, Ritvik Singh, Zheyuan Hu, Adam Kan, and Arthur Allshire for valuable discussions and feedback on the paper. We also thank Zheyuan Hu and members of the AIRe Lab for generously providing access to their YAM arms for this project. This work was supported in part by <span class="support-placeholder">[funding sources]</span>.</p>
+        <p>We thank Andrew Wang, Yulong Li, Koki Yamane, Yangcen Liu, Yongliang Wang, Ritvik Singh, Zheyuan Hu, Adam Kan, and Arthur Allshire for valuable discussions and feedback on the paper. We also thank Zheyuan Hu and members of the AIRe Lab for generously providing access to their YAM arms for this project. This work was supported in part by AFOSR FA9550-23-1-0747, ONR MURI N00014-22-1-2773 and ONR MURI N00014-24-1-2748.</p>
       </div>
     </section>
 
@@ -722,11 +729,21 @@
         <div class="gallery-heading">
           <h2>BibTeX</h2>
         </div>
-        <pre class="bibtex"><code>@article{oh2026factr2,
+        <div class="bibtex-wrap">
+          <button class="bibtex-copy" type="button" data-copy-bibtex aria-label="Copy BibTeX citation" title="Copy BibTeX citation">
+            <svg class="bibtex-copy__icon bibtex-copy__icon--copy" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9 5h6a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1h-2V4H8v1h1Zm-1 5v8h10v-8H8ZM5 7v8h1v-5a2 2 0 0 1 2-2h7V7H5Z"/>
+            </svg>
+            <svg class="bibtex-copy__icon bibtex-copy__icon--done" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9.4 16.6 4.9 12l-1.4 1.4 5.9 5.9L20.5 8.2 19.1 6.8 9.4 16.6Z"/>
+            </svg>
+          </button>
+          <pre class="bibtex"><code data-bibtex-code>@article{oh2026factr2,
   title   = {FACTR 2: Learning Force Sensing and Force-Aware Policies for Any Robot Arm},
   author  = {Oh, Steven and Liu, Jason Jingzhou and Tao, Tony and Han, Philip and Shaw, Kenneth and Funabashi, Satoshi and Salakhutdinov, Ruslan and Pathak, Deepak},
   year    = {2026}
 }</code></pre>
+        </div>
       </div>
     </section>
   </main>
@@ -777,6 +794,60 @@
         if (event.key === 'Escape') {
           setNavOpen(false);
         }
+      });
+    }());
+
+    (function () {
+      var copyButton = document.querySelector('[data-copy-bibtex]');
+      var bibtexCode = document.querySelector('[data-bibtex-code]');
+      if (!copyButton || !bibtexCode) {
+        return;
+      }
+
+      function setCopyState(state) {
+        var labels = {
+          idle: 'Copy BibTeX citation',
+          copied: 'BibTeX copied',
+          failed: 'Copy failed'
+        };
+
+        copyButton.classList.toggle('bibtex-copy--copied', state === 'copied');
+        copyButton.classList.toggle('bibtex-copy--failed', state === 'failed');
+        copyButton.setAttribute('aria-label', labels[state] || labels.idle);
+        copyButton.setAttribute('title', labels[state] || labels.idle);
+      }
+
+      function fallbackCopy(text) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.top = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+
+      copyButton.addEventListener('click', function () {
+        var text = bibtexCode.textContent.trim();
+        var copyPromise = navigator.clipboard && window.isSecureContext
+          ? navigator.clipboard.writeText(text)
+          : Promise.resolve().then(function () {
+              fallbackCopy(text);
+            });
+
+        copyPromise.then(function () {
+          setCopyState('copied');
+          window.setTimeout(function () {
+            setCopyState('idle');
+          }, 1600);
+        }).catch(function () {
+          setCopyState('failed');
+          window.setTimeout(function () {
+            setCopyState('idle');
+          }, 1800);
+        });
       });
     }());
 
