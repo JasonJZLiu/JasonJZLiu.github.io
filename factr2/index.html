@@ -109,7 +109,7 @@
         </div>
         <figure class="video-card abstract-teaser">
           <div class="media-frame abstract-teaser-frame click-play-frame" data-click-play-frame>
-            <video playsinline preload="metadata" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
+            <video playsinline preload="metadata" poster="./static/videos/factr2/posters/abstract-teaser-thumbnail.png" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
               <source src="./static/videos/factr2/web/teaser/1_factr2_teaser.mp4" type="video/mp4">
             </video>
             <button class="click-play-button" type="button" data-click-play-button aria-label="Play teaser video">
@@ -425,7 +425,7 @@
           <div class="next-realtime-panel" id="next-realtime-panel">
             <figure class="video-card next-realtime-card">
               <div class="media-frame next-realtime-frame click-play-frame" data-click-play-frame>
-                <video playsinline preload="metadata" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
+                <video playsinline preload="metadata" poster="./static/videos/factr2/posters/next-continuous-demo-thumbnail.jpg" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
                   <source src="./static/videos/factr2/web/next/realtime/real-time-rollout.mp4" type="video/mp4">
                 </video>
                 <button class="click-play-button" type="button" data-click-play-button aria-label="Play realtime NEXT video">
@@ -979,6 +979,7 @@
         frame.addEventListener('mouseleave', hideControls);
         frame.addEventListener('focusin', showControls);
         frame.addEventListener('focusout', hideControls);
+        restorePlayButton();
       });
     }());
 

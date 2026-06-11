@@ -674,33 +674,37 @@ video {
   top: 50%;
   z-index: 4;
   display: inline-flex;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: clamp(2.85rem, 4.1vw, 3.35rem);
+  height: clamp(2.85rem, 4.1vw, 3.35rem);
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.48);
+  background: rgba(0, 0, 0, 0.68);
   color: #fff;
   font: inherit;
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: clamp(2rem, 3.2vw, 2.45rem);
+  font-weight: 900;
   line-height: 1;
   cursor: pointer;
   transform: translateY(-50%);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.highlight-carousel-button:hover {
-  background: rgba(0, 0, 0, 0.7);
+.highlight-carousel-button:hover,
+.highlight-carousel-button:focus-visible {
+  border-color: #fff;
+  background: rgba(23, 125, 104, 0.9);
+  transform: translateY(-50%) scale(1.07);
 }
 
 .highlight-carousel-button--prev {
-  left: 0.55rem;
+  left: 0.72rem;
 }
 
 .highlight-carousel-button--next {
-  right: 0.55rem;
+  right: 0.72rem;
 }
 
 .highlight-video-stack {
@@ -822,6 +826,11 @@ video {
   cursor: pointer;
 }
 
+.click-play-frame:not(.is-playing) .click-play-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .click-play-button {
   position: absolute;
   left: 50%;
@@ -859,6 +868,21 @@ video {
 .click-play-frame.is-playing .click-play-button {
   opacity: 0;
   pointer-events: none;
+}
+
+@media (hover: none) {
+  .click-play-button {
+    z-index: 5;
+    width: clamp(62px, 17vw, 86px);
+    height: clamp(62px, 17vw, 86px);
+    background: rgba(14, 17, 16, 0.78);
+  }
+
+  .click-play-frame:not(.is-playing) .click-play-button {
+    display: grid;
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .section {
