@@ -872,6 +872,8 @@
           return;
         }
 
+        var ignoreNextClick = false;
+
         function showControls() {
           if (frame.classList.contains('is-playing')) {
             video.setAttribute('controls', 'controls');
@@ -910,17 +912,61 @@
           restorePlayButton();
         }
 
-        playButton.addEventListener('click', function (event) {
-          event.stopPropagation();
-          playVideoFromClick();
-        });
-        frame.addEventListener('click', function () {
-          if (!frame.classList.contains('is-playing')) {
+        function togglePlaybackFromTap() {
+          if (video.paused || video.ended) {
             playVideoFromClick();
           } else {
             pauseVideoFromClick();
           }
+        }
+
+        function isPlayButtonTarget(target) {
+          return target && target.closest && target.closest('[data-click-play-button]');
+        }
+
+        function handleTouchToggle(event) {
+          if (isPlayButtonTarget(event.target)) {
+            return;
+          }
+
+          if (event.cancelable) {
+            event.preventDefault();
+          }
+
+          ignoreNextClick = true;
+          togglePlaybackFromTap();
+          window.setTimeout(function () {
+            ignoreNextClick = false;
+          }, 500);
+        }
+
+        playButton.addEventListener('click', function (event) {
+          event.stopPropagation();
+          playVideoFromClick();
         });
+
+        frame.addEventListener('click', function (event) {
+          if (ignoreNextClick) {
+            ignoreNextClick = false;
+            return;
+          }
+
+          if (isPlayButtonTarget(event.target)) {
+            return;
+          }
+
+          togglePlaybackFromTap();
+        });
+
+        if ('PointerEvent' in window) {
+          frame.addEventListener('pointerup', function (event) {
+            if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+              handleTouchToggle(event);
+            }
+          });
+        } else {
+          frame.addEventListener('touchend', handleTouchToggle);
+        }
 
         video.addEventListener('play', markPlaying);
         video.addEventListener('pause', function () {
