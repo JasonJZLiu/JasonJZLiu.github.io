@@ -1937,6 +1937,10 @@ video {
   grid-column: 2 / span 2;
 }
 
+.first-task-card:nth-child(6) {
+  grid-column: 2 / span 2;
+}
+
 .first-task-heading {
   text-align: center;
 }
@@ -2455,7 +2459,8 @@ video {
   }
 
   .first-task-card,
-  .first-task-card:nth-child(1) {
+  .first-task-card:nth-child(1),
+  .first-task-card:nth-child(6) {
     grid-column: auto;
   }
 
