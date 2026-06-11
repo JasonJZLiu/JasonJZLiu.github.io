@@ -28,8 +28,8 @@
     <div class="site-nav__links" id="site-nav-links" data-nav-links>
       <a href="#abstract">Abstract</a>
       <a href="#summary">Result Highlight</a>
-      <a href="#next">NEXT</a>
-      <a href="#first">FIRST</a>
+      <a href="#next">Learning Force Sensing</a>
+      <a href="#first">Force-Aware Policies</a>
       <a href="#bibtex">BibTeX</a>
     </div>
   </nav>
@@ -80,14 +80,14 @@
               </span>
               <span>Summary</span>
             </button>
-            <button type="button" aria-disabled="true">
+            <a href="https://arxiv.org/abs/2606.12406" target="_blank" rel="noopener">
               <span class="button-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <path d="M6 2h8.2L20 7.8V22H6V2Zm7 1.8V9h5.2L13 3.8ZM8 4v16h10v-9h-7V4H8Zm2 9h6v1.7h-6V13Zm0 3.4h6v1.7h-6v-1.7Z"></path>
                 </svg>
               </span>
               <span>Paper</span>
-            </button>
+            </a>
             <button type="button" aria-disabled="true">
               <span class="button-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
@@ -108,10 +108,15 @@
           <p>Contact-rich manipulation requires force sensitivity, but many robot arms lack dedicated force sensors due to their high cost. We present <strong>Neural External Torque Estimation (NEXT)</strong>, a data-driven method that estimates external joint torques without needing any dedicated force sensors. NEXT trains in 1 minute from only 10 minutes of free-motion data, yet achieves estimates comparable to dedicated joint-torque sensors. NEXT enables force-feedback teleoperation on low-cost arms and improves policy learning through <strong>Force-Informed Re-Sampling Training (FIRST)</strong>, which re-samples the training batch distribution to emphasize critical task phases during behavior cloning. Across five long-horizon tasks, FIRST outperforms prior force-aware policies by over 17% in task progress. Together, NEXT and FIRST bring force-aware teleoperation and policy learning to off-the-shelf robots without additional sensing hardware.</p>
         </div>
         <figure class="video-card abstract-teaser">
-          <div class="media-frame abstract-teaser-frame">
-            <video controls playsinline preload="metadata">
+          <div class="media-frame abstract-teaser-frame" data-abstract-teaser-frame>
+            <video playsinline preload="metadata" data-abstract-teaser-video>
               <source src="./static/videos/factr2/web/teaser/1_factr2_teaser.mp4" type="video/mp4">
             </video>
+            <button class="abstract-teaser-play" type="button" data-abstract-teaser-play aria-label="Play teaser video">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </button>
           </div>
         </figure>
       </div>
@@ -125,7 +130,7 @@
         <div class="highlight-rows highlight-rows--paired">
           <section class="highlight-row">
             <div class="highlight-row-heading">
-              <h3><a href="#next"><span class="acronym-title"><span class="method-label method-label--next">NEXT</span>: <span class="acronym-word"><span class="acronym-letter">N</span>eural</span> <span class="acronym-word"><span class="acronym-letter">Ex</span>ternal</span> <span class="acronym-word"><span class="acronym-letter">T</span>orque</span></span></a></h3>
+              <h3 class="highlight-row-title--single-line"><a href="#next"><span class="acronym-title"><span class="method-label method-label--next">NEXT</span>: <span class="acronym-word"><span class="acronym-letter">N</span>eural</span> <span class="acronym-word"><span class="acronym-letter">Ex</span>ternal</span> <span class="acronym-word"><span class="acronym-letter">T</span>orque</span></span></a></h3>
               <p>Estimates external joint torque without dedicated force sensors.</p>
             </div>
             <div class="highlight-video-row highlight-video-row--single">
@@ -147,8 +152,8 @@
 
           <section class="highlight-row">
             <div class="highlight-row-heading">
-              <h3><a href="#first"><span class="acronym-title"><span class="method-label method-label--first">FIRST</span>: <span class="acronym-word"><span class="acronym-letter">F</span>orce-<span class="acronym-letter">I</span>nformed</span> <span class="acronym-word"><span class="acronym-letter">R</span>e-<span class="acronym-letter">S</span>ampling</span> <span class="acronym-word"><span class="acronym-letter">T</span>raining</span></span></a></h3>
-              <p>Re-samples the training batch distribution to emphasize critical task phases.</p>
+              <h3 class="highlight-row-title--single-line"><a href="#first"><span class="acronym-title"><span class="method-label method-label--first">FIRST</span>: <span class="acronym-word"><span class="acronym-letter">F</span>orce-<span class="acronym-letter">I</span>nformed</span> <span class="acronym-word"><span class="acronym-letter">R</span>e-<span class="acronym-letter">S</span>ampling</span> <span class="acronym-word"><span class="acronym-letter">T</span>raining</span></span></a></h3>
+              <p>Re-samples the training batch to prioritize critical task phases.</p>
             </div>
             <div class="highlight-video-row highlight-video-row--single highlight-video-stack highlight-carousel highlight-carousel--stack" data-highlight-carousel>
               <figure class="video-card highlight-card">
@@ -849,6 +854,57 @@
           }, 1800);
         });
       });
+    }());
+
+    (function () {
+      var frame = document.querySelector('[data-abstract-teaser-frame]');
+      if (!frame) {
+        return;
+      }
+
+      var video = frame.querySelector('[data-abstract-teaser-video]');
+      var playButton = frame.querySelector('[data-abstract-teaser-play]');
+      if (!video || !playButton) {
+        return;
+      }
+
+      function showControls() {
+        if (frame.classList.contains('is-playing')) {
+          video.setAttribute('controls', 'controls');
+        }
+      }
+
+      function hideControls() {
+        video.removeAttribute('controls');
+      }
+
+      function markPlaying() {
+        frame.classList.add('is-playing');
+        playButton.hidden = true;
+        hideControls();
+      }
+
+      function restorePlayButton() {
+        frame.classList.remove('is-playing');
+        playButton.hidden = false;
+        hideControls();
+      }
+
+      playButton.addEventListener('click', function () {
+        var playPromise = video.play();
+        markPlaying();
+
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(restorePlayButton);
+        }
+      });
+
+      video.addEventListener('play', markPlaying);
+      video.addEventListener('ended', restorePlayButton);
+      frame.addEventListener('mouseenter', showControls);
+      frame.addEventListener('mouseleave', hideControls);
+      frame.addEventListener('focusin', showControls);
+      frame.addEventListener('focusout', hideControls);
     }());
 
     (function () {
