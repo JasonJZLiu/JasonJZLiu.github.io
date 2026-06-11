@@ -109,7 +109,7 @@
         </div>
         <figure class="video-card abstract-teaser">
           <div class="media-frame abstract-teaser-frame" data-abstract-teaser-frame>
-            <video playsinline preload="metadata" data-abstract-teaser-video>
+            <video playsinline preload="metadata" controlslist="nofullscreen" data-abstract-teaser-video data-pause-offscreen data-no-fullscreen>
               <source src="./static/videos/factr2/web/teaser/1_factr2_teaser.mp4" type="video/mp4">
             </video>
             <button class="abstract-teaser-play" type="button" data-abstract-teaser-play aria-label="Play teaser video">
@@ -428,7 +428,7 @@
           <div class="next-realtime-panel" id="next-realtime-panel" hidden>
             <figure class="video-card next-realtime-card">
               <div class="media-frame next-realtime-frame">
-                <video controls playsinline preload="metadata">
+                <video controls playsinline preload="metadata" controlslist="nofullscreen" data-pause-offscreen data-no-fullscreen>
                   <source src="./static/videos/factr2/web/next/realtime/real-time-rollout.mp4" type="video/mp4">
                 </video>
               </div>
@@ -890,12 +890,19 @@
         hideControls();
       }
 
-      playButton.addEventListener('click', function () {
+      function playTeaser() {
         var playPromise = video.play();
         markPlaying();
 
         if (playPromise && typeof playPromise.catch === 'function') {
           playPromise.catch(restorePlayButton);
+        }
+      }
+
+      playButton.addEventListener('click', playTeaser);
+      frame.addEventListener('click', function () {
+        if (!frame.classList.contains('is-playing')) {
+          playTeaser();
         }
       });
 
@@ -1021,6 +1028,115 @@
         document.addEventListener('visibilitychange', refreshAutoplayVideos);
         window.addEventListener('resize', refreshAutoplayVideos);
         scheduleAutoplayRefresh();
+      }
+
+      function setupOffscreenPauseVideos() {
+        var offscreenPauseVideos = Array.prototype.slice.call(document.querySelectorAll('video[data-pause-offscreen]'));
+        if (!offscreenPauseVideos.length) {
+          return;
+        }
+
+        function isOnScreen(video) {
+          var rect = video.getBoundingClientRect();
+          var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+          var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+          return rect.bottom > 0 &&
+            rect.top < viewportHeight &&
+            rect.right > 0 &&
+            rect.left < viewportWidth;
+        }
+
+        function pauseIfOffscreen(video) {
+          if (document.hidden || video.closest('[hidden]') || !isOnScreen(video)) {
+            pauseVideo(video);
+          }
+        }
+
+        function refreshOffscreenPauseVideos() {
+          offscreenPauseVideos.forEach(pauseIfOffscreen);
+        }
+
+        function scheduleOffscreenPauseRefresh() {
+          if ('requestAnimationFrame' in window) {
+            window.requestAnimationFrame(refreshOffscreenPauseVideos);
+          } else {
+            refreshOffscreenPauseVideos();
+          }
+        }
+
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) {
+                pauseVideo(entry.target);
+              }
+            });
+          }, {
+            rootMargin: '0px',
+            threshold: 0
+          });
+
+          offscreenPauseVideos.forEach(function (video) {
+            observer.observe(video);
+          });
+        } else {
+          window.addEventListener('scroll', scheduleOffscreenPauseRefresh, { passive: true });
+        }
+
+        document.addEventListener('visibilitychange', refreshOffscreenPauseVideos);
+        window.addEventListener('resize', scheduleOffscreenPauseRefresh);
+        scheduleOffscreenPauseRefresh();
+      }
+
+      function setupNoFullscreenVideos() {
+        var noFullscreenVideos = Array.prototype.slice.call(document.querySelectorAll('video[data-no-fullscreen]'));
+        if (!noFullscreenVideos.length) {
+          return;
+        }
+
+        function applyNoFullscreen(video) {
+          if (video.controlsList && typeof video.controlsList.add === 'function') {
+            video.controlsList.add('nofullscreen');
+          }
+        }
+
+        function exitBlockedFullscreen(element) {
+          if (!element || !element.hasAttribute || !element.hasAttribute('data-no-fullscreen')) {
+            return;
+          }
+
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+        }
+
+        noFullscreenVideos.forEach(function (video) {
+          applyNoFullscreen(video);
+          video.addEventListener('loadedmetadata', function () {
+            applyNoFullscreen(video);
+          });
+          video.addEventListener('webkitbeginfullscreen', function (event) {
+            if (event.preventDefault) {
+              event.preventDefault();
+            }
+
+            window.setTimeout(function () {
+              if (video.webkitDisplayingFullscreen && video.webkitExitFullscreen) {
+                video.webkitExitFullscreen();
+              }
+            }, 0);
+          });
+        });
+
+        document.addEventListener('fullscreenchange', function () {
+          exitBlockedFullscreen(document.fullscreenElement);
+        });
+        document.addEventListener('webkitfullscreenchange', function () {
+          exitBlockedFullscreen(document.webkitFullscreenElement);
+        });
       }
 
       function swapVideoSource(source, nextSrc) {
@@ -1156,6 +1272,8 @@
       });
 
       setupAutoplayOptimization();
+      setupOffscreenPauseVideos();
+      setupNoFullscreenVideos();
     }());
   </script>
 </body>

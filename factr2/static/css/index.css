@@ -818,6 +818,10 @@ video {
   background: #0e1110;
 }
 
+.abstract-teaser-frame:not(.is-playing) {
+  cursor: pointer;
+}
+
 .abstract-teaser-play {
   position: absolute;
   left: 50%;
@@ -838,6 +842,7 @@ video {
   transition: opacity 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
+.abstract-teaser-frame:not(.is-playing):hover .abstract-teaser-play,
 .abstract-teaser-play:hover,
 .abstract-teaser-play:focus-visible {
   background: rgba(23, 125, 104, 0.9);
