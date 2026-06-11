@@ -818,11 +818,11 @@ video {
   background: #0e1110;
 }
 
-.abstract-teaser-frame:not(.is-playing) {
+.click-play-frame:not(.is-playing) {
   cursor: pointer;
 }
 
-.abstract-teaser-play {
+.click-play-button {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -842,21 +842,21 @@ video {
   transition: opacity 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
-.abstract-teaser-frame:not(.is-playing):hover .abstract-teaser-play,
-.abstract-teaser-play:hover,
-.abstract-teaser-play:focus-visible {
+.click-play-frame:not(.is-playing):hover .click-play-button,
+.click-play-button:hover,
+.click-play-button:focus-visible {
   background: rgba(23, 125, 104, 0.9);
   transform: translate(-50%, -50%) scale(1.04);
 }
 
-.abstract-teaser-play svg {
+.click-play-button svg {
   width: 45%;
   height: 45%;
   margin-left: 5%;
   fill: currentColor;
 }
 
-.abstract-teaser-frame.is-playing .abstract-teaser-play {
+.click-play-frame.is-playing .click-play-button {
   opacity: 0;
   pointer-events: none;
 }
@@ -1087,16 +1087,16 @@ video {
 
 .next-baseline-toggle {
   display: inline-flex;
-  min-height: 2rem;
+  min-height: 2.55rem;
   align-items: center;
   justify-content: center;
-  padding: 0.38rem 0.72rem;
+  padding: 0.62rem 1.05rem;
   border: 1px solid var(--next-line);
   border-radius: 999px;
   background: var(--panel);
   color: var(--next-accent);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.96rem;
   font-weight: 800;
   line-height: 1;
   cursor: pointer;
@@ -1403,18 +1403,6 @@ video {
   text-align: center;
 }
 
-.next-realtime-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: clamp(0.2rem, 0.8vw, 0.5rem);
-}
-
-.next-realtime-toggle {
-  min-height: 2.4rem;
-  padding: 0.58rem 0.92rem;
-  line-height: 1.2;
-}
-
 .next-realtime-panel {
   display: grid;
   justify-items: center;
@@ -1430,6 +1418,15 @@ video {
 
 .next-realtime-card {
   width: 100%;
+}
+
+.next-realtime-caption {
+  margin-top: 0.62rem;
+  color: var(--ink);
+  font-size: clamp(1.1rem, 1.55vw, 1.32rem);
+  font-weight: var(--small-text-weight);
+  line-height: 1.38;
+  text-align: center;
 }
 
 .next-realtime-frame {

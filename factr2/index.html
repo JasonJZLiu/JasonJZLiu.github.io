@@ -108,11 +108,11 @@
           <p>Contact-rich manipulation requires force sensitivity, but many robot arms lack dedicated force sensors due to their high cost. We present <strong>Neural External Torque Estimation (NEXT)</strong>, a data-driven method that estimates external joint torques without needing any dedicated force sensors. NEXT trains in 1 minute from only 10 minutes of free-motion data, yet achieves estimates comparable to dedicated joint-torque sensors. NEXT enables force-feedback teleoperation on low-cost arms and improves policy learning through <strong>Force-Informed Re-Sampling Training (FIRST)</strong>, which re-samples the training batch distribution to emphasize critical task phases during behavior cloning. Across five long-horizon tasks, FIRST outperforms prior force-aware policies by over 17% in task progress. Together, NEXT and FIRST bring force-aware teleoperation and policy learning to off-the-shelf robots without additional sensing hardware.</p>
         </div>
         <figure class="video-card abstract-teaser">
-          <div class="media-frame abstract-teaser-frame" data-abstract-teaser-frame>
-            <video playsinline preload="metadata" controlslist="nofullscreen" data-abstract-teaser-video data-pause-offscreen data-no-fullscreen>
+          <div class="media-frame abstract-teaser-frame click-play-frame" data-click-play-frame>
+            <video playsinline preload="metadata" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
               <source src="./static/videos/factr2/web/teaser/1_factr2_teaser.mp4" type="video/mp4">
             </video>
-            <button class="abstract-teaser-play" type="button" data-abstract-teaser-play aria-label="Play teaser video">
+            <button class="click-play-button" type="button" data-click-play-button aria-label="Play teaser video">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M8 5v14l11-7z"></path>
               </svg>
@@ -422,16 +422,19 @@
             </article>
           </div>
           <p class="next-workflow-note">No external dedicated force sensors are required in data collection nor deployment!</p>
-          <div class="next-realtime-actions">
-            <button class="next-baseline-toggle next-realtime-toggle" type="button" aria-expanded="false" aria-controls="next-realtime-panel" data-next-baseline-toggle>Show real-time data collection and deployment</button>
-          </div>
-          <div class="next-realtime-panel" id="next-realtime-panel" hidden>
+          <div class="next-realtime-panel" id="next-realtime-panel">
             <figure class="video-card next-realtime-card">
-              <div class="media-frame next-realtime-frame">
-                <video controls playsinline preload="metadata" controlslist="nofullscreen" data-pause-offscreen data-no-fullscreen>
+              <div class="media-frame next-realtime-frame click-play-frame" data-click-play-frame>
+                <video playsinline preload="metadata" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
                   <source src="./static/videos/factr2/web/next/realtime/real-time-rollout.mp4" type="video/mp4">
                 </video>
+                <button class="click-play-button" type="button" data-click-play-button aria-label="Play realtime NEXT video">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 5v14l11-7z"></path>
+                  </svg>
+                </button>
               </div>
+              <figcaption class="next-realtime-caption"><span class="method-token--next">NEXT</span> data collection + training in <span class="method-token--next">~10 min</span>, shown in one continuous uncut take.</figcaption>
             </figure>
           </div>
         </div>
@@ -857,61 +860,80 @@
     }());
 
     (function () {
-      var frame = document.querySelector('[data-abstract-teaser-frame]');
-      if (!frame) {
+      var clickPlayFrames = Array.prototype.slice.call(document.querySelectorAll('[data-click-play-frame]'));
+      if (!clickPlayFrames.length) {
         return;
       }
 
-      var video = frame.querySelector('[data-abstract-teaser-video]');
-      var playButton = frame.querySelector('[data-abstract-teaser-play]');
-      if (!video || !playButton) {
-        return;
-      }
-
-      function showControls() {
-        if (frame.classList.contains('is-playing')) {
-          video.setAttribute('controls', 'controls');
+      clickPlayFrames.forEach(function (frame) {
+        var video = frame.querySelector('[data-click-play-video]');
+        var playButton = frame.querySelector('[data-click-play-button]');
+        if (!video || !playButton) {
+          return;
         }
-      }
 
-      function hideControls() {
-        video.removeAttribute('controls');
-      }
-
-      function markPlaying() {
-        frame.classList.add('is-playing');
-        playButton.hidden = true;
-        hideControls();
-      }
-
-      function restorePlayButton() {
-        frame.classList.remove('is-playing');
-        playButton.hidden = false;
-        hideControls();
-      }
-
-      function playTeaser() {
-        var playPromise = video.play();
-        markPlaying();
-
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(restorePlayButton);
+        function showControls() {
+          if (frame.classList.contains('is-playing')) {
+            video.setAttribute('controls', 'controls');
+          }
         }
-      }
 
-      playButton.addEventListener('click', playTeaser);
-      frame.addEventListener('click', function () {
-        if (!frame.classList.contains('is-playing')) {
-          playTeaser();
+        function hideControls() {
+          video.removeAttribute('controls');
         }
+
+        function markPlaying() {
+          frame.classList.add('is-playing');
+          playButton.hidden = true;
+          hideControls();
+        }
+
+        function restorePlayButton() {
+          frame.classList.remove('is-playing');
+          playButton.hidden = false;
+          hideControls();
+        }
+
+        function playVideoFromClick() {
+          var playPromise = video.play();
+          markPlaying();
+
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(restorePlayButton);
+          }
+        }
+
+        function pauseVideoFromClick() {
+          if (!video.paused) {
+            video.pause();
+          }
+          restorePlayButton();
+        }
+
+        playButton.addEventListener('click', function (event) {
+          event.stopPropagation();
+          playVideoFromClick();
+        });
+        frame.addEventListener('click', function () {
+          if (!frame.classList.contains('is-playing')) {
+            playVideoFromClick();
+          } else {
+            pauseVideoFromClick();
+          }
+        });
+
+        video.addEventListener('play', markPlaying);
+        video.addEventListener('pause', function () {
+          if (!video.ended) {
+            restorePlayButton();
+          }
+        });
+        video.addEventListener('ended', restorePlayButton);
+        frame.addEventListener('mouseenter', showControls);
+        frame.addEventListener('mouseleave', hideControls);
+        frame.addEventListener('focusin', showControls);
+        frame.addEventListener('focusout', hideControls);
       });
-
-      video.addEventListener('play', markPlaying);
-      video.addEventListener('ended', restorePlayButton);
-      frame.addEventListener('mouseenter', showControls);
-      frame.addEventListener('mouseleave', hideControls);
-      frame.addEventListener('focusin', showControls);
-      frame.addEventListener('focusout', hideControls);
     }());
 
     (function () {
