@@ -674,8 +674,8 @@ video {
   top: 50%;
   z-index: 4;
   display: inline-flex;
-  width: clamp(2.85rem, 4.1vw, 3.35rem);
-  height: clamp(2.85rem, 4.1vw, 3.35rem);
+  width: clamp(2.35rem, 3.2vw, 2.72rem);
+  height: clamp(2.35rem, 3.2vw, 2.72rem);
   align-items: center;
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.9);
@@ -683,7 +683,7 @@ video {
   background: rgba(0, 0, 0, 0.68);
   color: #fff;
   font: inherit;
-  font-size: clamp(2rem, 3.2vw, 2.45rem);
+  font-size: clamp(1.58rem, 2.45vw, 1.95rem);
   font-weight: 900;
   line-height: 1;
   cursor: pointer;
@@ -697,6 +697,15 @@ video {
   border-color: #fff;
   background: rgba(23, 125, 104, 0.9);
   transform: translateY(-50%) scale(1.07);
+}
+
+.highlight-carousel-button span {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  line-height: 1;
+  transform: translateY(-0.14em);
 }
 
 .highlight-carousel-button--prev {
