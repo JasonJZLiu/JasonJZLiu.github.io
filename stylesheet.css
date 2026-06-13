@@ -551,12 +551,16 @@ span.highlight {
   }
 
   #contact-links-mobile p {
+    font-size: 12px;
     line-height: 1.25;
     margin-top: 10px;
+    white-space: nowrap;
   }
 
   #contact-links-mobile a {
     margin: 0;
+    padding-left: 1px;
+    padding-right: 1px;
     padding-top: 0;
     padding-bottom: 0;
   }
