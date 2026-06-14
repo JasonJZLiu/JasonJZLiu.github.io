@@ -777,6 +777,10 @@ video {
   --autonomous-label: "Autonomous 4X";
 }
 
+.highlight-frame--autonomous-label-5x {
+  --autonomous-label: "5X";
+}
+
 .highlight-frame--tool-cleanup video {
   object-position: center 76%;
 }

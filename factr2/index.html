@@ -110,7 +110,7 @@
         </div>
         <figure class="video-card abstract-teaser">
           <div class="media-frame abstract-teaser-frame click-play-frame" data-click-play-frame>
-            <video playsinline preload="metadata" poster="./static/videos/factr2/posters/abstract-teaser-thumbnail.png" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
+            <video playsinline preload="metadata" poster="./static/videos/factr2/posters/abstract-teaser-thumbnail.png" data-click-play-video data-pause-offscreen>
               <source src="./static/videos/factr2/web/teaser/1_factr2_teaser.mp4" type="video/mp4">
             </video>
             <button class="click-play-button" type="button" data-click-play-button aria-label="Play teaser video">
@@ -426,7 +426,7 @@
           <div class="next-realtime-panel" id="next-realtime-panel">
             <figure class="video-card next-realtime-card">
               <div class="media-frame next-realtime-frame click-play-frame" data-click-play-frame>
-                <video playsinline preload="metadata" poster="./static/videos/factr2/posters/next-continuous-demo-thumbnail.jpg" controlslist="nofullscreen" data-click-play-video data-pause-offscreen data-no-fullscreen>
+                <video playsinline preload="metadata" poster="./static/videos/factr2/posters/next-continuous-demo-thumbnail.jpg" data-click-play-video data-pause-offscreen>
                   <source src="./static/videos/factr2/web/next/realtime/real-time-rollout.mp4" type="video/mp4">
                 </video>
                 <button class="click-play-button" type="button" data-click-play-button aria-label="Play realtime NEXT video">
@@ -604,8 +604,8 @@
               <article class="task-showcase-card">
                 <h5>NIST Belt Assembly</h5>
                 <figure class="video-card task-secondary">
-                  <div class="media-frame first-task-frame">
-                    <video autoplay muted loop playsinline preload="metadata">
+                  <div class="media-frame first-task-frame highlight-frame--autonomous-label highlight-frame--autonomous-label-5x">
+                    <video autoplay muted loop playsinline preload="metadata" data-playback-rate="5">
                       <source src="./static/videos/factr2/web/tasks/nist-belt-robustness-black-pulley-web.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -902,6 +902,11 @@
         }
 
         var hideControlsTimer = null;
+        var overlayPlayRequest = false;
+
+        function usesTouchControls() {
+          return window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches;
+        }
 
         function clearHideControlsTimer() {
           if (hideControlsTimer) {
@@ -929,10 +934,14 @@
           }
         }
 
-        function markPlaying() {
+        function markPlaying(hideInitialTouchControls) {
           frame.classList.add('is-playing');
           playButton.hidden = true;
-          showControls();
+          if (hideInitialTouchControls) {
+            hideControls();
+          } else {
+            showControls();
+          }
         }
 
         function restorePlayButton() {
@@ -948,11 +957,15 @@
         }
 
         function playVideoFromClick() {
+          overlayPlayRequest = true;
           var playPromise = video.play();
-          markPlaying();
+          markPlaying(true);
 
           if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(restorePlayButton);
+            playPromise.catch(function () {
+              overlayPlayRequest = false;
+              restorePlayButton();
+            });
           }
         }
 
@@ -975,7 +988,20 @@
         }
 
         function preventBodyClickToggle(event) {
-          if (!frame.classList.contains('is-playing') || isVideoControlBarEvent(event)) {
+          if (!frame.classList.contains('is-playing')) {
+            return;
+          }
+
+          if (usesTouchControls() && !video.hasAttribute('controls')) {
+            showControls();
+            if (event.cancelable) {
+              event.preventDefault();
+            }
+            event.stopPropagation();
+            return;
+          }
+
+          if (isVideoControlBarEvent(event)) {
             return;
           }
 
@@ -993,7 +1019,11 @@
         video.addEventListener('click', preventBodyClickToggle, true);
         video.addEventListener('pointerdown', preventBodyClickToggle, true);
 
-        video.addEventListener('play', markPlaying);
+        video.addEventListener('play', function () {
+          var hideInitialTouchControls = overlayPlayRequest;
+          overlayPlayRequest = false;
+          markPlaying(hideInitialTouchControls);
+        });
         video.addEventListener('pause', function () {
           if (!video.ended) {
             markPausedWithControls();
@@ -1084,6 +1114,48 @@
         } else {
           refreshAutoplayVideos();
         }
+      }
+
+      function setupHoverVideoControls() {
+        Array.prototype.slice.call(document.querySelectorAll('video')).forEach(function (video) {
+          var hoverTarget = video.closest('.media-frame') || video;
+          var hideControlsTimer = null;
+
+          function clearHideControlsTimer() {
+            if (hideControlsTimer) {
+              window.clearTimeout(hideControlsTimer);
+              hideControlsTimer = null;
+            }
+          }
+
+          function showControls() {
+            clearHideControlsTimer();
+            if (video.hasAttribute('data-click-play-video') && !hoverTarget.classList.contains('is-playing')) {
+              video.removeAttribute('controls');
+              return;
+            }
+            video.setAttribute('controls', 'controls');
+          }
+
+          function hideControls() {
+            clearHideControlsTimer();
+            if (hoverTarget.matches && hoverTarget.matches(':focus-within')) {
+              return;
+            }
+            video.removeAttribute('controls');
+          }
+
+          function hideControlsSoon() {
+            clearHideControlsTimer();
+            hideControlsTimer = window.setTimeout(hideControls, 220);
+          }
+
+          hoverTarget.addEventListener('mouseenter', showControls);
+          hoverTarget.addEventListener('mousemove', showControls);
+          hoverTarget.addEventListener('mouseleave', hideControlsSoon);
+          hoverTarget.addEventListener('focusin', showControls);
+          hoverTarget.addEventListener('focusout', hideControlsSoon);
+        });
       }
 
       function setupAutoplayOptimization() {
@@ -1185,19 +1257,34 @@
       }
 
       function setupNoFullscreenVideos() {
-        var noFullscreenVideos = Array.prototype.slice.call(document.querySelectorAll('video[data-no-fullscreen]'));
+        var noFullscreenVideos = Array.prototype.slice.call(document.querySelectorAll('video'));
+        var touchControlsQuery = window.matchMedia ? window.matchMedia('(hover: none), (pointer: coarse)') : null;
         if (!noFullscreenVideos.length) {
           return;
         }
 
-        function applyNoFullscreen(video) {
+        function shouldSuppressFullscreen() {
+          return !touchControlsQuery || !touchControlsQuery.matches;
+        }
+
+        function applyFullscreenPolicy(video) {
+          if (shouldSuppressFullscreen()) {
+            video.setAttribute('data-desktop-no-fullscreen', '');
+          } else {
+            video.removeAttribute('data-desktop-no-fullscreen');
+          }
+
           if (video.controlsList && typeof video.controlsList.add === 'function') {
-            video.controlsList.add('nofullscreen');
+            if (shouldSuppressFullscreen()) {
+              video.controlsList.add('nofullscreen');
+            } else if (typeof video.controlsList.remove === 'function') {
+              video.controlsList.remove('nofullscreen');
+            }
           }
         }
 
         function exitBlockedFullscreen(element) {
-          if (!element || !element.hasAttribute || !element.hasAttribute('data-no-fullscreen')) {
+          if (!shouldSuppressFullscreen() || !element || !element.hasAttribute || !element.hasAttribute('data-desktop-no-fullscreen')) {
             return;
           }
 
@@ -1208,12 +1295,20 @@
           }
         }
 
+        function applyFullscreenPolicyToAll() {
+          noFullscreenVideos.forEach(applyFullscreenPolicy);
+        }
+
         noFullscreenVideos.forEach(function (video) {
-          applyNoFullscreen(video);
+          applyFullscreenPolicy(video);
           video.addEventListener('loadedmetadata', function () {
-            applyNoFullscreen(video);
+            applyFullscreenPolicy(video);
           });
           video.addEventListener('webkitbeginfullscreen', function (event) {
+            if (!shouldSuppressFullscreen()) {
+              return;
+            }
+
             if (event.preventDefault) {
               event.preventDefault();
             }
@@ -1232,6 +1327,14 @@
         document.addEventListener('webkitfullscreenchange', function () {
           exitBlockedFullscreen(document.webkitFullscreenElement);
         });
+        if (touchControlsQuery) {
+          if (typeof touchControlsQuery.addEventListener === 'function') {
+            touchControlsQuery.addEventListener('change', applyFullscreenPolicyToAll);
+          } else if (typeof touchControlsQuery.addListener === 'function') {
+            touchControlsQuery.addListener(applyFullscreenPolicyToAll);
+          }
+        }
+        window.addEventListener('resize', applyFullscreenPolicyToAll);
       }
 
       function swapVideoSource(source, nextSrc) {
@@ -1366,6 +1469,7 @@
         });
       });
 
+      setupHoverVideoControls();
       setupAutoplayOptimization();
       setupOffscreenPauseVideos();
       setupNoFullscreenVideos();
