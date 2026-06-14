@@ -900,28 +900,50 @@
           return;
         }
 
-        var ignoreNextClick = false;
+        var hideControlsTimer = null;
+
+        function clearHideControlsTimer() {
+          if (hideControlsTimer) {
+            window.clearTimeout(hideControlsTimer);
+            hideControlsTimer = null;
+          }
+        }
 
         function showControls() {
+          clearHideControlsTimer();
           if (frame.classList.contains('is-playing')) {
             video.setAttribute('controls', 'controls');
           }
         }
 
         function hideControls() {
+          clearHideControlsTimer();
           video.removeAttribute('controls');
+        }
+
+        function hideControlsSoon() {
+          clearHideControlsTimer();
+          if (frame.classList.contains('is-playing')) {
+            hideControlsTimer = window.setTimeout(hideControls, 220);
+          }
         }
 
         function markPlaying() {
           frame.classList.add('is-playing');
           playButton.hidden = true;
-          hideControls();
+          showControls();
         }
 
         function restorePlayButton() {
           frame.classList.remove('is-playing');
           playButton.hidden = false;
           hideControls();
+        }
+
+        function markPausedWithControls() {
+          frame.classList.add('is-playing');
+          playButton.hidden = true;
+          showControls();
         }
 
         function playVideoFromClick() {
@@ -933,39 +955,33 @@
           }
         }
 
-        function pauseVideoFromClick() {
-          if (!video.paused) {
-            video.pause();
+        function isVideoControlBarEvent(event) {
+          if (!event) {
+            return false;
           }
-          restorePlayButton();
-        }
 
-        function togglePlaybackFromTap() {
-          if (video.paused || video.ended) {
-            playVideoFromClick();
-          } else {
-            pauseVideoFromClick();
+          var rect = video.getBoundingClientRect();
+          var clientY = typeof event.clientY === 'number' ? event.clientY : null;
+          if (clientY === null && event.changedTouches && event.changedTouches.length) {
+            clientY = event.changedTouches[0].clientY;
           }
+          if (clientY === null) {
+            return false;
+          }
+
+          var controlBarHeight = Math.min(72, Math.max(48, rect.height * 0.18));
+          return clientY >= rect.bottom - controlBarHeight;
         }
 
-        function isPlayButtonTarget(target) {
-          return target && target.closest && target.closest('[data-click-play-button]');
-        }
-
-        function handleTouchToggle(event) {
-          if (isPlayButtonTarget(event.target)) {
+        function preventBodyClickToggle(event) {
+          if (!frame.classList.contains('is-playing') || isVideoControlBarEvent(event)) {
             return;
           }
 
           if (event.cancelable) {
             event.preventDefault();
           }
-
-          ignoreNextClick = true;
-          togglePlaybackFromTap();
-          window.setTimeout(function () {
-            ignoreNextClick = false;
-          }, 500);
+          event.stopPropagation();
         }
 
         playButton.addEventListener('click', function (event) {
@@ -973,40 +989,21 @@
           playVideoFromClick();
         });
 
-        frame.addEventListener('click', function (event) {
-          if (ignoreNextClick) {
-            ignoreNextClick = false;
-            return;
-          }
-
-          if (isPlayButtonTarget(event.target)) {
-            return;
-          }
-
-          togglePlaybackFromTap();
-        });
-
-        if ('PointerEvent' in window) {
-          frame.addEventListener('pointerup', function (event) {
-            if (event.pointerType === 'touch' || event.pointerType === 'pen') {
-              handleTouchToggle(event);
-            }
-          });
-        } else {
-          frame.addEventListener('touchend', handleTouchToggle);
-        }
+        video.addEventListener('click', preventBodyClickToggle, true);
+        video.addEventListener('pointerdown', preventBodyClickToggle, true);
 
         video.addEventListener('play', markPlaying);
         video.addEventListener('pause', function () {
           if (!video.ended) {
-            restorePlayButton();
+            markPausedWithControls();
           }
         });
         video.addEventListener('ended', restorePlayButton);
         frame.addEventListener('mouseenter', showControls);
-        frame.addEventListener('mouseleave', hideControls);
+        frame.addEventListener('mousemove', showControls);
+        frame.addEventListener('mouseleave', hideControlsSoon);
         frame.addEventListener('focusin', showControls);
-        frame.addEventListener('focusout', hideControls);
+        frame.addEventListener('focusout', hideControlsSoon);
         restorePlayButton();
       });
     }());
