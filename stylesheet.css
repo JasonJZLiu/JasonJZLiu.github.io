@@ -432,6 +432,14 @@ a:hover .papertitle {
   -webkit-transition: opacity .2s ease-in-out;
 }
 
+.autoplay-preview .two {
+  opacity: 1;
+}
+
+.autoplay-preview .one img {
+  display: none;
+}
+
 .one.text-center .two {
   margin-right: auto;
   margin-left: auto;
@@ -485,6 +493,10 @@ span.highlight {
 }
 
 .highlighted-publication {
+  background-color: #fff9df;
+}
+
+.highlighted-publication:hover {
   background-color: #fff9df;
 }
 

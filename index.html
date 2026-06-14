@@ -60,9 +60,65 @@
       });
     }
 
+    function isVideoInView(video) {
+      const rect = video.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight;
+    }
+
+    function playAutoplayPreview(video) {
+      if (!video || document.hidden || !isVideoInView(video)) {
+        return;
+      }
+      if (video.dataset.loaded !== 'true') {
+        video.load();
+        video.dataset.loaded = 'true';
+      }
+      video.play().catch(() => {});
+    }
+
+    function pauseAutoplayPreview(video) {
+      if (video && !video.paused) {
+        video.pause();
+      }
+    }
+
+    function initAutoplayPreviewMedia() {
+      const videos = Array.from(document.querySelectorAll('video[data-autoplay-preview]'));
+      if (!videos.length) {
+        return;
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.2 && !document.hidden) {
+              playAutoplayPreview(entry.target);
+            } else {
+              pauseAutoplayPreview(entry.target);
+            }
+          });
+        }, { threshold: [0, 0.2, 0.6] });
+
+        videos.forEach((video) => observer.observe(video));
+      } else {
+        videos.forEach(playAutoplayPreview);
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        videos.forEach((video) => {
+          if (document.hidden) {
+            pauseAutoplayPreview(video);
+          } else {
+            playAutoplayPreview(video);
+          }
+        });
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       insertContactLinks();
       initHoverMedia();
+      initAutoplayPreviewMedia();
     });
   </script>
 
@@ -160,16 +216,15 @@
           <table class="content-table">
             <tbody>
 
-              <tr class="paper-hover highlighted-publication" data-hover-media="factr2_image">
+              <tr class="paper-hover highlighted-publication autoplay-preview">
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='factr2_image'>
-                      <video width=100% muted loop playsinline preload="none">
+                      <video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
                         <source src="images/main_page/factr2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/factr2_image.png' width=97% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -230,16 +285,15 @@ year={2026},
               </tr>
 
 
-              <tr class="paper-hover highlighted-publication" data-hover-media="drp_image">
+              <tr class="paper-hover highlighted-publication autoplay-preview">
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='drp_image'>
-                      <video width=100% muted loop playsinline preload="none">
-                        <source src="images/main_page/drp.mp4" type="video/mp4">
+                      <video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
+                        <source src="images/main_page/drp_results_highlights.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/drp_image.jpg' width=97% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -305,16 +359,15 @@ year={2025},
 
 
 
-              <tr class="paper-hover" data-hover-media="dexwild_image">
+              <tr class="paper-hover autoplay-preview">
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='dexwild_image'>
-                      <video width=100% muted loop playsinline preload="none">
+                      <video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
                         <source src="images/main_page/dexwild.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/dexwild_image.jpg' width=97% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -387,16 +440,15 @@ year={2025},
               </tr>
 
 
-              <tr class="paper-hover highlighted-publication" data-hover-media="factr_image">
+              <tr class="paper-hover highlighted-publication autoplay-preview">
                 <td class="paperimage">
                   <div class="one text-center">
                     <div class="two" id='factr_image'>
-                      <video width=100% muted loop playsinline preload="none">
+                      <video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
                         <source src="images/main_page/factr.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                     </div>
-                    <img src='images/main_page/factr_image.jpg' width=97% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -461,14 +513,13 @@ year={2025},
 
 
 
-              <tr class="paper-hover" data-hover-media="synthetica_image">
+              <tr class="paper-hover autoplay-preview">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='synthetica_image'><video width=100% muted loop playsinline preload="none">
-                        <source src="images/main_page/synthetica_video.mp4" type="video/mp4">
+                    <div class="two" id='synthetica_image'><video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
+                        <source src="images/main_page/synthetica_demo.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/synthetica.png' width=100% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -621,14 +672,13 @@ year={2024},
 
 
 
-              <tr class="paper-hover" data-hover-media="handypriors_image">
+              <tr class="paper-hover autoplay-preview">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='handypriors_image'><video width=100% muted loop playsinline preload="none">
+                    <div class="two" id='handypriors_image'><video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
                         <source src="images/main_page/handypriors_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/handypriors.png' width=100% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -703,14 +753,13 @@ year={2023},
 
 
 
-              <tr class="paper-hover highlighted-publication" data-hover-media="dextreme_image">
+              <tr class="paper-hover highlighted-publication autoplay-preview">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='dextreme_image'><video width=100% muted loop playsinline preload="none">
+                    <div class="two" id='dextreme_image'><video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
                         <source src="images/main_page/dextreme_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/dextreme.png' width=100% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
@@ -789,14 +838,13 @@ year={2022},
 
 
 
-              <tr class="paper-hover" data-hover-media="fast_graspd_image">
+              <tr class="paper-hover autoplay-preview">
                 <td class="paperimage">
                   <div class="one">
-                    <div class="two" id='fast_graspd_image'><video width=100% muted loop playsinline preload="none">
+                    <div class="two" id='fast_graspd_image'><video width=100% muted loop playsinline preload="metadata" data-autoplay-preview>
                         <source src="images/main_page/fast_graspd_video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video></div>
-                    <img src='images/main_page/fast_graspd.png' width=100% loading="lazy" decoding="async">
                   </div>
                 </td>
                 <td class="paperdetails text-justify">
