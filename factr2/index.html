@@ -995,12 +995,15 @@
             return;
           }
 
-          if (usesTouchControls() && !video.hasAttribute('controls')) {
-            showControls();
-            if (event.cancelable) {
-              event.preventDefault();
+          if (usesTouchControls()) {
+            if (!video.hasAttribute('controls')) {
+              showControls();
+              if (event.cancelable) {
+                event.preventDefault();
+              }
+              event.stopPropagation();
             }
-            event.stopPropagation();
+
             return;
           }
 
