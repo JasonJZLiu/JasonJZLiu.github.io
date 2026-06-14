@@ -919,6 +919,9 @@
           clearHideControlsTimer();
           if (frame.classList.contains('is-playing')) {
             video.setAttribute('controls', 'controls');
+            if (usesTouchControls()) {
+              hideControlsTimer = window.setTimeout(hideControls, 1100);
+            }
           }
         }
 
@@ -1117,6 +1120,10 @@
       }
 
       function setupHoverVideoControls() {
+        if (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+          return;
+        }
+
         Array.prototype.slice.call(document.querySelectorAll('video')).forEach(function (video) {
           var hoverTarget = video.closest('.media-frame') || video;
           var hideControlsTimer = null;
