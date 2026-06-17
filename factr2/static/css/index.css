@@ -1817,6 +1817,26 @@ video {
   mix-blend-mode: normal;
 }
 
+.contact-labeling-mobile-image {
+  display: none;
+}
+
+.contact-labeling-mobile-frame {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #ffffff;
+  aspect-ratio: 1744 / 957;
+}
+
+.contact-labeling-mobile-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
 .contact-image-card {
   display: block;
 }
@@ -2586,6 +2606,14 @@ video {
       "right-title"
       "right-media"
       "right-caption";
+  }
+
+  .contact-labeling-video {
+    display: none;
+  }
+
+  .contact-labeling-mobile-image {
+    display: block;
   }
 
   .contact-phase-title {
