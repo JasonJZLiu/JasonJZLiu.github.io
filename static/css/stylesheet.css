@@ -456,6 +456,24 @@ a:hover .papertitle {
   opacity: 0;
 }
 
+.geomatch-media-frame {
+  aspect-ratio: 1600 / 930;
+  overflow: hidden;
+}
+
+.geomatch-media-frame .two {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.geomatch-media-frame .two video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
 .two video {
   display: block;
   width: 100%;
