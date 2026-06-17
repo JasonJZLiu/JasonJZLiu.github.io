@@ -2452,9 +2452,9 @@ video {
   }
 
   .highlight-rows--paired .highlight-row + .highlight-row {
-    padding-top: 1.4rem;
+    padding-top: 0.58rem;
     padding-left: 0;
-    border-top: 1px solid var(--line);
+    border-top: 3px solid var(--track-accent);
     border-left: 0;
   }
 
