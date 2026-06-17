@@ -824,17 +824,51 @@ body {
 }
 
 .factr-page .cross-attention-legend {
-  display: block;
-  margin: .15rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem 1.2rem;
+  margin: .25rem auto .1rem;
+  color: #333;
+  font-size: .95rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .factr-page .cross-attention-legend-desktop {
   margin-top: .35rem;
-  margin-bottom: 0;
+  margin-bottom: .65rem;
+}
+
+.factr-page .cross-attention-legend-desktop .cross-attention-legend {
+  gap: .5rem 2.5rem;
+}
+
+.factr-page .cross-attention-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  white-space: nowrap;
+}
+
+.factr-page .cross-attention-legend-swatch {
+  display: inline-block;
+  width: 2.15rem;
+  border-top: 4px solid currentColor;
+  border-radius: 999px;
+}
+
+.factr-page .cross-attention-legend-swatch--force {
+  color: #1f95c7;
+}
+
+.factr-page .cross-attention-legend-swatch--vision {
+  color: #f0ad37;
 }
 
 .factr-page .cross-attention-caption-desktop {
-  margin-top: -.2rem;
+  margin-top: 0;
 }
 
 .factr-page .cross-attention-caption-desktop .row {

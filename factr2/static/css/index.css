@@ -2590,6 +2590,9 @@ video {
 
   .highlight-row-heading h3.highlight-row-title--single-line {
     font-size: 1rem;
+    line-height: 1.16;
+    white-space: normal;
+    text-wrap: balance;
   }
 
   .method-section-heading h2 {
