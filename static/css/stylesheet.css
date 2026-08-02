@@ -615,14 +615,14 @@ a:hover .papertitle {
 span.highlight {
   padding: 0 3px;
   background-color: #eef6ff;
-  border: 1px solid #9fc2e6;
+  border: 1px solid #cfe1f5;
   border-radius: 4px;
   color: #0b63b6;
   font-weight: 500;
 }
 
 .award {
-  color: #b42318;
+  color: #a8322d;
 }
 
 .highlighted-publication {
