@@ -287,6 +287,14 @@ h2 {
   vertical-align: middle;
 }
 
+.authors {
+  color: #4b5563;
+}
+
+.authors strong {
+  color: #253141;
+}
+
 .paper-hover {
   transition: background-color .15s ease, transform .15s ease;
 }
@@ -304,17 +312,121 @@ h2 {
 }
 
 .paper {
-  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   color: #253141;
+  font-size: 0;
+  line-height: 1;
 }
 
 .paper a {
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 25px;
+  padding: 3px 5px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #111827;
+  box-sizing: border-box;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background .15s ease, border-color .15s ease;
+}
+
+.paper a:hover,
+.paper a:focus {
+  background: #f3f4f6;
+  border-color: #cbd5f5;
+  color: #111827;
+}
+
+.paper a::before {
+  display: inline-block;
+  flex: 0 0 14px;
+  width: 14px;
+  margin-right: 4px;
+  color: #111827;
+  font-family: "Font Awesome 6 Free";
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  content: "\f0ac";
+}
+
+.paper a[href^="javascript:toggleblock"]::before {
+  content: "\f15c";
+}
+
+.paper a.togglebib::before {
+  content: "\f10e";
+}
+
+.paper a[href*="arxiv.org"]::before {
+  content: "\f02d";
+}
+
+.paper a[href*="github.com"]::before {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+  content: "\f09b";
+}
+
+.paper a[href*="youtube.com"]::before,
+.paper a[href*="youtu.be"]::before {
+  content: "\f03d";
+}
+
+.paper a[href$=".pdf"]::before {
+  content: "\f1c1";
+}
+
+.paper a[href*="citation_for_view"]::before {
+  content: "\f0a3";
+}
+
+.paper p,
+.paper pre {
+  flex: 0 0 100%;
+  width: 100%;
+  color: #253141;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.paper p {
+  margin: 0;
+}
+
+.paper p i {
+  margin-top: 8px;
+}
+
+.paper pre {
+  box-sizing: border-box;
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  background: #f8fafc;
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .venue {
   display: inline-block;
   margin-top: 7px;
+  color: #253141;
 }
 
 .institution {
@@ -502,8 +614,11 @@ a:hover .papertitle {
 
 span.highlight {
   padding: 0 3px;
-  background-color: #fff2a8;
+  background-color: #eef6ff;
+  border: 1px solid #9fc2e6;
   border-radius: 4px;
+  color: #0b63b6;
+  font-weight: 500;
 }
 
 .award {
@@ -511,11 +626,11 @@ span.highlight {
 }
 
 .highlighted-publication {
-  background-color: #fff9df;
+  background-color: #eef6ff;
 }
 
 .highlighted-publication:hover {
-  background-color: #fff9df;
+  background-color: #eef6ff;
 }
 
 @media (max-width: 768px) {
@@ -643,6 +758,20 @@ span.highlight {
 
   .paperdetails {
     padding: 4px 10px 8px;
+  }
+
+  .paper {
+    gap: 2px;
+  }
+
+  .paper a {
+    min-height: 24px;
+    padding: 3px 5px;
+    font-size: 12px;
+  }
+
+  .paper p {
+    font-size: 14px;
   }
 
   .education-logo-cell {
